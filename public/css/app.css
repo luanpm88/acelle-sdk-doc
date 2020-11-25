@@ -230,7 +230,7 @@ a:hover {
     font-size: 92%;
     color: #8792a2;
     font-weight: 600;
-    transition: all 0.1s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 .main-menu li a:hover {
     color: #333;
