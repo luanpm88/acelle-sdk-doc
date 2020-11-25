@@ -12,11 +12,17 @@
     background-color: rgba(0,0,0,0.02);
     transition: all 0.2s ease-in-out;
 }
+.logo-light, .logo-dark {
+    margin-top: 4px;
+    position: absolute;
+}
 .logo svg {
     width: 100px;
     height: 20px;
-    margin-top: 3px;
-    position: absolute;
+    fill: currentColor;
+}
+.logo .status {
+    opacity: 0.6;
 }
 .logo-light {
     transition: all 0.2s ease-in-out;
@@ -235,5 +241,10 @@ a:hover {
 .main-menu li.current a, .main-menu li.current a:hover {
     background-color: #f5fbff;
     color: #556cd6;
+    border-radius: 0 8px 8px 0;
+}
+.dark-theme .main-menu li.current a, .dark-theme .main-menu li.current a:hover {
+    background-color: #2a2f45;
+    color: #6c8eef;
     border-radius: 0 8px 8px 0;
 }
