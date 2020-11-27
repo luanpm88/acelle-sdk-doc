@@ -45,27 +45,37 @@
     background-color: rgba(255,255,255,0.02);
 }
 .content {
-    display: flex;
+    /* display: flex; */
+}
+.subsection {
+    padding: 70px;
+    border-bottom: solid 1px #e3e8ee;
+    transition: all 0.2s ease-in-out;
+}
+.dark-theme .subsection {
+    border-bottom: solid 1px #3c4257;
 }
 .container-fluid {
     padding-right: 0;
 }
 .sidebar {
-    width: 300px;
+    width: 200px;
     height: 100vh;
     border-right: solid 1px #e2e2e2;
     transition: border-color 0.2s ease-in-out;
     overflow-y: none;
+    float: left;
 }
 .main-content {
     overflow-y: auto;
     height: 100vh;
+    width: calc(100% - 200px);
 }
 .dark-theme .sidebar {
     border-right: solid 1px #3c4257;
 }
 .inner-content {
-    padding: 70px;    
+    
 }
 .top-menu {
     padding: 15px 70px;
@@ -228,7 +238,7 @@ a:hover {
     display: block;
     padding: 5px 15px;
     font-size: 92%;
-    color: #8792a2;
+    color: #737d8b;
     font-weight: 600;
     transition: all 0.2s ease-in-out;
 }
@@ -247,4 +257,240 @@ a:hover {
     background-color: #2a2f45;
     color: #6c8eef;
     border-radius: 0 8px 8px 0;
+}
+.code-box {
+    border-radius: 8px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.07);
+    margin-bottom: 12px;
+    background: #4f566b;
+}
+.code-box .box-header {
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    background: #3c4257;
+    padding: 4px;
+}
+.code-box .box-title {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+    color: #a3acb9;
+    padding: 8px;
+    padding-left: 12px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.code-box pre {
+    font-family: Menlo,Consolas,monospace;
+    margin: 0;
+    color: #c1c9d2;
+    font-size: 14px;
+    padding: 12px 20px;
+}
+.SelectClientLibrary {
+    box-shadow: 0 0 0 1px rgba(0,0,0,.07);
+    border-radius: 8px;
+}
+.SelectClientLibrary * {
+    transition: all 0.2s ease-in-out;
+}
+.dark-theme .SelectClientLibrary {
+    box-shadow: rgba(255, 255, 255, 0.15) 0px 0px 0px 1px;
+}
+.SelectClientLibrary-topbar {
+    background: #e3e8ee;
+    padding: 10px 12px;
+    font-weight: 500;
+    font-size: 12px;
+    color: #4f566b;
+    letter-spacing: .01em;
+    background: none;
+}
+.SelectClientLibrary-title {
+    color: #697386;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+.SelectClientLibrary-langs {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+}
+.SelectClientLibrary-lang {
+    padding: 8px;
+    width: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 2px solid transparent;
+}
+.SelectClientLibrary-install {
+    background: #f7fafc;
+    border-top: 1px solid #e3e8ee;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    transition: all 0.2s ease-in-out;
+}
+.dark-theme .SelectClientLibrary-install {
+    background: #2a2f45;
+}
+.InstallClientLibrary {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.InstallClientLibrary-code {
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+}
+.InstallClientLibrary-links {
+    flex-shrink: 0;
+    flex-grow: 0;
+    display: flex;
+    padding: 0 8px;
+    margin-left: auto;
+}
+.InstallClientLibrary-links .ClickToCopy, .InstallClientLibrary-links a, .InstallClientLibrary-links a:visited {
+    cursor: pointer;
+    display: flex;
+    color: #556cd6;
+    padding: 0;
+    padding-right: 8px;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 600;
+    letter-spacing: .33px;
+    text-transform: uppercase;
+    border: none;
+    background: none;
+}
+.SVG--color--blue200 {
+    color: #a4cdfe;
+}
+.LangIcon {
+    justify-content: center;
+    display: grid;
+}
+.SelectClientLibrary-lang-name, .SelectClientLibrary-lang-name:visited {
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 8px;
+    color: #697386;
+}
+.SelectClientLibrary-lang--active {
+    border-bottom: 2px solid #7dabf8;
+}
+.InstallClientLibrary-code {
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+    margin: 0;
+}
+.InstallClientLibrary-code .CodeBlock {
+    padding-right: 0;
+}
+.include-prompt code.language-bash:before {
+    content: "$ ";
+    color: #c1c9d2;
+}
+.dark-theme .include-prompt code.language-bash:before {
+    color: rgb(79, 86, 107);
+}
+
+.InstallClientLibrary .CodeBlock-scroll, .InstallStripeJava .CodeBlock-scroll {
+    flex-grow: 1;
+    overflow-x: auto;
+    margin: 0;
+    height: 100%;
+    color: #2a2f45;
+    direction: ltr;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    -moz-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+    padding: 0 12px;
+    color: #697386;
+    padding-right: 32px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    font-size: 13px;
+    line-height: 19px;
+    min-height: inherit;
+    max-height: inherit;
+    overflow-y: auto;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+pre.CodeBlock-pre {
+    flex-grow: 1;
+    overflow-x: auto;
+    margin: 0;
+    height: 100%;
+    color: #2a2f45;
+    direction: ltr;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    -moz-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+    padding: 0 12px;
+    transition: all 0.2s ease-in-out;
+}
+.dark-theme pre.CodeBlock-pre {
+    color: #a3acb9;
+}
+.InstallClientLibrary-links a .SVG {
+    margin-right: 4px;
+}
+.SVG--color--blue500 {
+    color: #556cd6;
+}
+.SVG--color--blue500 svg {
+    fill: currentColor;
+}
+.SVG--color--blue200 {
+    color: #a4cdfe;
+}
+.SVG--color--blue200 svg {
+    fill: currentColor;
+}
+button:focus, button:active {
+    box-shadow: none!important;
+    outline: none!important;
+}
+.dark-theme .SelectClientLibrary-install {
+    border-top: 1px solid #3c4257;
+}
+.dark-theme .SelectClientLibrary-lang--active {
+    border-bottom: 2px solid #3d4eac;
 }
