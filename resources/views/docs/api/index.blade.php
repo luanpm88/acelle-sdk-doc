@@ -35,7 +35,7 @@
                     </span>
                 </div>
             </div>
-            <div class=" pr-2">
+            <div class="pr-2">
                 <button class="btn btn-secondary sidebar-search">
                     <div class="SVGInline SVGInline--cleaned SVG Icon Icon--search SearchIcon SVG--color SVG--color--gray200 Box-root Flex-flex">
                         <svg class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--search-svg SearchIcon-svg SVG--color-svg SVG--color--gray200-svg" style="width: 12px;height: 12px;" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M12.6 11.2c.037.028.073.059.107.093l3 3a1 1 0 1 1-1.414 1.414l-3-3a1.009 1.009 0 0 1-.093-.107 7 7 0 1 1 1.4-1.4zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z" fill-rule="evenodd"></path></svg>
@@ -44,7 +44,7 @@
                     <span class="ml-auto">/</span>
                 </button>
             </div>
-            <div class="">
+            <div class="menu-scroll">
                 <ul class="main-menu">
                     <li class="current">
                         <a href="#">
@@ -58,30 +58,86 @@
                     </li>
                     <li>
                         <a href="#">
-                            Mail Lists
+                            PLans
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            Subscribers
+                            Sending Servers
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            Campaigns
+                            Customers
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            Automations
+                            Subscriptions
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            Profile
+                            Reports
                         </a>
                     </li>
                 </ul>
+
+                <div class="sidebar-group">
+                    <h4 class="group-head d-flex align-items-center">
+                        <span>Backend</span>
+                        <span class="ml-auto mr-2 anchor">
+                            <svg class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--chevronDown-svg Chevron-svg Chevron-up-svg SVG--color-svg SVG--color--gray200-svg" style="width: 12px;height: 12px;" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M13.591 5.293a1 1 0 0 1 1.416 1.416l-6.3 6.3a1 1 0 0 1-1.414 0l-6.3-6.3A1 1 0 0 1 2.41 5.293L8 10.884z" fill-rule="evenodd"></path></svg>
+                        </span>
+                    </h4>
+                    <ul class="main-menu mt-0">
+                        <li class="">
+                            <a href="#">
+                                Introduction
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Authentication
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Mail Lists
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Subscribers
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Campaigns
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Automations
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Notifications
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Files
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="main-content">
@@ -192,6 +248,16 @@
                 body.removeClass('dark-theme');
             } else {
                 body.addClass('dark-theme');
+            }
+        });
+
+        $('.group-head').on('click', function() {
+            box = $(this).closest('.sidebar-group');
+
+            if (box.hasClass('closed')) {
+                box.removeClass('closed');
+            } else {
+                box.addClass('closed');
             }
         });
     </script>
