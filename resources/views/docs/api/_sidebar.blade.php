@@ -33,28 +33,52 @@
     </div>
     <div class="menu-scroll">
         <ul class="main-menu">
-            <li class="">
-                <a href="#introduction" class="current">
+            <li>
+                <a href="#introduction" class="menu-item current">
                     Introduction
                 </a>
             </li>
             <li>
-                <a href="#authentication">
+                <a href="#authentication" class="menu-item">
                     Authentication
                 </a>
             </li>
-            <li>
-                <a href="#mail_lists">
+            <li class="parent">
+                <a href="#mail_lists" class="menu-item">
                     Mail Lists
                 </a>
+                <div class="">
+                    <ul class="">
+                        <li class="">
+                            <a href="#mail_lists_new" class="menu-item">
+                                Create new List
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#mail_lists_all" class="menu-item">
+                                View Lists
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#mail_lists_find" class="menu-item">
+                                Find a List
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#mail_lists_add_custom_field" class="menu-item">
+                                Add Custom Field
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
             <li>
-                <a href="#subscribers">
+                <a href="#subscribers" class="menu-item">
                     Subscribers
                 </a>
             </li>
             <li>
-                <a href="#campaigns">
+                <a href="#campaigns" class="menu-item">
                     Campaigns
                 </a>
             </li>
@@ -127,3 +151,64 @@
         </div>
     </div>
 </div>
+
+<script>
+    var allowScroll = true;
+    $(document).ready(function () {
+        $('.main-content').on("scroll", onScroll);
+
+        //smoothscroll
+        $('.main-menu a.menu-item[href^="#"]').on('click', function (e) {
+            e.preventDefault();
+
+            if (!$(this).hasClass('current')) {
+                $(document).off("scroll");
+                
+                $('a').each(function () {
+                    $(this).removeClass('current');
+                })
+                $(this).addClass('current');
+
+                $('li.parent').removeClass('open');
+                $('li.parent a.current').closest('li.parent').addClass('open');
+            
+                var target = this.hash,
+                    menu = target;
+                $target = $(target);
+
+                allowScroll = false;
+                $('.main-content').stop().animate({
+                    'scrollTop': $target.offset().top
+                }, 100, 'swing', function () {
+                    window.location.hash = target;
+                    setTimeout(function() {
+                        allowScroll = true;
+                    }, 100);
+                });
+            }
+        });
+    });
+
+    function onScroll(event){
+        if (!allowScroll) {
+            return;
+        }
+
+        var scrollPos = $('.main-content').scrollTop();
+        $('.main-menu a.menu-item').each(function () {
+            var currLink = $(this);
+            var refElement = $(currLink.attr("href"));
+            if (refElement.position().top <= 0 && refElement.position().top + refElement.outerHeight() > 0) {
+                $('.main-menu a.menu-item').removeClass("current");
+                currLink.addClass("current");
+            }
+            else{
+                currLink.removeClass("current");
+            }
+        });
+
+        $('li.parent').removeClass('open');
+        $('li.parent a.current').closest('li.parent').addClass('open');
+    }
+
+</script>

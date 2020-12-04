@@ -20,3 +20,4 @@ Route::get('/', function () {
 });
 
 Route::get('docs/api', [ApiController::class, 'index']);
+Route::post('docs/api/save-theme', [ApiController::class, 'saveTheme']);

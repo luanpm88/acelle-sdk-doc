@@ -24,46 +24,6 @@
     </div>
 
     <script>
-        $(document).ready(function () {
-            $('.main-content').on("scroll", onScroll);
-            
-            //smoothscroll
-            $('.main-menu a[href^="#"]').on('click', function (e) {
-                e.preventDefault();
-                $(document).off("scroll");
-                
-                $('a').each(function () {
-                    $(this).removeClass('current');
-                })
-                $(this).addClass('current');
-            
-                var target = this.hash,
-                    menu = target;
-                $target = $(target);
-                $('.main-content').stop().animate({
-                    'scrollTop': $target.offset().top+2
-                }, 500, 'swing', function () {
-                    window.location.hash = target;
-                    $('.main-content').on("scroll", onScroll);
-                });
-            });
-        });
-
-        function onScroll(event){
-            var scrollPos = $('.main-content').scrollTop();
-            $('.main-menu a').each(function () {
-                var currLink = $(this);
-                var refElement = $(currLink.attr("href"));
-                if (refElement.position().top <= 0 && refElement.position().top + refElement.outerHeight() > 0) {
-                    $('.main-menu a').removeClass("current");
-                    currLink.addClass("current");
-                }
-                else{
-                    currLink.removeClass("current");
-                }
-            });
-        }
-
         $('.theme-toggle').on('click', function() {
             body = $(this).closest('body');
 
@@ -72,6 +32,18 @@
             } else {
                 body.addClass('dark-theme');
             }
+
+            $.ajax({
+                method: "POST",
+                url: "{{ action("App\Http\Controllers\Docs\ApiController@saveTheme") }}",
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    theme: body.hasClass('dark-theme') ? 'dark-theme' : 'default-theme'
+                }
+            })
+            .done(function( msg ) {
+                console.log('theme changed!');
+            });
         });
 
         $('.group-head').on('click', function() {

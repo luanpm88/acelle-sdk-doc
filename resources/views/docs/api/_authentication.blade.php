@@ -2,7 +2,10 @@
     <h4 class="mb-4">Authentication</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Generate one time login token</p>
+            <p>Generate one time login token. User can login by visiting the following URL:
+                <br/>
+                <code class="inline-code">http://acelle.wsl/login/token/*|token_string|*</code>
+            </p>
 
             <div class="mt-4">
                 <h6>Attributes</h6>
@@ -51,7 +54,7 @@
                     <div class="box-title">RESPONSE</div>
                 </div>
                 <pre class="IntroSection-pre"><code class="language-json">{
-    "api_token": "X7geTI9Wny8D7NMvt7eMFXnUFrfZwkcaWSE5OrSsblDVSxbkviSqzqFpiXao"
+    "token": "22ZZqhjWdkoyyG66rS9wO0AJ8S3w5NxP"
 }</code></pre>
             </div>
         </div>
