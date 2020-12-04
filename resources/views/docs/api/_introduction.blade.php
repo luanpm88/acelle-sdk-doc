@@ -1,5 +1,5 @@
 <div id="introduction" class="subsection">
-    <h3 class="mb-4">API Reference</h3>
+    <h2 class="mb-4">API Reference</h2>
     <div class="row">
         <div class="col-md-7 pr-5">                        
             <p>The Stripe API is organized around <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer" target="_blank" rel="noopener noreferrer">REST</a>. Our API has predictable resource-oriented URLs, accepts <a href="https://en.wikipedia.org/wiki/POST_(HTTP)#Use_for_submitting_web_forms" target="_blank" rel="noopener noreferrer">form-encoded</a> request bodies, returns <a href="http://www.json.org/" target="_blank" rel="noopener noreferrer">JSON-encoded</a> responses, and uses standard HTTP response codes, authentication, and verbs. </p>

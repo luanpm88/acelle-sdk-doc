@@ -632,8 +632,8 @@ button:focus, button:active {
     font-size: 90%;
 }
 .attribute-row {
-    padding: 10px 0;
-    margin: 10px 0;
+    padding: 8px 0;
+    margin: 8px 0;
     border-top: solid 1px #e3e8ee;
     transition: border-color 0.2s ease-in-out;    
 }
@@ -688,4 +688,20 @@ li.open ul, li.parent:hover ul {
     border-top-width: 1px;
     padding-left: 0;
     padding-right: 0;
+}
+.sticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 10px;
+}
+.IntroSection-pre {
+    overflow: visible;
+}
+.two-blocks .curl .code-blocks {
+    max-height: calc(65vh - 52px);
+    overflow: auto;
+}
+.two-blocks .response .code-blocks {
+    max-height: calc(35vh - 52px);
+    overflow: auto;
 }

@@ -51,6 +51,10 @@
   color: #f1fa8c;
 }
 
+.dark-theme .hljs-attr {
+  color: #8cfaeb;
+}
+
 .dark-theme .hljs-comment,
 .dark-theme .hljs-quote,
 .dark-theme .hljs-deletion {
