@@ -81,3 +81,7 @@
 .dark-theme .hljs-emphasis {
   font-style: italic;
 }
+
+.dark-theme .hljs-deletion, .dark-theme .hljs-number, .dark-theme .hljs-quote, .dark-theme .hljs-selector-class, .dark-theme .hljs-selector-id, .dark-theme .hljs-string, .dark-theme .hljs-template-tag, .dark-theme .hljs-type {
+  color: #ffb2b2;
+}
