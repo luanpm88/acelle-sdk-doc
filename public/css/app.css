@@ -50,11 +50,13 @@
 }
 .subsection {
     padding: 70px;
-    border-bottom: solid 1px #e3e8ee;
+    border: solid 1px #e3e8ee;
+    border-width: 0 0 1px 0;
     transition: all 0.2s ease-in-out;
 }
 .dark-theme .subsection {
-    border-bottom: solid 1px #3c4257;
+    border: solid 1px #3c4257;
+    border-width: 0 0 1px 0;
 }
 .container-fluid {
     padding-right: 0;
@@ -242,10 +244,13 @@ a:hover {
 .main-menu li a {
     display: block;
     padding: 5px 15px;
-    font-size: 92%;
-    color: #a3acb9;
+    font-size: 95%;
+    color: #6b768a;
     font-weight: 600;
     transition: all 0.2s ease-in-out;
+}
+.dark-theme .main-menu li a {
+    color: #92a3b5;
 }
 .main-menu li a:hover {
     color: #333;
@@ -679,8 +684,8 @@ li.open ul, li.parent:hover ul {
     padding-left: 30px;
 }
 .subsection .subsection {
-    border-bottom: none;
-    border-top: solid 1px #3c4257;
+    border-bottom-width: 0;
+    border-top-width: 1px;
     padding-left: 0;
     padding-right: 0;
 }

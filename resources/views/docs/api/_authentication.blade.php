@@ -1,5 +1,5 @@
 <div id="authentication" class="subsection">
-    <h4 class="mb-4">Authentication</h4>
+    <h3 class="mb-4">Authentication</h3>
     <div class="row">
         <div class="col-md-6 pr-5">                        
             <p>Generate one time login token. User can login by visiting the following URL:
