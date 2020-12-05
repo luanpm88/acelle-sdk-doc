@@ -62,7 +62,7 @@
     padding-right: 0;
 }
 .sidebar {
-    width: 200px;
+    width: 210px;
     height: 100vh;
     border-right: solid 1px #e2e2e2;
     transition: border-color 0.2s ease-in-out;
@@ -72,7 +72,7 @@
 .main-content {
     overflow-y: auto;
     height: 100vh;
-    width: calc(100% - 200px);
+    width: calc(100% - 210px);
     position: relative;
 }
 .dark-theme .sidebar {
@@ -236,7 +236,7 @@ a:hover {
     padding: 0;    
     position: relative;
     margin-top: 20px;
-    padding-right: 30px;    
+    padding-right: 20px;    
 }
 .main-menu li {
     list-style: none;

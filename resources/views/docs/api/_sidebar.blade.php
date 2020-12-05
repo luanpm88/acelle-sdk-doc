@@ -22,7 +22,7 @@
             </span>
         </div>
     </div>
-    <div class="pr-2">
+    <div class="pr-3">
         <button class="btn btn-secondary sidebar-search">
             <div class="SVGInline SVGInline--cleaned SVG Icon Icon--search SearchIcon SVG--color SVG--color--gray200 Box-root Flex-flex">
                 <svg class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--search-svg SearchIcon-svg SVG--color-svg SVG--color--gray200-svg" style="width: 12px;height: 12px;" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M12.6 11.2c.037.028.073.059.107.093l3 3a1 1 0 1 1-1.414 1.414l-3-3a1.009 1.009 0 0 1-.093-.107 7 7 0 1 1 1.4-1.4zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z" fill-rule="evenodd"></path></svg>
@@ -72,10 +72,54 @@
                     </ul>
                 </div>
             </li>
-            <li>
+            <li class="parent">
                 <a href="#subscribers" class="menu-item">
                     Subscribers
                 </a>
+                <div class="">
+                    <ul class="">
+                        <li class="">
+                            <a href="#subscribers_all" class="menu-item">
+                                Add subscriber
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#subscribers_create" class="menu-item">
+                                View Lists
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#subscribers_find" class="menu-item">
+                                Find a Subscriber
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#subscribers_update" class="menu-item">
+                                Update Subscriber
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#subscribers_find_by_email" class="menu-item">
+                                Find by Email
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#subscribers_subscribe" class="menu-item">
+                                Subscribe
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#subscribers_unubscribe" class="menu-item">
+                                Unsubscribe
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#subscribers_remove" class="menu-item">
+                                Remove Subscriber
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
             <li>
                 <a href="#campaigns" class="menu-item">
