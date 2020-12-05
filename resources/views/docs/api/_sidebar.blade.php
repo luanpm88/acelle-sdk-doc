@@ -164,7 +164,7 @@
         <div class="popup-result">
             <div class="result-title">SEARCH RESULT</div>
             <div class="result-rows">
-                <a href="#mail_lists" class="result-row row-focuxs">
+                {{-- <a href="#mail_lists" class="result-row row-focuxs">
                     <div class="result-content">
                         <label class="">Customers <span class="text-muted"> —  Connect</span></label>
                         <p class="desc"> objects allow you to perform recurring charges, and to track
@@ -191,7 +191,7 @@
                     <div class="enter-icon">
                         <svg class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--refund-svg InternalLinkIcon-svg SVG--color-svg SVG--color--gray200-svg" style="width: 12px;height: 12px;" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 5a5 5 0 0 1 0 10 1 1 0 0 1 0-2 3 3 0 0 0 0-6l-6.586-.007L6.45 9.528a1 1 0 0 1-1.414 1.414L.793 6.7a.997.997 0 0 1 0-1.414l4.243-4.243A1 1 0 0 1 6.45 2.457L3.914 4.993z" fill-rule="evenodd"></path></svg>
                     </div>
-                </a>
+                </a> --}}
             </div>
         </div>
         <div class="popup-footer">
@@ -271,9 +271,63 @@
 
     class Search {
         constructor(selector) {
+            var search = this;
             this.popup = selector;
 
-            this.focus();
+            this.load(function() {
+                search.focus();
+            });
+        }
+
+        keyword() {
+            return this.popup.find('.search-container input').val();
+        }
+
+        load(callback) {
+            var search = this;
+            var url = '{{ action("App\Http\Controllers\Docs\ApiController@lookup") }}';
+            var keyword = this.keyword();
+
+            if (!search.popup.find('.result-rows .loading').length) {
+                search.popup.find('.result-rows').html('<span class="loading"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Refresh_icon.svg" /><span>searching...</span></span>');
+            }
+
+            if(search.xhr && search.xhr.readyState != 4){
+                search.xhr.abort();
+            }
+            search.xhr = $.ajax({
+                method: "GET",
+                url: url,
+                data: {
+                    keyword: keyword
+                }
+            })
+            .done(function( data ) {
+                search.popup.find('.result-rows').html('');
+                data.forEach(function(item) {
+                    search.popup.find('.result-rows').prepend(`<a href="`+item.link+`" class="result-row">
+                        <div class="result-content">
+                            <label class="">`+item.title+` <span class="text-muted label-title_`+item.cat+`"> —  `+item.cat+`</span></label>
+                            <p class="desc">`+item.desc+`</p>
+                        </div>
+                        <div class="enter-icon">
+                            <svg class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--refund-svg InternalLinkIcon-svg SVG--color-svg SVG--color--gray200-svg" style="width: 12px;height: 12px;" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 5a5 5 0 0 1 0 10 1 1 0 0 1 0-2 3 3 0 0 0 0-6l-6.586-.007L6.45 9.528a1 1 0 0 1-1.414 1.414L.793 6.7a.997.997 0 0 1 0-1.414l4.243-4.243A1 1 0 0 1 6.45 2.457L3.914 4.993z" fill-rule="evenodd"></path></svg>
+                        </div>
+                    </a>`);
+
+                    search.popup.find('a.result-row').on('click', function() {
+                        search.hide();
+                    });
+
+                    search.popup.find('a.result-row').on('mouseenter', function() {
+                        search.focus($(this));
+                    });
+
+                    if (callback != null) {
+                        callback();
+                    }
+                });
+            });
         }
 
         focus(item) {
@@ -355,17 +409,21 @@
         search.hide();
     });
 
-    $('a.result-row').on('click', function() {
-        search.hide();
-    });
-
-    $('a.result-row').on('mouseenter', function() {
-        search.focus($(this));
+    $('.search-container input').on('keyup', function(e) {
+        if (e.which == 38) {    
+            search.moveUp();
+        } else if (e.which == 40) {    
+            search.moveDown();
+        } else if (e.which == 13) {
+            search.go();
+        } else {
+            search.load(function() {
+                search.focus();
+            });
+        }
     });
 
     $(document).on('keyup', function(e) {
-        console.log(e.which);
-
         if (e.which == 38) {    
             search.moveUp();
         } else if (e.which == 40) {    
