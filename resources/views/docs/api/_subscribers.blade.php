@@ -3,7 +3,7 @@
     <p>
         Manage mail list's subscribers
     </p>
-    <div id="subscribers_all" class="subsection pb-0">
+    <div id="subscribers_all" class="subsection">
         <h4 class="mb-4">All Subscribers</h4>
         <div class="row">
             <div class="col-md-6 pr-5">                        
@@ -83,7 +83,7 @@
         </div>
     </div>
 
-    <div id="subscribers_create" class="subsection pb-0">
+    <div id="subscribers_create" class="subsection">
         <h4 class="mb-4">Add new Subscriber</h4>
         <div class="row">
             <div class="col-md-6 pr-5">                        
@@ -163,7 +163,7 @@
         </div>
     </div>
 
-    <div id="subscribers_find" class="subsection pb-0">
+    <div id="subscribers_find" class="subsection">
         <h4 class="mb-4">Find a Subscriber</h4>
         <div class="row">
             <div class="col-md-6 pr-5">                        
@@ -243,7 +243,7 @@
         </div>
     </div>
 
-    <div id="subscribers_update" class="subsection pb-0">
+    <div id="subscribers_update" class="subsection">
         <h4 class="mb-4">Update Subscriber Information</h4>
         <div class="row">
             <div class="col-md-6 pr-5">                        
@@ -323,7 +323,7 @@
         </div>
     </div>
 
-    <div id="subscribers_find_by_email" class="subsection pb-0">
+    <div id="subscribers_find_by_email" class="subsection">
         <h4 class="mb-4">Find Subscriber by Email</h4>
         <div class="row">
             <div class="col-md-6 pr-5">                        
@@ -403,7 +403,7 @@
         </div>
     </div>
 
-    <div id="subscribers_subscribe" class="subsection pb-0">
+    <div id="subscribers_subscribe" class="subsection">
         <h4 class="mb-4">Subscribe</h4>
         <div class="row">
             <div class="col-md-6 pr-5">                        
@@ -483,7 +483,7 @@
         </div>
     </div>
 
-    <div id="subscribers_unubscribe" class="subsection pb-0">
+    <div id="subscribers_unsubscribe" class="subsection">
         <h4 class="mb-4">Unsubscribe</h4>
         <div class="row">
             <div class="col-md-6 pr-5">                        
@@ -563,7 +563,7 @@
         </div>
     </div>
 
-    <div id="subscribers_remove" class="subsection pb-0">
+    <div id="subscribers_remove" class="subsection">
         <h4 class="mb-4">Remove Subscriber</h4>
         <div class="row">
             <div class="col-md-6 pr-5">                        

@@ -878,3 +878,15 @@ svg {
         transform:rotate(360deg);
     }
 }
+.hljs-keyword {
+    font-weight: normal!important;
+}
+.dark-theme .hljs-keyword {
+    color: #ffabdb;
+}
+.hljs-keyword, .hljs-selector-tag, .hljs-literal, .hljs-title, .hljs-section, .hljs-doctag, .hljs-type, .hljs-name, .hljs-strong {
+    font-weight: normal;
+}
+.dark-theme .hljs-keyword, .dark-theme .hljs-selector-tag, .dark-theme .hljs-literal, .dark-theme .hljs-title, .dark-theme .hljs-section, .dark-theme .hljs-doctag, .dark-theme .hljs-type, .dark-theme .hljs-name, .dark-theme .hljs-strong {
+    font-weight: normal;
+}

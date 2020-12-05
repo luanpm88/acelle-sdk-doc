@@ -109,7 +109,7 @@
                             </a>
                         </li>
                         <li class="">
-                            <a href="#subscribers_unubscribe" class="menu-item">
+                            <a href="#subscribers_unsubscribe" class="menu-item">
                                 Unsubscribe
                             </a>
                         </li>
@@ -349,7 +349,7 @@
             .done(function( data ) {
                 search.popup.find('.result-rows').html('');
                 data.forEach(function(item) {
-                    search.popup.find('.result-rows').prepend(`<a href="`+item.link+`" class="result-row">
+                    search.popup.find('.result-rows').append(`<a href="`+item.link+`" class="result-row">
                         <div class="result-content">
                             <label class="">`+item.title+` <span class="text-muted label-title_`+item.cat+`"> —  `+item.cat+`</span></label>
                             <p class="desc">`+item.desc+`</p>
@@ -455,11 +455,11 @@
 
     $('.search-container input').on('keyup', function(e) {
         if (e.which == 38) {    
-            search.moveUp();
+
         } else if (e.which == 40) {    
-            search.moveDown();
+
         } else if (e.which == 13) {
-            search.go();
+
         } else {
             search.load(function() {
                 search.focus();

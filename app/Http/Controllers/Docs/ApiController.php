@@ -38,8 +38,8 @@ class ApiController extends Controller
         sleep(1);
         return response()->json([
             [
-                'title' => 'Subscribers',
-                'cat' => 'Connect',
+                'title' => 'Sending Servers',
+                'cat' => 'Sending',
                 'link' => '#subscribers',
                 'desc' => 'objects allow you to perform recurring charges, and to track
                     multiple charges, that are associated with the same customer. The API allows
@@ -51,7 +51,19 @@ class ApiController extends Controller
             [
                 'title' => 'Create a List',
                 'cat' => 'Mail Lists',
-                'link' => '#mail_lists',
+                'link' => '#mail_lists_new',
+                'desc' => 'Create a new list that contains contacts for sending emails',
+            ],
+            [
+                'title' => 'Unsubscribe',
+                'cat' => 'Subscribers',
+                'link' => '#subscribers_unsubscribe',
+                'desc' => 'Create a new list that contains contacts for sending emails',
+            ],
+            [
+                'title' => 'Campaign Statistics',
+                'cat' => 'Campaigns',
+                'link' => '#campaigns',
                 'desc' => 'Create a new list that contains contacts for sending emails',
             ],
         ]);
