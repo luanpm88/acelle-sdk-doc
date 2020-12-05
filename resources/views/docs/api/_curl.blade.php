@@ -18,7 +18,7 @@
             @endfor
         </div>
         <pre class="IntroSection-pre"><code class="language-bash"><span class="hljs-keyword">curl</span> -X <span class="hljs-meta">{{ isset($curl['method']) ? $curl['method'] : 'GET' }}</span> -H "accept:application/json" -G \
-    <span class="hljs-link">http://acelle.wsl/api/v1/{{ $curl['uri'] }}</span> \
+    <span class="hljs-link">http://acelle.wsl/api/v1/{!! $curl['uri'] !!}</span> \
 @foreach ($curl['params'] as $key => $param)
     -d <span class="hljs-keyword">{{ $param['name'] }}</span>=<span class="hljs-meta">{{ $param['value'] }}</span> @if ($key !== array_key_last($curl['params']))\
 @endif
