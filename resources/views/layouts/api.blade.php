@@ -16,7 +16,7 @@
 
         <link rel="stylesheet" href="{{ url('css/app.css') }}">
     </head>
-    <body class="{{ session('theme') }}">
+    <body class="{{ session('theme') }} {{ session('lang') ? session('lang') : 'php' }}">
         <div class="container-fluid">
             @yield('content')
         </div>

@@ -33,99 +33,27 @@
     </div>
     <div class="menu-scroll">
         <ul class="main-menu">
-            <li>
-                <a href="#introduction" class="menu-item current">
-                    Introduction
-                </a>
-            </li>
-            <li>
-                <a href="#authentication" class="menu-item">
-                    Authentication
-                </a>
-            </li>
-            <li class="parent">
-                <a href="#mail_lists" class="menu-item">
-                    Mail Lists
-                </a>
-                <div class="">
-                    <ul class="">
-                        <li class="">
-                            <a href="#mail_lists_new" class="menu-item">
-                                Create new List
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="#mail_lists_all" class="menu-item">
-                                View Lists
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="#mail_lists_find" class="menu-item">
-                                Find a List
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="#mail_lists_add_custom_field" class="menu-item">
-                                Add Custom Field
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="parent">
-                <a href="#subscribers" class="menu-item">
-                    Subscribers
-                </a>
-                <div class="">
-                    <ul class="">
-                        <li class="">
-                            <a href="#subscribers_all" class="menu-item">
-                                Add subscriber
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="#subscribers_create" class="menu-item">
-                                View Lists
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="#subscribers_find" class="menu-item">
-                                Find a Subscriber
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="#subscribers_update" class="menu-item">
-                                Update Subscriber
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="#subscribers_find_by_email" class="menu-item">
-                                Find by Email
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="#subscribers_subscribe" class="menu-item">
-                                Subscribe
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="#subscribers_unsubscribe" class="menu-item">
-                                Unsubscribe
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="#subscribers_remove" class="menu-item">
-                                Remove Subscriber
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li>
-                <a href="#campaigns" class="menu-item">
-                    Campaigns
-                </a>
-            </li>
+            @foreach ($resources as $resource)
+                <li class="@if (isset($resource['children'])) parent @endif">
+                    <a href="#{{ $resource['name'] }}" class="menu-item">
+                        {{ $resource['title'] }}
+                    </a>
+
+                    @if (isset($resource['children']))
+                        <div class="">
+                            <ul class="">
+                                @foreach ($resource['children'] as $resource2)
+                                    <li class="">
+                                        <a href="#{{ $resource2['name'] }}" class="menu-item">
+                                            {{ $resource2['title'] }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                </li>
+            @endforeach
             <li>
                 <a href="#automations">
                     Automations
@@ -257,6 +185,8 @@
 <script>
     var allowScroll = true;
     $(document).ready(function () {
+        onScroll();
+
         $('.main-content').on("scroll", onScroll);
 
         //smoothscroll

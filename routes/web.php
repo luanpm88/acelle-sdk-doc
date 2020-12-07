@@ -22,3 +22,4 @@ Route::get('/', function () {
 Route::get('docs/api', [ApiController::class, 'index']);
 Route::get('docs/api/lookup', [ApiController::class, 'lookup']);
 Route::post('docs/api/save-theme', [ApiController::class, 'saveTheme']);
+Route::post('docs/api/save-lang', [ApiController::class, 'saveLang']);

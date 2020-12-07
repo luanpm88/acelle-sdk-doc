@@ -1,0 +1,153 @@
+<div id="{{ $resource['name'] }}" class="subsection">
+    <h4 class="mb-4">Create New List</h4>
+    <div class="row">
+        <div class="col-md-6 pr-5">                        
+            <p>Create a new list that contains contacts for sending emails</p>
+
+            <div class="mt-4">
+                <h5>Parameters</h5>
+
+                <div class="mt-3">
+                    @include('docs.api._attributes', [
+                        'rows' => [
+                            [
+                                'name' => 'api_token',
+                                'type' => 'string',
+                                'desc' => 'Your API token. You can find it in your API main page when logged in.',
+                            ],
+                            [
+                                'name' => 'name',
+                                'type' => 'string',
+                                'desc' => 'List\'s name',
+                            ],
+                            [
+                                'name' => 'from_email',
+                                'type' => 'email',
+                                'desc' => 'Default From email address',
+                            ],
+                            [
+                                'name' => 'from_name',
+                                'type' => 'string',
+                                'desc' => 'Default From name',
+                            ],
+                            [
+                                'name' => 'default_subject',
+                                'type' => 'string',
+                                'desc' => 'Default email subject',
+                            ],
+                            [
+                                'name' => 'contact[company]',
+                                'type' => 'string',
+                                'desc' => 'Company name',
+                            ],
+                            [
+                                'name' => 'contact[state]',
+                                'type' => 'string',
+                                'desc' => 'State / Province / Region',
+                            ],
+                            [
+                                'name' => 'contact[address_1]',
+                                'type' => 'string',
+                                'desc' => 'Address 1',
+                            ],
+                            [
+                                'name' => 'contact[address_2]',
+                                'type' => 'string',
+                                'desc' => 'Address 2',
+                            ],
+                            [
+                                'name' => 'contact[city]',
+                                'type' => 'string',
+                                'desc' => 'City',
+                            ],
+                            [
+                                'name' => 'contact[zip]',
+                                'type' => 'string',
+                                'desc' => 'Zip / Postal code',
+                            ],
+                            [
+                                'name' => 'contact[phone]',
+                                'type' => 'string',
+                                'desc' => 'Phone',
+                            ],
+                            [
+                                'name' => 'contact[country_id]',
+                                'type' => 'string',
+                                'desc' => 'Country id',
+                            ],
+                            [
+                                'name' => 'contact[email]',
+                                'type' => 'email',
+                                'desc' => 'Email',
+                            ],
+                            [
+                                'name' => 'contact[url]',
+                                'type' => 'url',
+                                'desc' => 'Home page',
+                            ],
+                            [
+                                'name' => 'subscribe_confirmation',
+                                'type' => 'string',
+                                'desc' => 'Send subscription confirmation email (Double Opt-In)',
+                            ],
+                            [
+                                'name' => 'send_welcome_email',
+                                'type' => 'string',
+                                'desc' => 'Send a final welcome email',
+                            ],
+                            [
+                                'name' => 'unsubscribe_notification',
+                                'type' => 'string',
+                                'desc' => 'Send unsubscribe notification to subscribers',
+                            ],
+                            [
+                                'name' => 'send_welcome_email',
+                                'type' => 'string',
+                                'desc' => 'Send a final welcome email',
+                            ],
+                        ],
+                    ])
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">                 
+            <div class="sticky two-blocks">
+                @include('docs.api._curl', [
+                    'title' => 'CREATE NEW LIST',
+                    'curl' => [
+                        'uri' => 'lists',
+                        'method' => 'POST',
+                        'params' => [
+                            ['name' => 'api_token', 'value' => '*|token_string|*'],
+                            ['name' => 'name=', 'value' => 'List+1'],
+                            ['name' => 'from_email', 'value' => 'admin@abccorp.org'],
+                            ['name' => 'from_name', 'value' => 'ABC+Corp.'],
+                            ['name' => 'default_subject', 'value' => 'Welcome+to+ABC+Corp.'],
+                            ['name' => 'contact[company]', 'value' => 'ABC+Corp.'],
+                            ['name' => 'contact[state]', 'value' => 'Armagh'],
+                            ['name' => 'contact[address_1]', 'value' => '14+Tottenham+Court+Road+London+England'],
+                            ['name' => 'contact[address_2]', 'value' => '44-46+Morningside+Road+Edinburgh+Scotland'],
+                            ['name' => 'contact[city]', 'value' => 'Noname'],
+                            ['name' => 'contact[zip]', 'value' => '80000'],
+                            ['name' => 'contact[phone]', 'value' => '123+456+889'],
+                            ['name' => 'contact[country_id]', 'value' => '1'],
+                            ['name' => 'contact[email]', 'value' => 'info@abccorp.org'],
+                            ['name' => 'contact[url]', 'value' => 'http://www.abccorp.org'],
+                            ['name' => 'subscribe_confirmation', 'value' => '1'],
+                            ['name' => 'send_welcome_email', 'value' => '1'],
+                            ['name' => 'unsubscribe_notification', 'value' => '1'],
+                        ],
+                    ],
+                ])
+
+                @include('docs.api._response', [
+                    'json' => '{
+"status": 1,
+"message": "List was successfully created",
+"list_uid": "5fc9e55410e10"
+}',
+                ])
+            </div>
+        </div>
+    </div>
+</div>

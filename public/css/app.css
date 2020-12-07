@@ -436,8 +436,21 @@ a:hover {
     margin-top: 8px;
     color: #697386;
 }
-.SelectClientLibrary-lang--active {
+.php .SelectClientLibrary-lang[data-type=php] {
     border-bottom: 2px solid #7dabf8;
+}
+.curl .SelectClientLibrary-lang[data-type=curl] {
+    border-bottom: 2px solid #7dabf8;
+}
+.lang-switch {
+    display: none;
+    transition: all 0.2s ease-in-out;
+}
+.php .lang-switch.php {
+    display: inherit;
+}
+.curl .lang-switch.curl {
+    display: inherit;
 }
 .InstallClientLibrary-code {
     overflow-x: hidden;
@@ -528,7 +541,10 @@ button:focus, button:active {
 .dark-theme .SelectClientLibrary-install {
     border-top: 1px solid #3c4257;
 }
-.dark-theme .SelectClientLibrary-lang--active {
+.dark-theme .php .SelectClientLibrary-lang[data-type=php] {
+    border-bottom: 2px solid #3d4eac;
+}
+.dark-theme .curl .SelectClientLibrary-lang[data-type=curl] {
     border-bottom: 2px solid #3d4eac;
 }
 .group-head {
@@ -798,6 +814,8 @@ li.open ul, li.parent:hover ul {
 }
 .result-rows {
     padding-bottom: 10px;
+    height: calc(100vh - 230px);
+    overflow: auto;
 }
 .result-row.row-focus {
     background-color: #556cd6;

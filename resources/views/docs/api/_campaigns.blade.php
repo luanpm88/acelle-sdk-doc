@@ -1,4 +1,4 @@
-<div id="campaigns" class="subsection">
+<div id="{{ $resource['name'] }}" class="subsection">
     <h2 class="mb-4">Campaigns</h2>
     <div class="row">
         <div class="col-md-7 pr-5">                        
