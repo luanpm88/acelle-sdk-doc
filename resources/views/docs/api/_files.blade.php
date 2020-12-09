@@ -1,8 +1,8 @@
 <div id="{{ $resource['name'] }}" class="subsection">
-    <h4 class="mb-4">Find Subscriber by Email</h4>
+    <h4 class="mb-4">Files</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Find Subscriber by Email</p>
+            <p>Upload file(s) to customer's storage</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>
@@ -16,9 +16,14 @@
                                 'desc' => 'Your API token. You can find it in your API main page when logged in.',
                             ],
                             [
-                                'name' => 'email',
-                                'type' => 'email',
-                                'desc' => 'Subsciber\'s email',
+                                'name' => 'files',
+                                'type' => 'string',
+                                'desc' => 'File url(s)',
+                            ],
+                            [
+                                'name' => 'subdirectory',
+                                'type' => 'string',
+                                'desc' => 'Custom subdirectory. Default: user root directory',
                             ],
                         ],
                     ])
@@ -28,33 +33,30 @@
         <div class="col-md-6">                        
             <div class="sticky two-blocks">
                 @include('docs.api._curl', [
-                    'title' => 'FIND SUBSCRIBERS',
+                    'title' => 'VIEW SENT NOTIFICATIONS',
                     'curl' => [
-                        'uri' => 'subscribers/email/<span class="hljs-keyword">{email}</span>',
+                        'uri' => 'notifications',
                         'method' => 'GET',
                         'params' => [
                             ['name' => 'api_token', 'value' => '*|token_string|*'],
-                            ['name' => 'email', 'value' => 'test22@gmail.com'],
+                            ['name' => 'files', 'value' => '\'[{"url":"http://demo.acellemail.com/images/logo_big.svg","subdirectory":"path/to/file"},{"url":"http://demo.acellemail.com/images/logo_big.svg"}]","subdirectory":"path/to/file2"}]\''],
                         ],
                     ],
                 ])
 
                 @include('docs.api._response', [
-                    'json' => '{
-    "subscribers": [
-        {
-            "uid":"5fd07b8b65284",
-            "list_uid":"5fc9e55410e10",
-            "email":"test22@gmail.com",
-            "status":"subscribed",
-            "source":null,
-            "ip_address":null,
-            "FIRST_NAME":"Marine",
-            "LAST_NAME":"Joze",
-            "CUSTOM_FIELD_1":null
-        }
-    ]
-}',
+                    'json' => '[
+    {
+        "file": "http:\/\/demo.acellemail.com\/images\/logo_big.svg",
+        "status": 1,
+        "message": "File uploaded"
+    },
+    {
+        "file": "http:\/\/demo.acellemail.com\/images\/logo_big.svg",
+        "status": 1,
+        "message": "File uploaded"
+    }
+]',
                 ])
             </div>
         </div>

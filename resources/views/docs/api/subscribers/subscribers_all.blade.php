@@ -16,24 +16,38 @@
                                 'desc' => 'Your API token. You can find it in your API main page when logged in.',
                             ],
                             [
-                                'name' => 'type',
+                                'name' => 'list_uid',
                                 'type' => 'string',
-                                'desc' => 'Choose one of these types: text, number, datetime.',
+                                'desc' => 'List\'s uid',
                             ],
                             [
-                                'name' => 'label',
+                                'name' => 'api_token',
                                 'type' => 'string',
-                                'desc' => 'Field\' label',
+                                'desc' => 'Your API token. You can find it in your API main page when logged in.',
                             ],
                             [
-                                'name' => 'tag',
+                                'name' => 'open',
                                 'type' => 'string',
-                                'desc' => 'The tag name may have alpha-numeric characters, as well as dashes and underscores.',
+                                'desc' => 'default: all;
+yes - opened some campaigns;
+no - not opened any campaign',
                             ],
                             [
-                                'name' => 'default_value',
+                                'name' => 'click',
                                 'type' => 'string',
-                                'desc' => 'Default value of the field',
+                                'desc' => 'default: all;
+yes - clicked some campaigns;
+no - not clicked any campaign',
+                            ],
+                            [
+                                'name' => 'per_page',
+                                'type' => 'string',
+                                'desc' => 'Number of subscribers per page. Default: 25',
+                            ],
+                            [
+                                'name' => 'page',
+                                'type' => 'string',
+                                'desc' => 'Page number',
                             ],
                         ],
                     ])
@@ -43,35 +57,31 @@
         <div class="col-md-6">                        
             <div class="sticky two-blocks">
                 @include('docs.api._curl', [
-                    'title' => 'VIEW LISTS',
+                    'title' => 'VIEW SUBSCRIBERS',
                     'curl' => [
-                        'uri' => 'lists/<span class="hljs-keyword">{uid}</span>/add-field',
+                        'uri' => 'subscribers',
                         'method' => 'GET',
                         'params' => [
                             ['name' => 'api_token', 'value' => '*|token_string|*'],
-                            ['name' => 'type', 'value' => 'text'],
-                            ['name' => 'label', 'value' => 'Custom'],
-                            ['name' => 'tag', 'value' => 'CUSTOM_FIELD_1'],
-                            ['name' => 'default_value', 'value' => 'test'],
+                            ['name' => 'list_uid', 'value' => '*|list_uid|*'],
+                            ['name' => 'per_page', 'value' => '20'],
+                            ['name' => 'page', 'value' => '1'],
                         ],
                     ],
                 ])
 
                 @include('docs.api._response', [
-                    'json' => '{
-"status": 1,
-"message": "List\'s field was created",
-"field": {
-    "mail_list_id": 2,
-    "type": "text",
-    "label": "Custom",
-    "tag":"CUSTOM_FIELD_1",
-    "default_value":"test",
-    "uid":"5fcae3cb6298f",
-    "updated_at":"2020-12-05 01:35:07",
-    "created_at":"2020-12-05 01:35:07","id":7
-}
-}',
+                    'json' => '[
+    {
+        "uid": "5fd07b8b65284",
+        "email": "nickyu88@gmail.com",
+        "status": "subscribed",
+        "FIRST_NAME": "Nick",
+        "LAST_NAME": "KKu",
+        "CUSTOM_FIELD_1": "test"
+    },
+    ...
+]',
                 ])
             </div>
         </div>

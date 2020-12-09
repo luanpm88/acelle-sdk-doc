@@ -16,24 +16,24 @@
                                 'desc' => 'Your API token. You can find it in your API main page when logged in.',
                             ],
                             [
-                                'name' => 'type',
+                                'name' => 'list_uid',
                                 'type' => 'string',
-                                'desc' => 'Choose one of these types: text, number, datetime.',
+                                'desc' => 'Subscriber\'s uid',
                             ],
                             [
-                                'name' => 'label',
+                                'name' => 'EMAIL',
                                 'type' => 'string',
-                                'desc' => 'Field\' label',
+                                'desc' => 'Subscriber\'s email',
                             ],
                             [
                                 'name' => 'tag',
                                 'type' => 'string',
-                                'desc' => 'The tag name may have alpha-numeric characters, as well as dashes and underscores.',
+                                'desc' => 'Subscriber\'s tags, seperated by a comma (,).',
                             ],
                             [
-                                'name' => 'default_value',
+                                'name' => '[OTHER_FIELDS...]',
                                 'type' => 'string',
-                                'desc' => 'Default value of the field',
+                                'desc' => 'All subscriber\'s other fields: FIRST_NAME (?), LAST_NAME (?),... (depending on the list fields configuration)',
                             ],
                         ],
                     ])
@@ -43,34 +43,25 @@
         <div class="col-md-6">                        
             <div class="sticky two-blocks">
                 @include('docs.api._curl', [
-                    'title' => 'VIEW LISTS',
+                    'title' => 'ADD SUBSCRIBER',
                     'curl' => [
                         'uri' => 'lists/<span class="hljs-keyword">{uid}</span>/add-field',
-                        'method' => 'GET',
+                        'method' => 'POST',
                         'params' => [
                             ['name' => 'api_token', 'value' => '*|token_string|*'],
-                            ['name' => 'type', 'value' => 'text'],
-                            ['name' => 'label', 'value' => 'Custom'],
-                            ['name' => 'tag', 'value' => 'CUSTOM_FIELD_1'],
-                            ['name' => 'default_value', 'value' => 'test'],
+                            ['name' => 'EMAIL', 'value' => 'test@gmail.com'],
+                            ['name' => 'tag', 'value' => 'foo,bar,tag+with+space,'],
+                            ['name' => 'FIRST_NAME', 'value' => 'Marine'],
+                            ['name' => 'LAST_NAME', 'value' => 'Joze'],
                         ],
                     ],
                 ])
 
                 @include('docs.api._response', [
                     'json' => '{
-"status": 1,
-"message": "List\'s field was created",
-"field": {
-    "mail_list_id": 2,
-    "type": "text",
-    "label": "Custom",
-    "tag":"CUSTOM_FIELD_1",
-    "default_value":"test",
-    "uid":"5fcae3cb6298f",
-    "updated_at":"2020-12-05 01:35:07",
-    "created_at":"2020-12-05 01:35:07","id":7
-}
+    "status": 1,
+    "message": "Confirmation email sent to the subscriber",
+    "subscriber_uid": "5fd07ca421da0"
 }',
                 ])
             </div>

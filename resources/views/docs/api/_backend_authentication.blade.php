@@ -1,8 +1,11 @@
 <div id="{{ $resource['name'] }}" class="subsection">
-    <h4 class="mb-4">Unsubscribe</h4>
+    <h2 class="mb-4">Authentication</h2>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Unsubscribe</p>
+            <p>Generate one time login token. User can login by visiting the following URL:
+                <br/>
+                <code class="inline-code">http://acelle.wsl/login/token/*|token_string|*</code>
+            </p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>
@@ -16,40 +19,41 @@
                                 'desc' => 'Your API token. You can find it in your API main page when logged in.',
                             ],
                             [
-                                'name' => 'list_uid',
-                                'type' => 'string',
-                                'desc' => 'Mail list\'s uid',
-                            ],
-                            [
                                 'name' => 'uid',
                                 'type' => 'string',
-                                'desc' => 'Subsciber\'s uid',
+                                'desc' => 'Customer\'s uid',
                             ],
                         ],
                     ])
                 </div>
             </div>
         </div>
-        <div class="col-md-6">                        
-            <div class="sticky two-blocks">
+        <div class="col-md-6">              
+            <div class="sticky">
                 @include('docs.api._curl', [
-                    'title' => 'UNSUBSCRIBE',
+                    'title' => 'CREATE NEW LIST',
                     'curl' => [
-                        'uri' => 'lists/<span class="hljs-keyword">{list_uid}</span>/subscribers/<span class="hljs-keyword">{uid}</span>/unsubscribe',
-                        'method' => 'PATCH',
+                        'uri' => 'login-token',
                         'params' => [
                             ['name' => 'api_token', 'value' => '*|token_string|*'],
                         ],
                     ],
                 ])
-
-                @include('docs.api._response', [
-                    'json' => '{
-    "status": 1,
-    "message": "Subscriber was unsubscribed"
-}',
-                ])
-            </div>
+                <p>
+                    User can login by visiting the following URL:<br>
+                    <code>http://acelle.wsl/login/token/*|token_string|*</code>
+                </p>
+                
+                
+                <div class="code-box response">
+                    <div class="box-header">
+                        <div class="box-title">RESPONSE</div>
+                    </div>
+                    <pre class="IntroSection-pre"><code class="language-json">{
+    "token": "22ZZqhjWdkoyyG66rS9wO0AJ8S3w5NxP"
+}</code></pre>
+                </div>
+            </div>            
         </div>
     </div>
 </div>

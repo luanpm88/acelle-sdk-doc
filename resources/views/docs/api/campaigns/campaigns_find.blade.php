@@ -1,8 +1,8 @@
 <div id="{{ $resource['name'] }}" class="subsection">
-    <h4 class="mb-4">Find Subscriber by Email</h4>
+    <h4 class="mb-4">Find a Campaign</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Find Subscriber by Email</p>
+            <p>Find a Campaign</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>
@@ -16,9 +16,9 @@
                                 'desc' => 'Your API token. You can find it in your API main page when logged in.',
                             ],
                             [
-                                'name' => 'email',
-                                'type' => 'email',
-                                'desc' => 'Subsciber\'s email',
+                                'name' => 'uid',
+                                'type' => 'string',
+                                'desc' => 'Campaign\'s uid',
                             ],
                         ],
                     ])
@@ -28,32 +28,48 @@
         <div class="col-md-6">                        
             <div class="sticky two-blocks">
                 @include('docs.api._curl', [
-                    'title' => 'FIND SUBSCRIBERS',
+                    'title' => 'FIND CAMPAIGN',
                     'curl' => [
-                        'uri' => 'subscribers/email/<span class="hljs-keyword">{email}</span>',
+                        'uri' => 'campaigns/<span class="hljs-keyword">{uid}</span>',
                         'method' => 'GET',
                         'params' => [
                             ['name' => 'api_token', 'value' => '*|token_string|*'],
-                            ['name' => 'email', 'value' => 'test22@gmail.com'],
                         ],
                     ],
                 ])
 
-                @include('docs.api._response', [
-                    'json' => '{
-    "subscribers": [
-        {
-            "uid":"5fd07b8b65284",
-            "list_uid":"5fc9e55410e10",
-            "email":"test22@gmail.com",
-            "status":"subscribed",
-            "source":null,
-            "ip_address":null,
-            "FIRST_NAME":"Marine",
-            "LAST_NAME":"Joze",
-            "CUSTOM_FIELD_1":null
-        }
-    ]
+                @include('docs.api._response', ['json' => '{
+    "campaign": {
+        "uid":"5fb48ff221b27",
+        "name":"Untitled",
+        "list":"",
+        "segment":"",
+        "default_subject":null,
+        "from_email":"luanpm@live.com",
+        "from_name":"Luan Pham",
+        "remind_message":null,
+        "status":"new",
+        "created_at":[],
+        "updated_at":[]
+    },
+    "statistics": {
+        "subscriber_count":4,
+        "uniq_open_rate":0,
+        "delivered_rate":0,
+        "open_count":0,
+        "uniq_open_count":0,
+        "last_open":"",
+        "click_rate":0,
+        "click_per_uniq_open":0,
+        "click_count":0,
+        "abuse_feedback_count":0,
+        "last_click":"",
+        "bounce_count":0,
+        "unsubscribe_count":0,
+        "links":[],
+        "top_locations":[],
+        "top_open_subscribers":[]
+    }
 }',
                 ])
             </div>

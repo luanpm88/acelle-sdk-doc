@@ -1,8 +1,8 @@
 <div id="{{ $resource['name'] }}" class="subsection">
-    <h4 class="mb-4">Find Subscriber by Email</h4>
+    <h4 class="mb-4">View Campaigns</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Find Subscriber by Email</p>
+            <p>Get information about all campaigns</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>
@@ -15,11 +15,6 @@
                                 'type' => 'string',
                                 'desc' => 'Your API token. You can find it in your API main page when logged in.',
                             ],
-                            [
-                                'name' => 'email',
-                                'type' => 'email',
-                                'desc' => 'Subsciber\'s email',
-                            ],
                         ],
                     ])
                 </div>
@@ -28,33 +23,35 @@
         <div class="col-md-6">                        
             <div class="sticky two-blocks">
                 @include('docs.api._curl', [
-                    'title' => 'FIND SUBSCRIBERS',
+                    'title' => 'VIEW LISTS',
                     'curl' => [
-                        'uri' => 'subscribers/email/<span class="hljs-keyword">{email}</span>',
+                        'uri' => 'campaigns',
                         'method' => 'GET',
                         'params' => [
                             ['name' => 'api_token', 'value' => '*|token_string|*'],
-                            ['name' => 'email', 'value' => 'test22@gmail.com'],
                         ],
                     ],
                 ])
 
                 @include('docs.api._response', [
-                    'json' => '{
-    "subscribers": [
-        {
-            "uid":"5fd07b8b65284",
-            "list_uid":"5fc9e55410e10",
-            "email":"test22@gmail.com",
-            "status":"subscribed",
-            "source":null,
-            "ip_address":null,
-            "FIRST_NAME":"Marine",
-            "LAST_NAME":"Joze",
-            "CUSTOM_FIELD_1":null
-        }
-    ]
-}',
+                    'json' => '[
+    {
+        "uid":"5fb48ff221b27",
+        "name":"Untitled",
+        "type":"regular",
+        "subject":"luanpm88@gmail.com",
+        "html":"<!DOCTYPE html>\n<html lang=\"en\">\n...",
+            "plain": "One column layout...",
+            "from_email": "luanpm@live.com",
+            "from_name":"Luan Pham",
+            "reply_to":"luanpm@live.com",
+            "status":"new",
+            "delivery_at":null,
+            "created_at":"2020-11-18 03:07:30",
+            "updated_at":"2020-11-18 03:07:41"
+    },
+    ...
+]',
                 ])
             </div>
         </div>

@@ -52,21 +52,25 @@ class ApiController extends Controller
         foreach($this->getResources() as $key => &$resource) {
             if (isset($resource['children'])) {
                 foreach($resource['children'] as $key2 => &$resource2) {
-                    $result[] = [
-                        'title' => $resource2['title'],
-                        'cat' => $resource['title'],
-                        'link' => '#' . $resource2['name'],
-                        'desc' => $resource2['desc'],
-                    ];
+                    if (!$request->keyword || (strpos($resource2['title'], $request->keyword) !== false || strpos($resource2['desc'], $request->keyword) !== false)) {
+                        $result[] = [
+                            'title' => $resource2['title'],
+                            'cat' => $resource['title'],
+                            'link' => '#' . $resource2['name'],
+                            'desc' => $resource2['desc'],
+                        ];
+                    }
                 }
             }
 
-            $result[] = [
-                'title' => $resource['title'],
-                'cat' => 'Sending',
-                'link' => '#' . $resource['name'],
-                'desc' => $resource['desc'],
-            ];
+            if (!$request->keyword || (strpos($resource['title'], $request->keyword) !== false || strpos($resource['desc'], $request->keyword) !== false)) {
+                $result[] = [
+                    'title' => $resource['title'],
+                    'cat' => 'Sending',
+                    'link' => '#' . $resource['name'],
+                    'desc' => $resource['desc'],
+                ];
+            }
         }
 
         sleep(1);
@@ -78,16 +82,19 @@ class ApiController extends Controller
         $resources = [
             [
                 "name" => "introduction",
+                "type" => "frontend",
                 "title" => "Introduction",
                 "desc" => "The Acelle API is organized around REST. Our API has predictable resource-oriented URLs, accepts form-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.",                
             ],
             [
                 "name" => "authentication",
+                "type" => "frontend",
                 "title" => "Authentication",  
                 "desc" => "Generate one time login token. User can login by visiting the following URL",              
             ],
             [
                 "name" => "mail_lists",
+                "type" => "frontend",
                 "title" => "Mail Lists",
                 "desc" => "Manage mail lists",
                 "children" => [
@@ -115,6 +122,7 @@ class ApiController extends Controller
             ],
             [
                 "name" => "subscribers",
+                "type" => "frontend",
                 "title" => "Subscribers",
                 "desc" => "Manage mail list's subscribers",
                 "children" => [
@@ -162,8 +170,119 @@ class ApiController extends Controller
             ],
             [
                 "name" => "campaigns",
+                "type" => "frontend",
                 "title" => "Campaigns",      
-                "desc" => "You can use the Stripe API in test mode, which does not affect your live data or interact",          
+                "desc" => "Manage campaigns",  
+                "children" => [
+                    [
+                        "name" => "campaigns_all",
+                        "title" => "All Campaigns",
+                        "desc" => "Get information about all campaigns",
+                    ],
+                    [
+                        "name" => "campaigns_find",
+                        "title" => "Find a Campaign",
+                        "desc" => "Get information about a specific campaign",
+                    ],
+                ]        
+            ],
+            [
+                "name" => "notifications",
+                "type" => "frontend",
+                "title" => "Notifications",      
+                "desc" => "Send a delivery or abuse report to Acelle Mail which could be a success / bounce / feedback or abuse report",
+            ],
+            [
+                "name" => "files",
+                "type" => "frontend",
+                "title" => "File",      
+                "desc" => "Upload file(s) to customer's storage",
+            ],
+            [
+                "name" => "backend_authentication",
+                "type" => "backend",
+                "title" => "Authentication",      
+                "desc" => "Generate one time login token. User can login by visiting the following URL",
+            ],
+            [
+                "name" => "backend_plans",
+                "type" => "backend",
+                "title" => "Plans",      
+                "desc" => "Manage plans",
+                "children" => [
+                    [
+                        "name" => "backend_plan_find",
+                        "title" => "Find a Plan",
+                        "desc" => "Get information about a specific plan",
+                    ],
+                    [
+                        "name" => "backend_plan_add",
+                        "title" => "Add new Plan",
+                        "desc" => "Add new plan",
+                    ],
+                ],
+            ],
+            [
+                "name" => "backend_sending_servers",
+                "type" => "backend",
+                "title" => "Sending Servers",      
+                "desc" => "Get information about all sending servers",
+            ],
+            [
+                "name" => "backend_customers",
+                "type" => "backend",
+                "title" => "Customers",      
+                "desc" => "Manage customers",
+                "children" => [                    
+                    [
+                        "name" => "backend_customers_add",
+                        "title" => "Add new Customer",
+                        "desc" => "Add new customer",
+                    ],
+                    [
+                        "name" => "backend_customers_find",
+                        "title" => "Find a Customer",
+                        "desc" => "Get information about a specific customer",
+                    ],
+                    [
+                        "name" => "backend_customers_update",
+                        "title" => "Update Customer",
+                        "desc" => "Update customer information",
+                    ],
+                    [
+                        "name" => "backend_customers_enable",
+                        "title" => "Enable Customer",
+                        "desc" => "Enable customer",
+                    ],
+                    [
+                        "name" => "backend_customers_disable",
+                        "title" => "Disable Customer",
+                        "desc" => "Disable customer",
+                    ],
+                    [
+                        "name" => "backend_customers_assign",
+                        "title" => "Assign Plan",
+                        "desc" => "Assign Plan to Customer",
+                    ],
+                ],
+            ],
+            [
+                "name" => "backend_subscriptions",
+                "type" => "backend",
+                "title" => "Subscriptions",      
+                "desc" => "Manage subscriptions",
+                "children" => [                    
+                    [
+                        "name" => "backend_subscriptions_subscribe",
+                        "title" => "Subscribe",
+                        "desc" => "Subscribe customer to a plan",
+                    ],
+                    [
+                        "name" => "backend_subscriptions_activate",
+                        "title" => "Activate subscription",
+                        "desc" => "Admin activate pending subscription",
+                    ],
+                ],
             ],
         ];
 

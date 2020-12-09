@@ -34,46 +34,28 @@
     <div class="menu-scroll">
         <ul class="main-menu">
             @foreach ($resources as $resource)
-                <li class="@if (isset($resource['children'])) parent @endif">
-                    <a href="#{{ $resource['name'] }}" class="menu-item">
-                        {{ $resource['title'] }}
-                    </a>
+                @if ($resource['type'] == 'frontend')
+                    <li class="@if (isset($resource['children'])) parent @endif">
+                        <a href="#{{ $resource['name'] }}" class="menu-item">
+                            {{ $resource['title'] }}
+                        </a>
 
-                    @if (isset($resource['children']))
-                        <div class="">
-                            <ul class="">
-                                @foreach ($resource['children'] as $resource2)
-                                    <li class="">
-                                        <a href="#{{ $resource2['name'] }}" class="menu-item">
-                                            {{ $resource2['title'] }}
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                </li>
+                        @if (isset($resource['children']))
+                            <div class="">
+                                <ul class="">
+                                    @foreach ($resource['children'] as $resource2)
+                                        <li class="">
+                                            <a href="#{{ $resource2['name'] }}" class="menu-item">
+                                                {{ $resource2['title'] }}
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                    </li>
+                @endif
             @endforeach
-            <li>
-                <a href="#automations">
-                    Automations
-                </a>
-            </li>
-            <li>
-                <a href="#profile">
-                    Profile
-                </a>
-            </li>
-            <li>
-                <a href="#notifications">
-                    Notifications
-                </a>
-            </li>
-            <li>
-                <a href="#files">
-                    Files
-                </a>
-            </li>
         </ul>
 
         <div class="sidebar-group">
@@ -84,41 +66,29 @@
                 </span>
             </h4>
             <ul class="main-menu mt-0">
-                <li class="">
-                    <a href="#">
-                        Introduction
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Authentication
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        plans
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Sending Servers
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Customers
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Subscriptions
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Reports
-                    </a>
-                </li>                
+                @foreach ($resources as $resource)
+                    @if ($resource['type'] == 'backend')
+                        <li class="@if (isset($resource['children'])) parent @endif">
+                            <a href="#{{ $resource['name'] }}" class="menu-item">
+                                {{ $resource['title'] }}
+                            </a>
+
+                            @if (isset($resource['children']))
+                                <div class="">
+                                    <ul class="">
+                                        @foreach ($resource['children'] as $resource2)
+                                            <li class="">
+                                                <a href="#{{ $resource2['name'] }}" class="menu-item">
+                                                    {{ $resource2['title'] }}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                        </li>
+                    @endif
+                @endforeach 
             </ul>
         </div>
     </div>
