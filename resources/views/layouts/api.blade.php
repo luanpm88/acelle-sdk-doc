@@ -22,6 +22,10 @@
             
             PNotify.defaults.styling = 'bootstrap4';
         </script>
+
+        <script type="text/javascript" src="{{ url('lib/tooltipster/js/tooltipster.bundle.min.js') }}"></script>
+        <link rel="stylesheet" href="{{ url('lib/tooltipster/css/tooltipster.bundle.min.css') }}">
+        <link rel="stylesheet" href="{{ url('lib/tooltipster/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-light.min.css') }}">
         
         <link rel="stylesheet" href="{{ url('css/dracula.css') }}">
 
@@ -80,6 +84,12 @@
                 copyToClipboard(code.text().replace(/\n/g, '<br>'));
 
                 notify('success', 'Success', 'Code was copied to clipboard!');
+            });
+
+            $('.xtooltip').tooltipster({
+                @if (session('theme') != 'dark-theme')
+                    theme: 'tooltipster-light'
+                @endif
             });
         </script>
     </body>
