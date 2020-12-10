@@ -53,6 +53,7 @@
     border: solid 1px #e3e8ee;
     border-width: 0 0 1px 0;
     transition: all 0.2s ease-in-out;
+    min-height: 100vh;
 }
 .dark-theme .subsection {
     border: solid 1px #3c4257;
@@ -716,11 +717,11 @@ li.open ul, li.parent:hover ul {
     overflow: visible;
 }
 .two-blocks .curl .code-blocks, .two-blocks .php .code-blocks {
-    max-height: calc(65vh - 52px);
+    max-height: calc(70vh - 52px);
     overflow: auto;
 }
 .two-blocks .response .code-blocks {
-    max-height: calc(35vh - 52px);
+    max-height: calc(70vh - 52px);
     overflow: auto;
 }
 .popup {
