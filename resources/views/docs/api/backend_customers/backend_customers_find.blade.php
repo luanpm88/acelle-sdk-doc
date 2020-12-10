@@ -36,6 +36,10 @@
                             ['name' => 'api_token', 'value' => '*|token_string|*'],
                         ],
                     ],
+                    'php' => [
+                        'function' => "customer()->find('5fd1a0097ce01')",
+                        'lines' => 5,
+                    ],
                 ])
 
 @include('docs.api._response', [

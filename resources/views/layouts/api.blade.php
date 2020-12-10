@@ -11,14 +11,76 @@
             href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/styles/default.min.css">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
+
+        <!-- PNotify -->
+        <link href="{{ url('lib/pnotify-4.0.0/PNotifyBrightTheme.css') }}" rel="stylesheet" type="text/css">
+        <script src="{{ url('lib/pnotify-4.0.0/iife/PNotify.js') }}"></script>
+        <script src="{{ url('lib/pnotify-4.0.0/iife/PNotifyButtons.js') }}"></script>
+        <script src="{{ url('lib/nonblockjs/NonBlock.js') }}"></script>
+        <script>
+            "use strict";
+            
+            PNotify.defaults.styling = 'bootstrap4';
+        </script>
         
         <link rel="stylesheet" href="{{ url('css/dracula.css') }}">
 
         <link rel="stylesheet" href="{{ url('css/app.css') }}">
+
+        <script>
+            function copyToClipboard(text) {
+                var $temp = $("<textarea>");
+                var brRegex = /<br\s*[\/]?>/gi;
+                $("body").append($temp);
+                $temp.val(text.replace(brRegex, "\r\n")).select();
+                document.execCommand("copy");
+                $temp.remove();
+            }
+
+            function notify(type, title, message) {
+            if (typeof window.stackBottomRight === 'undefined') {
+                window.stackBottomRight = {
+                    'dir1': 'up',
+                    'dir2': 'left',
+                    'firstpos1': 25,
+                    'firstpos2': 25
+                };
+            }
+            var opts = {
+                type: type,
+                title: title,
+                text: message,
+                stack: window.stackBottomRight,
+                addClass: 'nonblock',
+                delay: 2000,
+                textTrusted: true,
+                titleTrusted: true,
+            };
+            PNotify.alert(opts);
+        }
+        </script>
     </head>
     <body class="{{ session('theme') }} {{ session('lang') ? session('lang') : 'php' }}">
         <div class="container-fluid">
             @yield('content')
         </div>
+
+        <script>
+            $('.ClickToCopy').on('click', function() {
+                var code = $(this).closest('.InstallClientLibrary').find('code:visible');
+        
+                copyToClipboard(code.text().replace(/\n/g, '<br>'));
+
+                notify('success', 'Success', 'Code was copied to clipboard!')
+            });
+            
+            $('.copy-code').on('click', function() {
+                var code = $(this).closest('.code-box').find('code:visible');
+        
+                copyToClipboard(code.text().replace(/\n/g, '<br>'));
+
+                notify('success', 'Success', 'Code was copied to clipboard!')
+            });
+        </script>
     </body>
 </html>

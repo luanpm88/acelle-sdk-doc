@@ -28,13 +28,17 @@
         <div class="col-md-6">              
             <div class="sticky two-blocks">
                 @include('docs.api._curl', [
-                    'title' => 'ENABDISABLELE CUSTOMER',
+                    'title' => 'DISABLE CUSTOMER',
                     'curl' => [
                         'uri' => 'customers/<span class="hljs-keyword">{uid}</span>/disable',
                         'method' => 'PATCH',
                         'params' => [
                             ['name' => 'api_token', 'value' => '*|token_string|*'],
                         ],
+                    ],
+                    'php' => [
+                        'function' => "customer()->disable('5fd1a0097ce01')",
+                        'lines' => 5,
                     ],
                 ])
 

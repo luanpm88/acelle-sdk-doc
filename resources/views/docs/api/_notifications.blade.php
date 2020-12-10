@@ -57,6 +57,12 @@
                             ['name' => 'type', 'value' => 'sent'],
                         ],
                     ],
+                    'php' => [
+                        'function' => "notification()->read([
+    'type' => 'sent',
+])",
+                        'lines' => 7,
+                    ],
                 ])
 
                 @include('docs.api._curl', [
@@ -71,6 +77,13 @@
                             ['name' => 'description', 'value' => 'Email+address+does+not+exist'],
                         ],
                     ],
+                    'php' => [
+                        'function' => "notification()->read([
+    'type' => 'bounced',
+    'bounced_type' => 'hard',
+])",
+                        'lines' => 8,
+                    ],
                 ])
 
                 @include('docs.api._curl', [
@@ -84,6 +97,13 @@
                             ['name' => 'report_type', 'value' => 'hard'],
                             ['name' => 'description', 'value' => 'Email+address+does+not+exist'],
                         ],
+                    ],
+                    'php' => [
+                        'function' => "notification()->read([
+    'type' => 'abuse',
+    'report_type' => 'hard',
+])",
+                        'lines' => 8,
                     ],
                 ])
 

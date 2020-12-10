@@ -55,6 +55,16 @@
                             ['name' => 'LAST_NAME', 'value' => 'Joze'],
                         ],
                     ],
+                    'php' => [
+                        'function' => "subscriber()->update('e31046fce3d83', [
+    'EMAIL' => 'test2@gmail.com',
+    'tag' => 'foo,bar,tag+with+space,',
+    'FIRST_NAME' => 'Marine',
+    'LAST_NAME' => 'Joze',
+])",
+                        'lines' => 10,
+                    ],
+                    
                 ])
 
                 @include('docs.api._response', [

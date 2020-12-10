@@ -29,9 +29,14 @@
                     'title' => 'CREATE NEW LIST',
                     'curl' => [
                         'uri' => 'login-token',
+                        'method' => 'POST',
                         'params' => [
                             ['name' => 'api_token', 'value' => '*|token_string|*'],
                         ],
+                    ],
+                    'php' => [
+                        'function' => 'loginToken()',
+                        'lines' => 5,
                     ],
                 ])
                 

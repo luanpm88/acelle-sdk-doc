@@ -36,6 +36,10 @@
                             ['name' => 'api_token', 'value' => '*|token_string|*'],
                         ],
                     ],
+                    'php' => [
+                        'function' => "campaign()->find('5fb48ff221b27')",
+                        'lines' => 5,
+                    ],
                 ])
 
                 @include('docs.api._response', ['json' => '{

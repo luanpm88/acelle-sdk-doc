@@ -14,6 +14,11 @@
                                 'type' => 'string',
                                 'desc' => 'Your API token. You can find it in your API main page when logged in.',
                             ],
+                            [
+                                'name' => 'uid',
+                                'type' => 'string',
+                                'desc' => 'List\'s uid',
+                            ],
                         ],
                     ])
                 </div>
@@ -29,6 +34,10 @@
                         'params' => [
                             ['name' => 'api_token', 'value' => '*|token_string|*'],
                         ],
+                    ],
+                    'php' => [
+                        'function' => "list()->find('*|uid|*')",
+                        'lines' => 5,
                     ],
                 ])
 

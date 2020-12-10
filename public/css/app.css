@@ -715,7 +715,7 @@ li.open ul, li.parent:hover ul {
 .IntroSection-pre {
     overflow: visible;
 }
-.two-blocks .curl .code-blocks {
+.two-blocks .curl .code-blocks, .two-blocks .php .code-blocks {
     max-height: calc(65vh - 52px);
     overflow: auto;
 }

@@ -31,24 +31,20 @@
         </code></pre>
         </div>
     </div>
+@if (isset($php))
     <div class="lang-switch php">
         <div class="code-blocks d-flex align-items-top">
             <div class="line-numbers">
-                @for ($i=1; $i <= 2; $i++)
+                @for ($i=1; $i <= $php['lines']; $i++)
                     <span>{{ $i }}</span>
                 @endfor
             </div>
-            <pre class="IntroSection-pre"><code class="language-php">// Comming soon...</code>
-                        </pre>
-            {{-- <pre class="IntroSection-pre"><code class="language-php">$client = new Acelle\Client(
+            <pre class="IntroSection-pre"><code class="language-php">$client = new Acelle\Client(
     'http://acelle.local/api/v1',
     '*|api_token|*'
 );
-$client->subscriber()->update('5fa8a9429f72d', [
-    'ddd' => 'fff',
-]);
-                </code>
-            </pre> --}}
+$client->{{ $php['function'] }};</code></pre>
         </div>
     </div>
+@endif
 </div>

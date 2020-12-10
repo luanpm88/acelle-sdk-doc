@@ -105,6 +105,20 @@
                             ['name' => 'options[email_max]', 'value' => '10000'],
                         ],
                     ],
+                    'php' => [
+                        'function' => "plan()->create([
+    'name' => 'Advanced',
+    'currency_id' => '1',
+    'frequency_amount' => '1',
+    'frequency_unit' => 'month',
+    'price' => '20',
+    'color' => 'red',
+    'options[sending_server_option]' => 'own',
+    'options[email_max]' => '10000',
+])",
+                        'lines' => 14,
+                    ],
+                    
                 ])
 
 @include('docs.api._response', [

@@ -30,6 +30,10 @@
                             ['name' => 'api_token', 'value' => '*|token_string|*'],
                         ],
                     ],
+                    'php' => [
+                        'function' => 'plan()->all()',
+                        'lines' => 5,
+                    ],
                 ])
 
 @include('docs.api._response', [

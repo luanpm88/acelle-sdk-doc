@@ -35,11 +35,15 @@
                 @include('docs.api._curl', [
                     'title' => 'DELETE SUBSCRIBER',
                     'curl' => [
-                        'uri' => 'lists/<span class="hljs-keyword">{list_uid}</span>/subscribers/<span class="hljs-keyword">{uid}</span>/delete',
+                        'uri' => 'subscribers/<span class="hljs-keyword">{uid}</span>',
                         'method' => 'DELETE',
                         'params' => [
                             ['name' => 'api_token', 'value' => '*|token_string|*'],
                         ],
+                    ],
+                    'php' => [
+                        'function' => "subscriber()->delete('e31046fce3d83')",
+                        'lines' => 5,
                     ],
                 ])
 

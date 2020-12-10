@@ -33,7 +33,7 @@
         <div class="col-md-6">              
             <div class="sticky two-blocks">
                 @include('docs.api._curl', [
-                    'title' => 'ENABDISABLELE CUSTOMER',
+                    'title' => 'ASSIGN PLAN',
                     'curl' => [
                         'uri' => 'customers/<span class="hljs-keyword">{uid}</span>/assign-plan/<span class="hljs-keyword">{plan_uid}</span>',
                         'method' => 'POST',
@@ -41,6 +41,10 @@
                             ['name' => 'api_token', 'value' => '*|token_string|*'],
                         ],
                     ],
+                    'php' => [
+                        'function' => "customer()->assignPlan('5fd1a0097ce01', '5fd1a16fb8f27')",
+                        'lines' => 5,
+                    ],                    
                 ])
 
 @include('docs.api._response', [

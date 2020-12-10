@@ -58,7 +58,7 @@
         <div class="col-md-6">              
             <div class="sticky two-blocks">
                 @include('docs.api._curl', [
-                    'title' => 'FIND CUSTOMER',
+                    'title' => 'UPDATE CUSTOMER',
                     'curl' => [
                         'uri' => 'customers/<span class="hljs-keyword">{uid}</span>',
                         'method' => 'PATCH',
@@ -71,6 +71,17 @@
                             ['name' => 'language_id', 'value' => '1'],
                             ['name' => 'password', 'value' => '123456'],
                         ],
+                    ],
+                    'php' => [
+                        'function' => "customer()->update('5fd1a0097ce01', [
+    'email' => 'user_namexx@gmail.com',
+    'first_name' => 'Luan',
+    'last_name' => 'Pham',
+    'timezone' => 'America/Godthab',
+    'language_id' => '1',
+    'password' => '123456',
+])",
+                        'lines' => 12,
                     ],
                 ])
 

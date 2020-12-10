@@ -2,7 +2,7 @@
     <h4 class="mb-4">All Subscribers</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Add custom field to list</p>
+            <p>View all subscribers</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>
@@ -67,6 +67,14 @@ no - not clicked any campaign',
                             ['name' => 'per_page', 'value' => '20'],
                             ['name' => 'page', 'value' => '1'],
                         ],
+                    ],
+                    'php' => [
+                        'function' => "subscriber()->all([
+    'list_uid' => '5fade5c93e42a',
+    'per_page' => '20',
+    'page' => '1',
+])",
+                        'lines' => 9,
                     ],
                 ])
 

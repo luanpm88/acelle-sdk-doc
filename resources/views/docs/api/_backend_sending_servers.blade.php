@@ -31,6 +31,10 @@
                             ['name' => 'api_token', 'value' => '*|token_string|*'],
                         ],
                     ],
+                    'php' => [
+                        'function' => "sending_server()->all()",
+                        'lines' => 5,
+                    ],
                 ])
 
                 @include('docs.api._response', [

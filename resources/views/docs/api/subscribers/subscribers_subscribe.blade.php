@@ -35,11 +35,15 @@
                 @include('docs.api._curl', [
                     'title' => 'SUBSCRIBE',
                     'curl' => [
-                        'uri' => 'lists/<span class="hljs-keyword">{list_uid}</span>/subscribers/<span class="hljs-keyword">{uid}</span>/subscribe',
+                        'uri' => 'subscribers/<span class="hljs-keyword">{uid}</span>/subscribe',
                         'method' => 'PATCH',
                         'params' => [
                             ['name' => 'api_token', 'value' => '*|token_string|*'],
                         ],
+                    ],
+                    'php' => [
+                        'function' => "subscriber()->subscribe('e31046fce3d83')",
+                        'lines' => 5,
                     ],
                 ])
 

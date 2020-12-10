@@ -43,6 +43,13 @@
                             ['name' => 'plan_uid', 'value' => '*|plan_uid|*'],
                         ],
                     ],
+                    'php' => [
+                        'function' => "subscription()->create([
+    'customer_uid' => '5fd1a0097ce01',
+    'plan_uid' => '5fd1a16fb8f27',
+])",
+                        'lines' => 8,
+                    ],                    
                 ])
 
 @include('docs.api._response', [

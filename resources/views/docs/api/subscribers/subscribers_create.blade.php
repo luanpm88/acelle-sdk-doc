@@ -45,7 +45,7 @@
                 @include('docs.api._curl', [
                     'title' => 'ADD SUBSCRIBER',
                     'curl' => [
-                        'uri' => 'lists/<span class="hljs-keyword">{uid}</span>/add-field',
+                        'uri' => 'subscribers',
                         'method' => 'POST',
                         'params' => [
                             ['name' => 'api_token', 'value' => '*|token_string|*'],
@@ -54,6 +54,16 @@
                             ['name' => 'FIRST_NAME', 'value' => 'Marine'],
                             ['name' => 'LAST_NAME', 'value' => 'Joze'],
                         ],
+                    ],
+                    'php' => [
+                        'function' => "subscriber()->create([
+    'list_uid' => '5fade5c93e42a',
+    'EMAIL' => 'test@gmail.com',
+    'tag' => 'foo,bar,tag+with+space,',
+    'FIRST_NAME' => 'Marine',
+    'LAST_NAME' => 'Joze',
+])",
+                        'lines' => 11,
                     ],
                 ])
 

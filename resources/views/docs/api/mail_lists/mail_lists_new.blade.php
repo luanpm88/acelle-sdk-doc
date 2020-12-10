@@ -119,7 +119,7 @@
                         'method' => 'POST',
                         'params' => [
                             ['name' => 'api_token', 'value' => '*|token_string|*'],
-                            ['name' => 'name=', 'value' => 'List+1'],
+                            ['name' => 'name', 'value' => 'List+1'],
                             ['name' => 'from_email', 'value' => 'admin@abccorp.org'],
                             ['name' => 'from_name', 'value' => 'ABC+Corp.'],
                             ['name' => 'default_subject', 'value' => 'Welcome+to+ABC+Corp.'],
@@ -138,13 +138,37 @@
                             ['name' => 'unsubscribe_notification', 'value' => '1'],
                         ],
                     ],
+                    'php' => [
+                        'function' => "list()->create([
+    'name' => 'List+1',
+    'from_email' => 'admin@abccorp.org',
+    'from_name' => 'ABC+Corp.',
+    'default_subject' => 'Welcome+to+ABC+Corp.',
+    'contact' => [
+        'company' => 'ABC+Corp.',
+        'state' => 'Armagh',
+        'address_1' => '14+Tottenham+Court+Road+London+England',
+        'address_2' => '44-46+Morningside+Road+Edinburgh+Scotland',
+        'city' => 'Noname',
+        'zip' => '80000',
+        'phone' => '123+456+889',
+        'country_id' => '1',
+        'email' => 'info@abccorp.org',
+        'url' => 'http://www.abccorp.org',                
+    ],
+    'subscribe_confirmation' => '1',
+    'send_welcome_email' => '1',
+    'unsubscribe_notification' => '1',
+])",
+                    'lines' => 25,
+                    ],
                 ])
 
                 @include('docs.api._response', [
                     'json' => '{
-"status": 1,
-"message": "List was successfully created",
-"list_uid": "5fc9e55410e10"
+    "status": 1,
+    "message": "List was successfully created",
+    "list_uid": "5fc9e55410e10"
 }',
                 ])
             </div>

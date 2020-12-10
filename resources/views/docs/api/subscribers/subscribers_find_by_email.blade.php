@@ -37,6 +37,10 @@
                             ['name' => 'email', 'value' => 'test22@gmail.com'],
                         ],
                     ],
+                    'php' => [
+                        'function' => "subscriber()->findByEmail('test22@gmail.com')",
+                        'lines' => 5,
+                    ],
                 ])
 
                 @include('docs.api._response', [

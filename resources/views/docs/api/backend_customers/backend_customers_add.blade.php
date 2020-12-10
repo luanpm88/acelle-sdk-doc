@@ -67,6 +67,17 @@
                             ['name' => 'password', 'value' => '123456'],
                         ],
                     ],
+                    'php' => [
+                        'function' => "customer()->create([
+            'email' => 'user_namexx@gmail.com',
+            'first_name' => 'Luan',
+            'last_name' => 'Pham',
+            'timezone' => 'America/Godthab',
+            'language_id' => '1',
+            'password' => '123456',
+        ])",
+                        'lines' => 12,
+                    ],
                 ])
 
 @include('docs.api._response', [

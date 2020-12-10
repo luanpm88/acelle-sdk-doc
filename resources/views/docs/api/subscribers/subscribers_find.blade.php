@@ -35,11 +35,15 @@
                 @include('docs.api._curl', [
                     'title' => 'FIND SUBSCRIBER',
                     'curl' => [
-                        'uri' => 'lists/<span class="hljs-keyword">{list_uid}</span>/subscribers/<span class="hljs-keyword">{uid}</span>',
+                        'uri' => 'subscribers/<span class="hljs-keyword">{uid}</span>',
                         'method' => 'GET',
                         'params' => [
                             ['name' => 'api_token', 'value' => '*|token_string|*'],
                         ],
+                    ],
+                    'php' => [
+                        'function' => "subscriber()->find('e31046fce3d83')",
+                        'lines' => 5,
                     ],
                 ])
 

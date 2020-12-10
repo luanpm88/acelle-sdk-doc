@@ -36,6 +36,10 @@
                             ['name' => 'api_token', 'value' => '*|token_string|*'],
                         ],
                     ],
+                    'php' => [
+                        'function' => "subscription()->activate('5faba7496eef4')",
+                        'lines' => 5,
+                    ],
                 ])
 
 @include('docs.api._response', [

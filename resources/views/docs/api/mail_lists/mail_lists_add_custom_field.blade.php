@@ -55,6 +55,15 @@
                             ['name' => 'default_value', 'value' => 'test'],
                         ],
                     ],
+                    'php' => [
+                        'function' => "list()->addCustomField('5fd18406c7b1d', [
+    'type' => 'text',
+    'label' => 'Custom',
+    'tag' => 'CUSTOM_FIELD_1',
+    'default_value' => 'test',
+])",
+                        'lines' => 10,
+                    ],
                 ])
 
                 @include('docs.api._response', [

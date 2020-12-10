@@ -38,6 +38,10 @@
                             ['name' => 'api_token', 'value' => '*|token_string|*'],
                         ],
                     ],
+                    'php' => [
+                        'function' => 'loginToken()',
+                        'lines' => 5,
+                    ],
                 ])
                 <p>
                     User can login by visiting the following URL:<br>
