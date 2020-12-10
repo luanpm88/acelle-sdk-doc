@@ -1,7 +1,9 @@
 <div class="code-box dark-theme">
     <div class="box-header">
         <div class="box-title">{{ $title }}</div>
-        <div class="box-tab ml-auto">
+        <div title="Click to Change" style="height: 26px;
+        display: flex;
+        align-items: center;" class="xtooltip box-tab ml-auto">
             <select class="lang-switch curl">
                 <option value="curl" selected>cURL</option>
                 <option value="php">PHP</option>
