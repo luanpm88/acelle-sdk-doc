@@ -71,15 +71,15 @@
         
                 copyToClipboard(code.text().replace(/\n/g, '<br>'));
 
-                notify('success', 'Success', 'Code was copied to clipboard!')
+                notify('success', 'Success', 'Code was copied to clipboard!');
             });
             
-            $('.copy-code').on('click', function() {
+            $('.box-copy').on('click', function() {
                 var code = $(this).closest('.code-box').find('code:visible');
         
                 copyToClipboard(code.text().replace(/\n/g, '<br>'));
 
-                notify('success', 'Success', 'Code was copied to clipboard!')
+                notify('success', 'Success', 'Code was copied to clipboard!');
             });
         </script>
     </body>
