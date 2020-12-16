@@ -16,7 +16,7 @@ use App\Http\Controllers\Docs\ApiController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->action([ApiController::class, 'index']);
 });
 
 Route::get('docs/api', [ApiController::class, 'index']);
