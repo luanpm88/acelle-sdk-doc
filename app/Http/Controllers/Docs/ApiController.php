@@ -13,8 +13,12 @@ class ApiController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
+        if(!$request->session()->exists('theme')) {
+            $request->session()->put('theme', 'dark-theme');
+        }
+
         return view('docs.api.index', [
             'resources' => $this->getResources(),
         ]);

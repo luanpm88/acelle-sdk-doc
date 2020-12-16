@@ -1,25 +1,29 @@
 <div class="top-menu d-flex">
     <ul class="nav ml-auto">
         <li class="nav-item active">
-            <a class="nav-link" href="">
+            <a class="nav-link api-referrence" href="javascript:;">
                 API referrence
-                <svg class="ml-1 SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--chevronDown-svg Icon--color--inherit-svg TopNavDropdown-arrow-svg" style="width: 10px;height: 10px;" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M13.591 5.293a1 1 0 0 1 1.416 1.416l-6.3 6.3a1 1 0 0 1-1.414 0l-6.3-6.3A1 1 0 0 1 2.41 5.293L8 10.884z" fill-rule="evenodd"></path></svg>
+                <svg style="width: 17px;
+                margin-left: 4px;" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+                    <path d="M 3 0 C 1.344 0 0 1.343 0 3 L 0 19 C 0 20.656 1.344 22 3 22 L 8 22 L 8 20 L 3 20 C 2.449 20 2 19.551 2 19 L 2 7 L 24 7 L 24 19 C 24 19.551 23.551 20 23 20 L 17 20 L 17 22 L 23 22 C 24.656 22 26 20.656 26 19 L 26 3 C 26 1.343 24.656 0 23 0 L 3 0 z M 2.65625 2.9375 L 3.375 2.9375 C 3.772 2.9375 4.09375 3.25825 4.09375 3.65625 L 4.09375 4.34375 L 4.0625 4.34375 C 4.0625 4.74075 3.74175 5.0625 3.34375 5.0625 L 2.65625 5.0625 C 2.25925 5.0625 1.9375 4.74175 1.9375 4.34375 L 1.9375 3.65625 C 1.9375 3.25925 2.25825 2.9375 2.65625 2.9375 z M 5.65625 2.9375 L 6.375 2.9375 C 6.772 2.9375 7.09375 3.25825 7.09375 3.65625 L 7.09375 4.34375 L 7.0625 4.34375 C 7.0625 4.74075 6.74175 5.0625 6.34375 5.0625 L 5.65625 5.0625 C 5.25925 5.0625 4.9375 4.74175 4.9375 4.34375 L 4.9375 3.65625 C 4.9375 3.25925 5.25825 2.9375 5.65625 2.9375 z M 8 3 L 24 3 L 24 5 L 8 5 L 8 3 z M 13.03125 12.0625 C 12.91025 12.0625 12.7795 12.0955 12.6875 12.1875 L 8.1875 17.1875 C 8.0965 17.2775 8.03125 17.40825 8.03125 17.53125 C 8.03125 17.59225 8.0385 17.65975 8.0625 17.71875 C 8.1365 17.89475 8.33925 18 8.53125 18 L 11 18 C 11 22.186 10.269 24.45975 5.5 25.84375 C 13.486 25.84375 15.0625 21.227 15.0625 18 L 17.5 18 C 17.69 18 17.83325 17.89475 17.90625 17.71875 C 17.97925 17.54275 17.9475 17.3225 17.8125 17.1875 L 13.34375 12.1875 C 13.25175 12.0955 13.15225 12.0625 13.03125 12.0625 z"/>
+                </svg>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">
-                Docs
+            <a class="nav-link" target="_blank" href="https://demo.acellemail.com/demo">
+                Live Demo
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">
-                Support
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="">
-                Sign in →
+            <a class="nav-link" target="_blank" href="https://codecanyon.net/item/acelle-email-marketing-web-application/17796082">
+                Buy & Download →
             </a>
         </li>
     </ul>
 </div>
+
+<script>
+    $('.api-referrence').on('click', function() {
+        search.show();
+    });
+</script>
