@@ -76,8 +76,7 @@ class ApiController extends Controller
                 ];
             }
         }
-
-        sleep(1);
+        
         return response()->json($result);
     }
 
