@@ -22,10 +22,10 @@
                     $('.feedback-box').addClass('loading');
 
                     setTimeout(function() {
-                        // $('.feedback-box').removeClass('loading');
-                        // $('.feedback-box .SelectClientLibrary-langs').html(`
-                        //     <p class="csat-widget pt-3 px-4 pb-1"><span class="csat-reply-main">Thank you for helping improve Acelle's documentation. </span><span class="csat-reply-extended">If you need help or have any questions, please consider <a target="_blank" rel="noopener noreferrer" href="https://codecanyon.net/item/acelle-email-marketing-web-application/17796082">contacting support</a>.</span></p>
-                        // `);
+                        $('.feedback-box').removeClass('loading');
+                        $('.feedback-box .SelectClientLibrary-langs').html(`
+                            <p class="csat-widget pt-3 px-4 pb-1"><span class="csat-reply-main">Thank you for helping improve Acelle's documentation. </span><span class="csat-reply-extended">If you need help or have any questions, please consider <a target="_blank" rel="noopener noreferrer" href="https://codecanyon.net/item/acelle-email-marketing-web-application/17796082">contacting support</a>.</span></p>
+                        `);
                     }, 1000);
                 });
             </script>
