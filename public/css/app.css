@@ -909,3 +909,33 @@ svg {
 .dark-theme .hljs-keyword, .dark-theme .hljs-selector-tag, .dark-theme .hljs-literal, .dark-theme .hljs-title, .dark-theme .hljs-section, .dark-theme .hljs-doctag, .dark-theme .hljs-type, .dark-theme .hljs-name, .dark-theme .hljs-strong {
     font-weight: normal;
 }
+.feedback-box {
+    position: relative;
+}
+.feedback-box .loading-spin {
+    display: none;
+}
+.feedback-box.loading .loading-spin {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.5);
+    text-align: right;
+    padding: 11px 25px;    
+}
+.dark-theme .feedback-box.loading .loading-spin {
+    background:  rgba(0,0,0,0.6);
+}
+.spin-icon {
+    font-family: 'Material Icons';
+    animation-name: spin;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+    display: inline-block;
+    font-size: 23px;
+}

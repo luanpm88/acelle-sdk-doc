@@ -6,7 +6,29 @@
             <p>You can use the Stripe API in test mode, which does not affect your live data or interact with the banking networks. The API key you use to <a href="#authentication">authenticate</a> the request determines whether the request is live mode or test mode.</p>
             <p>The Stripe API differs for every account as we release new <a href="#versioning">versions</a> and tailor functionality. <span>Log in to see docs customized to your version of the API, with your test key and data.</span></p>
             <p>Subscribe to Stripe's <a href="https://groups.google.com/a/lists.stripe.com/group/api-announce/">API announce mailing list</a> for updates.</p>
-            <p class="mt-4"><span class="csat-widget-text">Was this section helpful?</span> <a href="#" class="ml-2 mr-2 font-weight-bold">Yes</a> <a href="#" class="font-weight-bold">No</a></p>
+            
+            <div class="SelectClientLibrary mt-5 feedback-box">
+                <div class="SelectClientLibrary-langs">
+                    <p class="mt-3"><span class="csat-widget-text">Was this section helpful?</span>
+                        <a href="javascript:;" class="ml-2 mr-2 font-weight-bold feedback-action">Yes</a>
+                        <a href="javascript:;" class="font-weight-bold feedback-action">No</a>
+                    </p>
+                </div>
+                <div class="loading-spin"><span class="spin-icon">refresh</span></div>
+            </div>
+
+            <script>
+                $('.feedback-action').on('click', function() {
+                    $('.feedback-box').addClass('loading');
+
+                    setTimeout(function() {
+                        // $('.feedback-box').removeClass('loading');
+                        // $('.feedback-box .SelectClientLibrary-langs').html(`
+                        //     <p class="csat-widget pt-3 px-4 pb-1"><span class="csat-reply-main">Thank you for helping improve Acelle's documentation. </span><span class="csat-reply-extended">If you need help or have any questions, please consider <a target="_blank" rel="noopener noreferrer" href="https://codecanyon.net/item/acelle-email-marketing-web-application/17796082">contacting support</a>.</span></p>
+                        // `);
+                    }, 1000);
+                });
+            </script>
         </div>
         <div class="col-md-5">
             <h6>Just getting started?</h6>
@@ -58,7 +80,8 @@
                     <div class="SelectClientLibrary-install"><div class="InstallClientLibrary"><div class="InstallClientLibrary-code include-prompt"><div class="CodeBlock" style="min-height: 18px;"><div class="CodeBlock-scroll">
                         <pre class="CodeBlock-pre  language-bash lang-switch php"><code class="language-bash">composer require acelle/sdk-php</code></pre>
                         <pre class="CodeBlock-pre  language-bash lang-switch curl"><code class="language-bash">sudo apt install curl</code></pre>
-                        </div></div><div class="InstallClientLibrary-code-fade"></div></div><div class="InstallClientLibrary-links"><a href="https://github.com/stripe/stripe-php" target="_blank" rel="noopener noreferrer"><div class="SVGInline SVGInline--cleaned SVG GithubIcon SVG--color SVG--color--blue500 Box-root Flex-flex"><svg class="SVGInline-svg SVGInline--cleaned-svg SVG-svg GithubIcon-svg SVG--color-svg SVG--color--blue500-svg" style="width: 16px;height: 16px;" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path fill-rule="evenodd" clip-rule="evenodd" d="M18 1.4C9 1.4 1.7 8.7 1.7 17.7c0 7.2 4.7 13.3 11.1 15.5.8.1 1.1-.4 1.1-.8v-2.8c-4.5 1-5.5-2.2-5.5-2.2-.7-1.9-1.8-2.4-1.8-2.4-1.5-1 .1-1 .1-1 1.6.1 2.5 1.7 2.5 1.7 1.5 2.5 3.8 1.8 4.7 1.4.1-1.1.6-1.8 1-2.2-3.6-.4-7.4-1.8-7.4-8.1 0-1.8.6-3.2 1.7-4.4-.2-.4-.7-2.1.2-4.3 0 0 1.4-.4 4.5 1.7 1.3-.4 2.7-.5 4.1-.5 1.4 0 2.8.2 4.1.5 3.1-2.1 4.5-1.7 4.5-1.7.9 2.2.3 3.9.2 4.3 1 1.1 1.7 2.6 1.7 4.4 0 6.3-3.8 7.6-7.4 8 .6.5 1.1 1.5 1.1 3v4.5c0 .4.3.9 1.1.8 6.5-2.2 11.1-8.3 11.1-15.5C34.3 8.7 27 1.4 18 1.4z"></path></svg></div> <span class="lang-switch php">sdk-php</span><span class="lang-switch curl">sdk-curl</span></a><div class="Box-root Flex-flex"><div title="Copy to Clipboard" class="xtooltip Box-root Flex-flex"><button class="ClickToCopy"><div class="SVGInline SVGInline--cleaned SVG Icon Icon--clipboard SVG--color SVG--color--blue200 Box-root Flex-flex"><svg class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--clipboard-svg SVG--color-svg SVG--color--blue200-svg" style="width: 16px;height: 16px;" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 5h2a3 3 0 0 0 3-3 2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2 3 3 0 0 0 3 3zM6 2a2 2 0 1 1 4 0 1 1 0 0 1-1 1H7a1 1 0 0 1-1-1z" fill-rule="evenodd"></path></svg></div></button></div></div></div></div></div></div>
+                        </div></div><div class="InstallClientLibrary-code-fade"></div></div><div class="InstallClientLibrary-links"><a href="https://github.com/stripe/stripe-php" target="_blank" rel="noopener noreferrer"><div class="SVGInline SVGInline--cleaned SVG GithubIcon SVG--color SVG--color--blue500 Box-root Flex-flex"><svg class="SVGInline-svg SVGInline--cleaned-svg SVG-svg GithubIcon-svg SVG--color-svg SVG--color--blue500-svg" style="width: 16px;height: 16px;" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path fill-rule="evenodd" clip-rule="evenodd" d="M18 1.4C9 1.4 1.7 8.7 1.7 17.7c0 7.2 4.7 13.3 11.1 15.5.8.1 1.1-.4 1.1-.8v-2.8c-4.5 1-5.5-2.2-5.5-2.2-.7-1.9-1.8-2.4-1.8-2.4-1.5-1 .1-1 .1-1 1.6.1 2.5 1.7 2.5 1.7 1.5 2.5 3.8 1.8 4.7 1.4.1-1.1.6-1.8 1-2.2-3.6-.4-7.4-1.8-7.4-8.1 0-1.8.6-3.2 1.7-4.4-.2-.4-.7-2.1.2-4.3 0 0 1.4-.4 4.5 1.7 1.3-.4 2.7-.5 4.1-.5 1.4 0 2.8.2 4.1.5 3.1-2.1 4.5-1.7 4.5-1.7.9 2.2.3 3.9.2 4.3 1 1.1 1.7 2.6 1.7 4.4 0 6.3-3.8 7.6-7.4 8 .6.5 1.1 1.5 1.1 3v4.5c0 .4.3.9 1.1.8 6.5-2.2 11.1-8.3 11.1-15.5C34.3 8.7 27 1.4 18 1.4z"></path></svg></div> <span class="lang-switch php">sdk-php</span><span class="lang-switch curl">sdk-curl</span></a><div class="Box-root Flex-flex"><div title="Copy to Clipboard" class="xtooltip Box-root Flex-flex"><button class="ClickToCopy"><div class="SVGInline SVGInline--cleaned SVG Icon Icon--clipboard SVG--color SVG--color--blue200 Box-root Flex-flex"><svg class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--clipboard-svg SVG--color-svg SVG--color--blue200-svg" style="width: 16px;height: 16px;" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 5h2a3 3 0 0 0 3-3 2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2 3 3 0 0 0 3 3zM6 2a2 2 0 1 1 4 0 1 1 0 0 1-1 1H7a1 1 0 0 1-1-1z" fill-rule="evenodd"></path></svg></div></button></div></div></div></div></div>
+            </div>
         
         
         </div>
