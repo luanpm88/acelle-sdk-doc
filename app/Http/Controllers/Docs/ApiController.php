@@ -85,13 +85,13 @@ class ApiController extends Controller
         $resources = [
             [
                 "name" => "introduction",
-                "type" => "frontend",
+                "type" => "all",
                 "title" => "Introduction",
                 "desc" => "The Acelle API is organized around REST. Our API has predictable resource-oriented URLs, accepts form-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.",                
             ],
             [
                 "name" => "authentication",
-                "type" => "frontend",
+                "type" => "all",
                 "title" => "Authentication",  
                 "desc" => "Generate one time login token. User can login by visiting the following URL",              
             ],
@@ -200,12 +200,6 @@ class ApiController extends Controller
                 "type" => "frontend",
                 "title" => "File",      
                 "desc" => "Upload file(s) to customer's storage",
-            ],
-            [
-                "name" => "backend_authentication",
-                "type" => "backend",
-                "title" => "Authentication",      
-                "desc" => "Generate one time login token. User can login by visiting the following URL",
             ],
             [
                 "name" => "backend_plans",

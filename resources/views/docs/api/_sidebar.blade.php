@@ -34,7 +34,7 @@
     <div class="menu-scroll">
         <ul class="main-menu">
             @foreach ($resources as $resource)
-                @if ($resource['type'] == 'frontend')
+                @if ($resource['type'] == 'all')
                     <li class="@if (isset($resource['children'])) parent @endif">
                         <a href="#{{ $resource['name'] }}" class="menu-item">
                             {{ $resource['title'] }}
@@ -57,6 +57,40 @@
                 @endif
             @endforeach
         </ul>
+
+        <div class="sidebar-group">
+            <h4 class="group-head d-flex align-items-center">
+                <span>Frontend</span>
+                <span class="ml-auto mr-2 anchor">
+                    <svg class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--chevronDown-svg Chevron-svg Chevron-up-svg SVG--color-svg SVG--color--gray200-svg" style="width: 12px;height: 12px;" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M13.591 5.293a1 1 0 0 1 1.416 1.416l-6.3 6.3a1 1 0 0 1-1.414 0l-6.3-6.3A1 1 0 0 1 2.41 5.293L8 10.884z" fill-rule="evenodd"></path></svg>
+                </span>
+            </h4>
+            <ul class="main-menu mt-0">
+                @foreach ($resources as $resource)
+                    @if ($resource['type'] == 'frontend')
+                        <li class="@if (isset($resource['children'])) parent @endif">
+                            <a href="#{{ $resource['name'] }}" class="menu-item">
+                                {{ $resource['title'] }}
+                            </a>
+
+                            @if (isset($resource['children']))
+                                <div class="">
+                                    <ul class="">
+                                        @foreach ($resource['children'] as $resource2)
+                                            <li class="">
+                                                <a href="#{{ $resource2['name'] }}" class="menu-item">
+                                                    {{ $resource2['title'] }}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                        </li>
+                    @endif
+                @endforeach
+            </ul>
+        </div>
 
         <div class="sidebar-group">
             <h4 class="group-head d-flex align-items-center">
