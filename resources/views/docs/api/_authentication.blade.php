@@ -50,7 +50,7 @@
         <div class="col-md-6">              
             <div class="sticky">
                 @include('docs.api._curl', [
-                    'title' => 'CREATE NEW LIST',
+                    'title' => 'Authentication',
                     'curl' => [
                         'uri' => 'login-token',
                         'method' => 'POST',
@@ -69,7 +69,8 @@
                         <div class="box-title">RESPONSE</div>
                     </div>
                     <pre class="IntroSection-pre"><code class="language-json">{
-    "token": "22ZZqhjWdkoyyG66rS9wO0AJ8S3w5NxP"
+    "token": "22ZZqhjWdkoyyG66rS9wO0AJ8S3w5NxP",
+    "url": "http://example.com/login/token/8vunPVPUDBMGYOEk9"
 }</code></pre>
                 </div>
             </div>            
