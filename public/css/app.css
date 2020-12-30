@@ -939,6 +939,9 @@ svg {
     display: inline-block;
     font-size: 23px;
 }
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+.dark-theme .h1, .dark-theme .h2, .dark-theme .h3, .dark-theme .h4, .dark-theme .h5, .dark-theme .h6, .dark-theme h1, .dark-theme h2, .dark-theme h3, .dark-theme h4, .dark-theme h5, .dark-theme h6 {
     color: #f7fafc;
+}
+.alert-success h4 {
+    color: #155724;
 }
