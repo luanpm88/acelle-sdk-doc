@@ -96,6 +96,12 @@ class ApiController extends Controller
                 "desc" => "Generate one time login token. User can login by visiting the following URL",              
             ],
             [
+                "name" => "one_click_token",
+                "type" => "all",
+                "title" => "One Click Login",  
+                "desc" => "Obtain a one-time login token as well as the one-time login URL",              
+            ],
+            [
                 "name" => "mail_lists",
                 "type" => "frontend",
                 "title" => "Mail Lists",
