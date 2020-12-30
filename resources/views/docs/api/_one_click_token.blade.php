@@ -45,7 +45,7 @@
                         <div class="box-title">RESPONSE</div>
                     </div>
                     <pre class="IntroSection-pre"><code class="language-json">{
-    "token": "22ZZqhjWdkoyyG66rS9wO0AJ8S3w5NxP",
+    "token": "8vunPVPUDBMGYOEk9",
     "url": "http://example.com/login/token/8vunPVPUDBMGYOEk9"
 }</code></pre>
                 </div>
