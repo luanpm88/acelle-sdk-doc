@@ -223,6 +223,11 @@
                 });
             }
         });
+
+        if(window.location.hash && $('.main-content').scrollTop() == 0) {
+            // Fragment exists
+            $('.main-menu a.menu-item[href="'+window.location.hash+'"]').click();
+        }
     });
 
     function onScroll(event){
