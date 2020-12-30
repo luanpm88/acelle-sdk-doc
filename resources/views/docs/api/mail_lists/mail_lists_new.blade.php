@@ -1,8 +1,10 @@
 <div id="{{ $resource['name'] }}" class="subsection">
     <h4 class="mb-4">Create New List</h4>
     <div class="row">
-        <div class="col-md-6 pr-5">                        
-            <p>Create a new list that contains contacts for sending emails</p>
+        <div class="col-md-6 pr-5">
+            <p>A mail list is a collection of email addresses used by an individual or an organization to send marketing material to multiple recipients. You can have different lists of different group of contacts</p>
+
+            <p>Make a POST request to the <code class="inline-code">/list</code> resource along with your desired list details to create. On success, a unique <code class="inline-code">List UID</code> key is returned for newly created list, which is used as a reference key for interacting with it.</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>

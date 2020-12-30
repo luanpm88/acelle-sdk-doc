@@ -2,10 +2,10 @@
     <h2 class="mb-4">API Reference</h2>
     <div class="row">
         <div class="col-md-7 pr-5">                        
-            <p>The Stripe API is organized around <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer" target="_blank" rel="noopener noreferrer">REST</a>. Our API has predictable resource-oriented URLs, accepts <a href="https://en.wikipedia.org/wiki/POST_(HTTP)#Use_for_submitting_web_forms" target="_blank" rel="noopener noreferrer">form-encoded</a> request bodies, returns <a href="http://www.json.org/" target="_blank" rel="noopener noreferrer">JSON-encoded</a> responses, and uses standard HTTP response codes, authentication, and verbs. </p>
-            <p>You can use the Stripe API in test mode, which does not affect your live data or interact with the banking networks. The API key you use to <a href="#authentication">authenticate</a> the request determines whether the request is live mode or test mode.</p>
-            <p>The Stripe API differs for every account as we release new <a href="#versioning">versions</a> and tailor functionality. <span>Log in to see docs customized to your version of the API, with your test key and data.</span></p>
-            <p>Subscribe to Stripe's <a href="https://groups.google.com/a/lists.stripe.com/group/api-announce/">API announce mailing list</a> for updates.</p>
+            <p>The Acelle Mail API (version 1.0) is organized around <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer" target="_blank" rel="noopener noreferrer">REST</a>. Our API has predictable resource-oriented URLs, accepts <a href="https://en.wikipedia.org/wiki/POST_(HTTP)#Use_for_submitting_web_forms" target="_blank" rel="noopener noreferrer">form-encoded</a> request bodies, returns <a href="http://www.json.org/" target="_blank" rel="noopener noreferrer">JSON-encoded</a> responses, and uses standard HTTP response codes, authentication, and verbs. </p>
+            <p>You can use the Acelle Mail API in test mode, which does not affect your live data or interact with the banking networks. The API key you use to <a href="#authentication">authenticate</a> the request determines whether the request is live mode or test mode.</p>
+            <p>The Acelle Mail API may differ as we release new versions over time. Log in to your installation of Acelle to see the particular version, API base URI and authentication key.</p>
+            <p>Visit our <a href="https://codecanyon.net/item/acelle-email-marketing-web-application/17796082">product page</a> for latest updates.</p>
             
             <div class="SelectClientLibrary mt-5 feedback-box">
                 <div class="SelectClientLibrary-langs">
@@ -24,25 +24,18 @@
                     setTimeout(function() {
                         $('.feedback-box').removeClass('loading');
                         $('.feedback-box .SelectClientLibrary-langs').html(`
-                            <p class="csat-widget pt-3 px-4 pb-1"><span class="csat-reply-main">Thank you for helping improve Acelle's documentation. </span><span class="csat-reply-extended">If you need help or have any questions, please consider <a target="_blank" rel="noopener noreferrer" href="https://codecanyon.net/item/acelle-email-marketing-web-application/17796082">contacting support</a>.</span></p>
+                            <p class="csat-widget pt-3 px-4 pb-1"><span class="csat-reply-main">Thank you for helping improve Acelle Mail's documentation. </span><span class="csat-reply-extended">If you need help or have any questions, please consider <a target="_blank" rel="noopener noreferrer" href="https://codecanyon.net/item/acelle-email-marketing-web-application/17796082">contacting support</a>.</span></p>
                         `);
                     }, 1000);
                 });
             </script>
         </div>
         <div class="col-md-5">
-            <h6>Just getting started?</h6>
-            <p class="">Check out our <a href="/docs/development" target="_blank" rel="noopener noreferrer" class="docs-link">development quickstart</a> guide.</p>
+            <h6>Not a developer?</h6>
+            <p class="">Acelle Mail is made for users without software programming experience. Just follow the installation & getting started guideline included in our sofware package to install the web application to your hosting server which can be either a VPS (Virtual Private Server) or a managed server's envrionment with a control panel like cPanel or Plesk.</p>
 
-            <h6 class="mt-4">Not a developer?</h6>
-            <p class="">Use apps from <a href="/works-with/type/platform" target="_blank" rel="noopener noreferrer" class="docs-link">our partners</a> to get started with Stripe and to do more with your Stripe account—no code required.</p>
-
-            <div class="code-box dark-theme">
-                <div class="box-header">
-                    <div class="box-title">Base URL</div>
-                </div>
-                <pre class="IntroSection-pre"><code>http://acelle.wsl/frontend/docs/api/v1</code></pre>
-            </div>
+            <h6 class="mt-4">Custom development & integration</h6>
+            <p class="">Acelle is pre-designed for rebranding, customization and integration. Our <a href="/docs/development" target="_blank" rel="noopener noreferrer" class="docs-link">Acelle SDK is written in PHP</a>, however, you can use any programming language to interect with Acelle's RESTful API.</p>
 
             <div class="SelectClientLibrary">
                 <div class="SelectClientLibrary-topbar">

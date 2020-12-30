@@ -2,7 +2,7 @@
     <h4 class="mb-4">View Lists</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Get information about all lists</p>
+            <p>Retrieve all your mail lists as well as every mail list's details like name, description, etc. You can also find every list's UID which is used as reference key for a particular list</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>

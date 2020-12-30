@@ -2,7 +2,7 @@
     <h4 class="mb-4">Find a List</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Get information about a specific list</p>
+            <p>Retrive information of a given list identified by a given <code class="inline-code">UID</code> passed to the API call.</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>
