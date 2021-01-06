@@ -946,7 +946,7 @@ svg {
     color: #155724;
 }
 .child-attributes-container {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     margin-top: 15px;
 }
 .child-attributes-container .toogle {
@@ -991,10 +991,16 @@ svg {
     display: none;
 }
 .child-attributes-container .child-attributes {
-    display: none;
+    transform-origin: top center;
+    transform: scaleY(0);
+    transition: all 0.1s ease-in-out;
+    opacity: 0;
+    height: 0;
 }
 .child-attributes-container.open .child-attributes {
-    display: block;
+    transform: scaleY(1);
+    opacity: 1;
+    height: auto;
 }
 .child-attributes-container.open .toogle svg {
     transform: rotate(45deg);
