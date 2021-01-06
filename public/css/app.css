@@ -1023,3 +1023,6 @@ svg {
 .child-attributes .child-attribute:last-child {
     border-bottom: none;
 }
+.toogle-close, .toogle-open {
+    user-select: none;
+}
