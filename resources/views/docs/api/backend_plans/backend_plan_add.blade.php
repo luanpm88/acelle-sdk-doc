@@ -160,7 +160,7 @@
                                     ],
                                     [
                                         'name' => 'sending_server_subaccount_uid',
-                                        'desc' => '',
+                                        'desc' => 'Sending server\'s sub-account ID',
                                     ],
                                 ],
                             ],
