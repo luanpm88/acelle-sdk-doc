@@ -960,7 +960,7 @@ svg {
     border: solid 1px #e3e8ee;
     border-radius: 16px;
     font-weight: 600;
-    transition: border-color 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 .dark-theme .child-attributes-container .toogle {
     color: #a3acb9;
@@ -968,7 +968,6 @@ svg {
 }
 .child-attributes-container.open .toogle{
     border-radius: 16px 16px 0 0;
-    border-bottom: none;
     width: 100%;
 }
 .child-attributes-container .toogle svg {
@@ -1008,9 +1007,10 @@ svg {
 .child-attributes {
     border: solid 1px #e3e8ee;
     transition: border-color 0.2s ease-in-out;
+    border-top: none;
 }
 .dark-theme .child-attributes {
-    border: solid 1px #3c4257;    
+    border: solid 1px #3c4257;
 }
 .child-attributes .child-attribute {
     padding: 16px 10px;
