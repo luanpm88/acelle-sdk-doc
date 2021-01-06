@@ -18,6 +18,16 @@
     </div>
 
     <script>
+        $('.child-attributes-container .toogle').on('click', function() {
+            var container = $(this).closest('.child-attributes-container');
+
+            if (container.hasClass('open')) {
+                container.removeClass('open')
+            } else {
+                container.addClass('open')
+            }
+        });
+
         $('.theme-toggle').on('click', function() {
             body = $(this).closest('body');
 

@@ -48,38 +48,121 @@
                             [
                                 'name' => 'options[...]',
                                 'type' => 'string',
-                                'desc' => '<dd>Plan\'s options...<br>
-                            <ul>
-                                <li><span class="text-semibold">email_max</span>: Email sending credits (number, -1 for unlimited)</li>
-                                <li><span class="text-semibold">list_max</span>: Max lists (number, -1 for unlimited)</li>
-                                <li><span class="text-semibold">subscriber_max</span>: Max subscribers (number, -1 for unlimited)</li>
-                                <li><span class="text-semibold">subscriber_per_list_max</span>: Max subscribers per list (number, -1 for unlimited)</li>
-                                <li><span class="text-semibold">segment_per_list_max</span>: Max segments per list (number, -1 for unlimited)</li>
-                                <li><span class="text-semibold">campaign_max</span>: Max campaigns (number, -1 for unlimited)</li>
-                                <li><span class="text-semibold">automation_max</span>: Max automations (number, -1 for unlimited)</li>
-                                <li><span class="text-semibold">sending_quota</span>: Sending credits (number, -1 for unlimited)</li>
-                                <li><span class="text-semibold">sending_quota_time</span>: Time value (number, -1 for unlimited)</li>
-                                <li><span class="text-semibold">sending_quota_time_unit</span>: Time unit (day|hour|minute)</li>
-                                <li><span class="text-semibold">max_process</span>: Max number of processes (number)</li>
-                                <li><span class="text-semibold">all_sending_servers</span>: Use all sending servers (yes|no)</li>
-                                <li><span class="text-semibold">max_size_upload_total</span>: Maximum size of all files (MB) (number)</li>
-                                <li><span class="text-semibold">max_file_size_upload</span>: Maximum upload size per file (MB) (number)</li>
-                                <li><span class="text-semibold">unsubscribe_url_required</span>: {UNSUBSCRIBE_URL} tag is required (yes|no)</li>
-                                <li><span class="text-semibold">access_when_offline</span>: Access when site is offline (yes|no)</li>
-                                <li><span class="text-semibold">create_sending_domains</span>: Allows customer to add sending domains (yes|no)</li>
-                                <li><span class="text-semibold">sending_servers_max</span>: Max sending servers per customer (number, -1 for unlimited)</li>
-                                <li><span class="text-semibold">sending_domains_max</span>: Max sending domains per customer (number, -1 for unlimited)</li>
-                                <li><span class="text-semibold">all_email_verification_servers</span>: Use all email verification servers (yes|no)</li>
-                                <li><span class="text-semibold">create_email_verification_servers</span>: Allows customer to add email verification servers (yes|no)</li>
-                                <li><span class="text-semibold">email_verification_servers_max</span>: Max email verification servers per customer (number, -1 for unlimited)</li>
-                                <li><span class="text-semibold">list_import</span>: Customer can import list (yes|no)</li>
-                                <li><span class="text-semibold">list_export</span>: Customer can export list (yes|no)</li>
-                                <li><span class="text-semibold">all_sending_server_types</span>: Allow customer to add any sending server type (yes|no)</li>
-                                <li><span class="text-semibold">sending_server_types</span>: (array)</li>
-                                <li><span class="text-semibold">sending_server_option</span>: (system|own|subaccount)</li>
-                                <li><span class="text-semibold">sending_server_subaccount_uid</span></li>
-                            </ul>
-                        </dd>',
+                                'desc' => '<dd>Plan\'s options...',
+                                'attributes' => [
+                                    [
+                                        'name' => 'email_max',
+                                        'desc' => 'Email sending credits (number, -1 for unlimited)',
+                                    ],
+                                    [
+                                        'name' => 'list_max',
+                                        'desc' => 'Max lists (number, -1 for unlimited)',
+                                    ],
+                                    [
+                                        'name' => 'subscriber_max',
+                                        'desc' => 'Max subscribers (number, -1 for unlimited)',
+                                    ],
+                                    [
+                                        'name' => 'subscriber_per_list_max',
+                                        'desc' => 'Max subscribers per list (number, -1 for unlimited)',
+                                    ],
+                                    [
+                                        'name' => 'segment_per_list_max',
+                                        'desc' => 'Max segments per list (number, -1 for unlimited)',
+                                    ],
+                                    [
+                                        'name' => 'campaign_max',
+                                        'desc' => 'Max campaigns (number, -1 for unlimited)',
+                                    ],
+                                    [
+                                        'name' => 'automation_max',
+                                        'desc' => 'Max automations (number, -1 for unlimited)',
+                                    ],
+                                    [
+                                        'name' => 'sending_quota',
+                                        'desc' => 'Sending credits (number, -1 for unlimited)',
+                                    ],
+                                    [
+                                        'name' => 'sending_quota_time',
+                                        'desc' => 'Time value (number, -1 for unlimited)',
+                                    ],
+                                    [
+                                        'name' => 'sending_quota_time_unit',
+                                        'desc' => 'Time unit (day|hour|minute)',
+                                    ],
+                                    [
+                                        'name' => 'max_process',
+                                        'desc' => 'Max number of processes (number)',
+                                    ],
+                                    [
+                                        'name' => 'all_sending_servers',
+                                        'desc' => 'Use all sending servers (yes|no)',
+                                    ],
+                                    [
+                                        'name' => 'max_size_upload_total',
+                                        'desc' => 'Maximum size of all files (MB) (number)',
+                                    ],
+                                    [
+                                        'name' => 'max_file_size_upload',
+                                        'desc' => 'Maximum upload size per file (MB) (number)',
+                                    ],
+                                    [
+                                        'name' => 'unsubscribe_url_required',
+                                        'desc' => '{UNSUBSCRIBE_URL} tag is required (yes|no)',
+                                    ],
+                                    [
+                                        'name' => 'access_when_offline',
+                                        'desc' => 'Access when site is offline (yes|no)',
+                                    ],
+                                    [
+                                        'name' => 'create_sending_domains',
+                                        'desc' => 'Allows customer to add sending domains (yes|no)',
+                                    ],
+                                    [
+                                        'name' => 'sending_servers_max',
+                                        'desc' => 'Max sending servers per customer (number, -1 for unlimited)',
+                                    ],
+                                    [
+                                        'name' => 'sending_domains_max',
+                                        'desc' => 'Max sending domains per customer (number, -1 for unlimited)',
+                                    ],
+                                    [
+                                        'name' => 'all_email_verification_servers',
+                                        'desc' => 'Use all email verification servers (yes|no)',
+                                    ],
+                                    [
+                                        'name' => 'create_email_verification_servers',
+                                        'desc' => 'Allows customer to add email verification servers (yes|no)',
+                                    ],
+                                    [
+                                        'name' => 'email_verification_servers_max',
+                                        'desc' => 'Max email verification servers per customer (number, -1 for unlimited)',
+                                    ],
+                                    [
+                                        'name' => 'list_import',
+                                        'desc' => 'Customer can import list (yes|no)',
+                                    ],
+                                    [
+                                        'name' => 'list_export',
+                                        'desc' => 'Customer can export list (yes|no)',
+                                    ],
+                                    [
+                                        'name' => 'all_sending_server_types',
+                                        'desc' => 'Allow customer to add any sending server type (yes|no)',
+                                    ],
+                                    [
+                                        'name' => 'sending_server_types',
+                                        'desc' => '(array)',
+                                    ],
+                                    [
+                                        'name' => 'sending_server_option',
+                                        'desc' => '(system|own|subaccount)',
+                                    ],
+                                    [
+                                        'name' => 'sending_server_subaccount_uid',
+                                        'desc' => '',
+                                    ],
+                                ],
                             ],
                         ],
                     ])
