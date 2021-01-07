@@ -999,7 +999,7 @@ svg {
     height: 0;
 }
 .dark-theme .child-attributes-container .child-attributes {
-    border: solid 1px #3c4257;
+    border-color: #3c4257;
 }
 .child-attributes-container.open .child-attributes {
     transform: scaleY(1);

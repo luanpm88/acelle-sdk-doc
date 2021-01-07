@@ -164,11 +164,6 @@
                                     ],
                                 ],
                             ],
-                            [
-                                'name' => 'color',
-                                'type' => 'string',
-                                'desc' => 'Plan\'s color (red, blue, #008c6e, #917319,...)',
-                            ],
                         ],
                     ])
                 </div>
