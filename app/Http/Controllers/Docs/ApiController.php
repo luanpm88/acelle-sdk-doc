@@ -161,6 +161,11 @@ class ApiController extends Controller
                         "desc" => "Find Subscriber by Email",
                     ],
                     [
+                        "name" => "subscribers_add_tag",
+                        "title" => "Add tag",
+                        "desc" => "Add tag to subscriber",
+                    ],
+                    [
                         "name" => "subscribers_subscribe",
                         "title" => "Subscribe",
                         "desc" => "Subscribe",
