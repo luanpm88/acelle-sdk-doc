@@ -1025,3 +1025,15 @@ svg {
 .toogle-close, .toogle-open {
     user-select: none;
 }
+.display-inline {
+    display: inline!important;
+}
+.dark-theme .alert-warning {
+    color: #ffffff;
+    background-color: rgba(186, 144, 54, 0.71);
+    border-color: #bd8e00;
+    transition: all 0.2s ease-in-out;
+}
+.dark-theme .alert-warning code {
+    color: #ffa2cd;
+}
