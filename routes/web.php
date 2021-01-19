@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Docs\ApiController;
+use App\Http\Controllers\Docs\BuilderJsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,7 @@ use App\Http\Controllers\Docs\ApiController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [ApiController::class, 'index']);
+Route::get('/', [BuilderJsController::class, 'index']);
 Route::get('docs/api/lookup', [ApiController::class, 'lookup']);
 Route::post('docs/api/save-theme', [ApiController::class, 'saveTheme']);
 Route::post('docs/api/save-lang', [ApiController::class, 'saveLang']);

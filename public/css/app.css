@@ -1025,3 +1025,6 @@ svg {
 .toogle-close, .toogle-open {
     user-select: none;
 }
+.display-inline {
+    display: inline!important;
+}
