@@ -1,29 +1,15 @@
 <div id="{{ $resource['name'] }}" class="subsection">
     <h4 class="mb-4">{{ $resource['title'] }}</h4>
     <div class="row">
-        <div class="col-md-7 pr-5">                        
-            <p>BuilderJS comes with <code>init()</code> helper function allowing you to quickly initiate the builder and append it to your current web page.</p>
-
-            <p>Simply include the BuilderJS JavaScript and CSS files to your HTML page and initiate it on page load. See sample code in the right panel, <code>javascript</code> tab, to see how easy it is to load a fully-functioning builder to your webpage. With minimum configuration like that, the builder loads with a default blank design page like below</p>
-
-            <p><img width="100%" src="https://builderjs.s3.amazonaws.com/BuilderJS-00303.png" title="Default Blank Page" alt="Default Blank Page" /></p>
+        <div class="col-md-10 pr-5">                        
+            <p>Notice the <code>"root"</code> parameter which is important for BuilderJS to find the related resources. For example, if your BuilderJS distributable <code>dist/</code> folder is available at <code>http://example.com/project/dist/</code>, then you need to set your <code>"root"</code> value to an <strong>absolute path</strong> of <code>"/project/dist/"</code>. Remember to <strong>add both leading and trailing slashes</strong></p>
+            <aside class="alert alert-warning mt-5">
+                <i class="material-icons-outlined">error_outline</i>
+                Instantiate the <code>builder</code> object and use <code>init()</code> helper function is the easiest way to get started with the builder. See more advanced configuration options in the next sections of this document.
+            </aside>
         </div>
         <div class="col-md-5">                        
-            <div class="sticky two-blocks">
-                <div class="code-box response">
-                    <div class="box-header">
-                        <div class="box-title">QUIDE</div>
-                    </div>
-                    <div class="code-blocks p-3">
-                        <p>Put the following HTML JavaScript code snippet to your HTML page:</p>
-                        <p>It's that simple! The builder's <code class="display-inline">init()</code>
-                            function will do the magic of
-                            rendering the entire builder
-                            view with its default settings and append it to your page's <code class="display-inline">body</code>.
-                        </p>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div>
 </div>
