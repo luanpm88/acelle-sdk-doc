@@ -2,7 +2,10 @@
     <div class="attribute-row">
         <div class="my-1">
             <span class="attribute-title">{{ $row['name'] }}</span>
-            <span class="attribute-type">{{ $row['type'] }}</span>
+            <span class="attribute-type">{{ isset($row['type']) ? $row['type'] : '' }}</span>
+            @if (isset($row['default']))
+                <span class="attribute-default ml-auto">; default: <code>{{ $row['default'] }}</code></span>
+            @endif
         </div>
         <div class="attribute-desc">
             {!! $row['desc'] !!}

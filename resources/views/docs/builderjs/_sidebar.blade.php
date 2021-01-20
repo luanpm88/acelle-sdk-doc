@@ -200,7 +200,7 @@
 
         load(callback) {
             var search = this;
-            var url = '{{ action("App\Http\Controllers\Docs\ApiController@lookup") }}';
+            var url = '{{ action("App\Http\Controllers\Docs\BuilderJsController@lookup") }}';
             var keyword = this.keyword();
 
             if (!search.popup.find('.result-rows .loading').length) {

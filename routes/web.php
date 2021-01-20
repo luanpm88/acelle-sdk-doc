@@ -16,6 +16,8 @@ use App\Http\Controllers\Docs\BuilderJsController;
 |
 */
 Route::get('/', [BuilderJsController::class, 'index']);
+Route::get('docs/buiderjs/lookup', [BuilderJsController::class, 'lookup']);
+
 Route::get('docs/api/lookup', [ApiController::class, 'lookup']);
 Route::post('docs/api/save-theme', [ApiController::class, 'saveTheme']);
 Route::post('docs/api/save-lang', [ApiController::class, 'saveLang']);

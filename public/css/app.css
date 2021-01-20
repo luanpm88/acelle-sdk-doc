@@ -645,6 +645,12 @@ button:focus, button:active {
     color: #8792a2;
     font-size: 90%;
 }
+.attribute-default {
+    font-family: Menlo,Consolas,monospace;
+    font-weight: 400;
+    color: #8792a2;
+    font-size: 90%;
+}
 .attribute-desc {
     font-size: 90%;
 }
