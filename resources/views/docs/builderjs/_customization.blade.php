@@ -15,22 +15,22 @@
             <div class="sticky two-blocks">
                 @include('docs.builderjs._html', [
                     'title' => 'From a public URL',
-                    'lines' => 9,
+                    'lines' => 16,
                     'html' => 'class MySampleWidget extends Widget {
-// get HTML to insert into content
-init() {
-    super.init();
-}
+    // get HTML to insert into content
+    init() {
+        super.init();
+    }
 
-title() {
-    return &#x27;My Sample Widget&#x27;;
-}
+    title() {
+        return &#x27;My Sample Widget&#x27;;
+    }
 
-renderHtml() {
-    return &#x27;&#x3C;div&#x3E; A Simple Widget with 1 line of text &#x3C;/div&#x3E;&#x27;;
-}
+    renderHtml() {
+        return &#x27;&#x3C;div&#x3E; A Simple Widget with 1 line of text &#x3C;/div&#x3E;&#x27;;
+    }
 
-// custom behavior goes here...',
+    // custom behavior goes here...',
                 ])
             </div>
         </div>

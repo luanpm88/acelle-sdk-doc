@@ -45,6 +45,264 @@
                                 'type' => 'string',
                                 'desc' => 'The parent element to which BuilderJS renders its content. It is <code>document.root</code> by default',
                             ],
+                            [
+                                'name' => 'disableFeatures',
+                                'type' => 'string',
+                                'desc' => 'List of feature names separated by commas. The features that are removed from BuilderJs.',
+                                'attributes' => [
+                                    [
+                                        'name' => 'change_template',
+                                        'desc' => 'Change template feature',
+                                    ],
+                                    [
+                                        'name' => 'export',
+                                        'desc' => 'Export button in the top right menu',
+                                    ],
+                                    [
+                                        'name' => 'save_close',
+                                        'desc' => 'Save & Close button',
+                                    ],
+                                    [
+                                        'name' => 'footer_exit',
+                                        'desc' => 'Exit link in the footer of builder',
+                                    ],
+                                    [
+                                        'name' => 'help',
+                                        'desc' => 'Help section in the top right menu',
+                                    ],
+                                ],
+                            ],[
+                                'name' => 'disableWidgets',
+                                'type' => 'string',
+                                'desc' => 'List of widget class names separated by commas. The widgets that are removed from BuilderJs.',
+                                'attributes' => [
+                                    [
+                                        'name' => 'TextareaFieldWidget',
+                                    ],
+                                    [
+                                        'name' => 'CheckboxFieldWidget',
+                                    ],
+                                    [
+                                        'name' => 'MultiselectFieldWidget',
+                                    ],
+                                    [
+                                        'name' => 'NumberFieldWidget',
+                                    ],
+                                    [
+                                        'name' => 'SubmitButtonWidget',
+                                    ],
+                                    [
+                                        'name' => 'IpFieldWidget',
+                                    ],
+                                    [
+                                        'name' => 'RatingFieldWidget',
+                                    ],
+                                    [
+                                        'name' => 'RadioFieldWidget',
+                                    ],
+                                    [
+                                        'name' => 'DateFieldWidget',
+                                    ],
+                                    [
+                                        'name' => 'DropdownFieldWidget',
+                                    ],
+                                    [
+                                        'name' => 'EmailFieldWidget',
+                                    ],
+                                    [
+                                        'name' => 'TextFieldWidget',
+                                    ],
+                                    [
+                                        'name' => 'SocialLinksBlockWidget',
+                                    ],
+                                    [
+                                        'name' => 'FooterBlockWidget',
+                                    ],
+                                    [
+                                        'name' => 'TwoArticlesBlockWidget',
+                                    ],
+                                    [
+                                        'name' => 'TwoArticlesRTLBlockWidget',
+                                    ],
+                                    [
+                                        'name' => 'ThreeColumnsBlockWidget',
+                                    ],
+                                    [
+                                        'name' => 'TwoColumnsBlockWidget',
+                                    ],
+                                    [
+                                        'name' => 'OneColumnBlockWidget',
+                                    ],
+                                    [
+                                        'name' => 'IntroBlockWidget',
+                                    ],
+                                    [
+                                        'name' => 'HeroImageWidget',
+                                    ],
+                                    [
+                                        'name' => 'HeaderBlockWidget',
+                                    ],
+                                    [
+                                        'name' => 'OneRowWidget',
+                                    ],
+                                    [
+                                        'name' => 'TwoRow48Widget',
+                                    ],
+                                    [
+                                        'name' => 'TwoRow66Widget',
+                                    ],
+                                    [
+                                        'name' => 'TwoRow84Widget',
+                                    ],
+                                    [
+                                        'name' => 'ThreeRow444Widget',
+                                    ],
+                                    [
+                                        'name' => 'FourRow3333Widget',
+                                    ],
+                                    [
+                                        'name' => 'TextWidget',
+                                    ],
+                                    [
+                                        'name' => 'BoxedTextWidget',
+                                    ],
+                                    [
+                                        'name' => 'ImageWidget',
+                                    ],
+                                    [
+                                        'name' => 'ButtonWidget',
+                                    ],
+                                    [
+                                        'name' => 'DividerWidget',
+                                    ],
+                                    [
+                                        'name' => 'SocialWidget',
+                                    ],
+                                    [
+                                        'name' => 'HtmlWidget',
+                                    ],
+                                    [
+                                        'name' => 'VideoWidget',
+                                    ],
+                                    [
+                                        'name' => 'ImageCaptionWidget',
+                                    ],
+                                    [
+                                        'name' => 'FooterWidget',
+                                    ],
+                                    [
+                                        'name' => 'HeaderWidget',
+                                    ],
+                                    [
+                                        'name' => 'TableWidget',
+                                    ],
+                                    [
+                                        'name' => 'Table4Widget',
+                                    ],
+                                    [
+                                        'name' => 'Table5Widget',
+                                    ],
+                                    [
+                                        'name' => 'ListImageWidget',
+                                    ],
+                                    [
+                                        'name' => 'ProgressBarWidget',
+                                    ],
+                                    [
+                                        'name' => 'ListGroupWidget',
+                                    ],
+                                    [
+                                        'name' => 'PanelWidget',
+                                    ],
+                                    [
+                                        'name' => 'ImageHeaderWidget',
+                                    ],
+                                    [
+                                        'name' => 'JumbotronWidget',
+                                    ],
+                                    [
+                                        'name' => 'MeterialWidget',
+                                    ],
+                                    [
+                                        'name' => 'NavbarWidget',
+                                    ],
+                                    [
+                                        'name' => 'PricingTableWidget',
+                                    ],
+                                    [
+                                        'name' => 'ServicesListWidget',
+                                    ],
+                                    [
+                                        'name' => 'ImageGridWidget',
+                                    ],
+                                    [
+                                        'name' => 'UserProfileWidget',
+                                    ],
+                                    [
+                                        'name' => 'DivContainerWidget',
+                                    ],
+                                    [
+                                        'name' => 'ContainerWidget',
+                                    ],
+                                    [
+                                        'name' => 'WellWidget',
+                                    ],
+                                    [
+                                        'name' => 'MediaObjectWidget',
+                                    ],
+                                    [
+                                        'name' => 'ParagraphWidget',
+                                    ],
+                                    [
+                                        'name' => 'MarkedTextWidget',
+                                    ],
+                                    [
+                                        'name' => 'DefinitionListWidget',
+                                    ],
+                                    [
+                                        'name' => 'BlockqouteWidget',
+                                    ],
+                                    [
+                                        'name' => 'UnorderedListWidget',
+                                    ],
+                                    [
+                                        'name' => 'HeadingWidget',
+                                    ],
+                                    [
+                                        'name' => 'LinkWidget',
+                                    ],
+                                    [
+                                        'name' => 'ButtonGroupWidget',
+                                    ],
+                                    [
+                                        'name' => 'ButtonToolbarWidget',
+                                    ],
+                                    [
+                                        'name' => 'InputFieldWidget',
+                                    ],
+                                    [
+                                        'name' => 'TextAreaWidget',
+                                    ],
+                                    [
+                                        'name' => 'CheckboxWidget',
+                                    ],
+                                    [
+                                        'name' => 'InputGroupWidget',
+                                    ],
+                                    [
+                                        'name' => 'FormGroupWidget',
+                                    ],
+                                    [
+                                        'name' => 'SelectWidget',
+                                    ],
+                                    [
+                                        'name' => 'FormWidget',
+                                    ],
+                                    [
+                                        'name' => 'CustomWidget',
+                                    ],
+                                ],
+                            ],
                         ],
                     ])
                 </div>

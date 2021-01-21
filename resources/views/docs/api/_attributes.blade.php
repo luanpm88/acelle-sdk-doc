@@ -23,9 +23,11 @@
                     @foreach ($row['attributes'] as $attr)
                         <div class="child-attribute">
                             <div class="attribute-title">{{ $attr['name'] }}</div>
-                            <div class="attribute-desc">
-                                {{ $attr['desc'] }}
-                            </div>
+                            @if (isset($attr['desc']))
+                                <div class="attribute-desc">
+                                    {{ $attr['desc'] }}
+                                </div>
+                            @endif
                         </div>
                         @endforeach
                 </div>
