@@ -2,7 +2,7 @@
     <h4 class="mb-4">Unsubscribe</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Unsubscribe</p>
+            <p>Unsubscribe a contact from a given list. Notice that the contact is still available in the list but of <code>unsubscribed</code> status and Acelle will no longer send marketing emails to this contact. You can completely delete the contact from the list using the <code>DELETE</code> API method.</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>

@@ -2,7 +2,7 @@
     <h4 class="mb-4">Files</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Upload file(s) to customer's storage</p>
+            <p>Every user or customer account has its own storage folder in Acelle platform. You can upload assets (images, video, other file types, etc.) to the customer or user's storage via API. These assets will be then added or attached to the user's email content.</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>

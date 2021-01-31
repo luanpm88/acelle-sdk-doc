@@ -2,7 +2,7 @@
     <h4 class="mb-4">Remove Subscriber</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Remove Subscriber</p>
+            <p>Remove a subscriber from a list and completely erase the subscriber's information in the web platform.</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>

@@ -3,10 +3,10 @@
     <div class="row">
         <div class="col-md-7 pr-5">                        
             <p>The Acelle Mail API (version 1.0) is organized around <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer" target="_blank" rel="noopener noreferrer">REST</a>. Our API has predictable resource-oriented URLs, accepts <a href="https://en.wikipedia.org/wiki/POST_(HTTP)#Use_for_submitting_web_forms" target="_blank" rel="noopener noreferrer">form-encoded</a> request bodies, returns <a href="http://www.json.org/" target="_blank" rel="noopener noreferrer">JSON-encoded</a> responses, and uses standard HTTP response codes, authentication, and verbs. </p>
-            <p>You can use the Acelle Mail API in test mode, which does not affect your live data or interact with the banking networks. The API key you use to <a href="#authentication">authenticate</a> the request determines whether the request is live mode or test mode.</p>
+            
+            <p>The first step is to install your Acelle web application. We have Installation & Getting started guideline (for cPanel or unmanaged server/VPS) included in the <code>guideline/</code> folder of the software package you download from CodeCanyon. It is in HTML format, you can just go to the guideline/ folder, double click on the index.html file to open it on your browser.</p>
             <p>The Acelle Mail API may differ as we release new versions over time. Log in to your installation of Acelle to see the particular version, API base URI and authentication key.</p>
             <p>Visit our <a href="https://codecanyon.net/item/acelle-email-marketing-web-application/17796082">product page</a> for latest updates.</p>
-            
             <div class="SelectClientLibrary mt-5 feedback-box">
                 <div class="SelectClientLibrary-langs">
                     <p class="mt-3"><span class="csat-widget-text">Was this section helpful?</span>
@@ -35,7 +35,7 @@
             <p class="">Acelle Mail is made for users without software programming experience. Just follow the installation & getting started guideline included in our sofware package to install the web application to your hosting server which can be either a VPS (Virtual Private Server) or a managed server's envrionment with a control panel like cPanel or Plesk.</p>
 
             <h6 class="mt-4">Custom development & integration</h6>
-            <p class="">Acelle is pre-designed for rebranding, customization and integration. Our <a href="/docs/development" target="_blank" rel="noopener noreferrer" class="docs-link">Acelle SDK is written in PHP</a>, however, you can use any programming language to interect with Acelle's RESTful API.</p>
+            <p class="">Acelle is pre-designed for rebranding, customization and integration. Our <a href="/docs/development" target="_blank" rel="noopener noreferrer" class="https://packagist.org/packages/acelle/sdk-php" target="_blank">Acelle SDK</a> is written in PHP, however, you can use any programming language to interect with Acelle's RESTful API.</p>
 
             <div class="SelectClientLibrary">
                 <div class="SelectClientLibrary-topbar">
