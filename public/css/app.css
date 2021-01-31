@@ -13,6 +13,15 @@
     background-color: rgba(0,0,0,0.02);
     transition: all 0.2s ease-in-out;
 }
+body {
+    font-size: 14px;
+}
+h2, .h2 {
+    font-size: 24px;
+}
+h5, .h5 {
+    font-size: 16px;
+}
 .logo-light, .logo-dark {
     margin-top: 4px;
     position: absolute;
@@ -245,7 +254,6 @@ a:hover {
 .main-menu li a {
     display: block;
     padding: 5px 15px;
-    font-size: 95%;
     color: #6b768a;
     font-weight: 600;
     transition: all 0.2s ease-in-out;
@@ -666,13 +674,13 @@ button:focus, button:active {
 .hljs, .dark-theme .hljs {
     background: transparent;
     line-height: 1.5;
-    font-size: 13px;
+    font-size: 12px;
     font-family: Menlo,Consolas,monospace;
     padding: 10px 0;
 }
 .line-numbers {
     padding: 15px 5px;
-    font-size: 13px;
+    font-size: 12px;
     line-height: 1.5;
     font-family: Menlo,Consolas,monospace;
     color: #697386;

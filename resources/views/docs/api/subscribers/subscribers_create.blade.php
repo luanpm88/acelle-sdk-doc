@@ -2,7 +2,7 @@
     <h4 class="mb-4">Add new Subscriber</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Add subscriber to list</p>
+            <p>Add a subscriber to a list identified by a <code>UID</code>. Once added, the subscriber's status would be either <code>subscribed / active</code> or <code>pending</code> depending on your list settings (single opt-in or double opt-in)</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>

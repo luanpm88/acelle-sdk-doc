@@ -2,7 +2,7 @@
     <h4 class="mb-4">Notifications</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Send a delivery or abuse report to Acelle Mail which could be a success / bounce / feedback or abuse report</p>
+            <p>Acelle Notification API is also referred to as Web Hooks, allowing 3rd delivery service or application (like PowerMTA, Postfix, Exim...) to send a delivery or abuse report to Acelle for a given transaction which could be a success / bounce / feedback or abuse report</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>

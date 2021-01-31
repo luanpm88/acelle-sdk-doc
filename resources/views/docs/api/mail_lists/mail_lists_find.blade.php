@@ -1,8 +1,8 @@
 <div id="{{ $resource['name'] }}" class="subsection">
-    <h4 class="mb-4">Find a List</h4>
+    <h4 class="mb-4">Get List Details</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Retrive information of a given list identified by a given <code class="inline-code">UID</code> passed to the API call.</p>
+            <p>Retrive information of a list identified by a given <code class="inline-code">UID</code> passed to the API call.</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>

@@ -1,8 +1,8 @@
 <div id="{{ $resource['name'] }}" class="subsection">
-    <h4 class="mb-4">Remove Subscriber</h4>
+    <h4 class="mb-4">{{ $resource['title'] }}</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Remove a subscriber from a list and completely erase the subscriber's information in the web platform.</p>
+            <p>{{ $resource['desc'] }}</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>
@@ -16,14 +16,9 @@
                                 'desc' => 'Your API token. You can find it in your API main page when logged in.',
                             ],
                             [
-                                'name' => 'list_uid',
-                                'type' => 'string',
-                                'desc' => 'Mail list\'s uid',
-                            ],
-                            [
                                 'name' => 'uid',
                                 'type' => 'string',
-                                'desc' => 'Subsciber\'s uid',
+                                'desc' => 'Campaign\'s uid',
                             ],
                         ],
                     ])
@@ -33,24 +28,31 @@
         <div class="col-md-6">                        
             <div class="sticky two-blocks">
                 @include('docs.api._curl', [
-                    'title' => 'DELETE SUBSCRIBER',
+                    'title' => 'PAUSE CAMPAIGN',
                     'curl' => [
-                        'uri' => 'subscribers/<span class="hljs-keyword">{uid}</span>',
-                        'method' => 'DELETE',
+                        'uri' => 'campaigns/<span class="hljs-keyword">{uid}</span>/pause',
+                        'method' => 'GET',
                         'params' => [
                             ['name' => 'api_token', 'value' => '*|token_string|*'],
+                            ['name' => 'uid', 'value' => '*|uid|*'],
                         ],
                     ],
                     'php' => [
-                        'function' => "subscriber()->delete('e31046fce3d83')",
+                        'function' => "campaign()->pause('6006510d1d421')",
                         'lines' => 5,
                     ],
                 ])
 
-                @include('docs.api._response', [
-                    'json' => '{
-    "status": 1,
-    "message": "Deleted"
+                @include('docs.api._response', ['json' => '{
+    "status": "success",
+    "message": "The campaign was paused",
+    "campaign": {
+        "uid": "6006510d1d421",
+        "name": "Copy of Untitled",
+        "list": "",
+        "segment": "",
+        ...
+    }
 }',
                 ])
             </div>
