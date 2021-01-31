@@ -161,6 +161,11 @@ class ApiController extends Controller
                         "desc" => "Find Subscriber by Email",
                     ],
                     [
+                        "name" => "subscribers_add_tag",
+                        "title" => "Add tag",
+                        "desc" => "Add tag to subscriber",
+                    ],
+                    [
                         "name" => "subscribers_subscribe",
                         "title" => "Subscribe",
                         "desc" => "Subscribe",
@@ -192,6 +197,11 @@ class ApiController extends Controller
                         "name" => "campaigns_find",
                         "title" => "Find a Campaign",
                         "desc" => "Get information about a specific campaign",
+                    ],
+                    [
+                        "name" => "campaigns_pause",
+                        "title" => "Pause a Campaign",
+                        "desc" => "Pause a specific campaign",
                     ],
                 ]        
             ],

@@ -693,7 +693,7 @@ button:focus, button:active {
 li.parent ul {
     display: none;
 }
-li.open ul, li.parent:hover ul {
+li.open ul {
     display: block;
 }
 .main-menu li ul li a {
@@ -944,4 +944,96 @@ svg {
 }
 .alert-success h4 {
     color: #155724;
+}
+.child-attributes-container {
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+.child-attributes-container .toogle {
+    color: #697386;
+    border-bottom: none;
+    display: inline-block;
+    padding: 6px 10px;
+    cursor: pointer;
+    text-transform: none;
+    font-size: 14px;
+    border: solid 1px #e3e8ee;
+    border-radius: 16px;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+}
+.dark-theme .child-attributes-container .toogle {
+    color: #a3acb9;
+    border: solid 1px #3c4257;
+}
+.child-attributes-container.open .toogle{
+    border-radius: 16px 16px 0 0;
+    width: 100%;
+}
+.child-attributes-container .toogle svg {
+    margin-right: 5px;
+    transition: transform 0.2s ease-in-out;
+}
+.child-attributes-container .toogle:hover {
+    color: #2a2f45;
+}
+.dark-theme .child-attributes-container .toogle:hover {
+    color: #f7fafc;
+}
+.child-attributes-container .toogle .toogle-open {
+    display: none;
+}
+.child-attributes-container.open .toogle .toogle-open {
+    display: block;
+}
+.child-attributes-container.open .toogle .toogle-close {
+    display: none;
+}
+.child-attributes-container .child-attributes {
+    border: solid 1px #e3e8ee;
+    border-top: none;
+    transform-origin: top center;
+    transform: scaleY(0);
+    transition: all 0.1s ease-in-out;
+    opacity: 0;
+    height: 0;
+}
+.dark-theme .child-attributes-container .child-attributes {
+    border-color: #3c4257;
+}
+.child-attributes-container.open .child-attributes {
+    transform: scaleY(1);
+    opacity: 1;
+    height: auto;
+    border-radius: 0 0 16px 16px;
+}
+.child-attributes-container.open .toogle svg {
+    transform: rotate(45deg);
+}
+
+.child-attributes .child-attribute {
+    padding: 16px 10px;
+    border-bottom: solid 1px #e3e8ee;
+    transition: border-color 0.2s ease-in-out;
+}
+.dark-theme .child-attributes .child-attribute {
+    border-bottom: solid 1px #3c4257;
+}
+.child-attributes .child-attribute:last-child {
+    border-bottom: none;
+}
+.toogle-close, .toogle-open {
+    user-select: none;
+}
+.display-inline {
+    display: inline!important;
+}
+.dark-theme .alert-warning {
+    color: #ffffff;
+    background-color: rgba(186, 144, 54, 0.71);
+    border-color: #bd8e00;
+    transition: all 0.2s ease-in-out;
+}
+.dark-theme .alert-warning code {
+    color: #ffa2cd;
 }
