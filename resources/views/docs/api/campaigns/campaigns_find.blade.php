@@ -2,7 +2,7 @@
     <h4 class="mb-4">Find a Campaign</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Find a Campaign</p>
+            <p>Get information in details of a given campaign identified by <code>UID</code></p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>

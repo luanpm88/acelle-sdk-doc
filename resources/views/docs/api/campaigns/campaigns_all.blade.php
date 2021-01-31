@@ -2,7 +2,7 @@
     <h4 class="mb-4">View Campaigns</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Get the list of all your campaigns</p>
+            <p>Get the list of all campaigns</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>
