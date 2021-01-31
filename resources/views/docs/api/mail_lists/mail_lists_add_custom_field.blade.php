@@ -2,7 +2,7 @@
     <h4 class="mb-4">Add Custom Field</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Add custom field to list</p>
+            <p>Beside common fields of a contact like emails, names, addresses, cellphone numbers, etc. You can add customized fields to your mail lists to store more information about your list's contacts such as their preferences, scores, etc. and then you can organize contacts based on specific interest groups within your list/audience.</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>

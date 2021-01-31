@@ -2,7 +2,7 @@
     <h4 class="mb-4">Update Subscriber Information</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Update Subscriber Information</p>
+            <p>Update a subscriber's details, identified by subscriber <code>UID</code>. Notice that a subscriber's UID is globally unique. A contact identified by his/her email address may have more than one UID if he or she is added to more than one list.</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>
