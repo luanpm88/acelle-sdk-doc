@@ -170,7 +170,7 @@ body.dark-theme {
     font-size: 83%;
     display: flex;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 4px;
     background: #f7fafc;
     border-color: #e0e0e0;
     color: #999;
@@ -256,7 +256,7 @@ a:hover {
 }
 .main-menu li a {
     display: block;
-    padding: 5px 15px;
+    padding: 2px 15px;
     color: #6b768a;
     font-weight: 600;
     transition: all 0.2s ease-in-out;

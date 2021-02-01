@@ -1,5 +1,5 @@
 <div id="{{ $resource['name'] }}" class="subsection">
-    <h4 class="mb-4">Create New List</h4>
+    <h4 class="mb-4">Create List</h4>
     <div class="row">
         <div class="col-md-6 pr-5">
             <p>A mail list is a collection of email addresses used by an individual or an organization to send marketing material to multiple recipients. You can have different lists of different group of contacts</p>

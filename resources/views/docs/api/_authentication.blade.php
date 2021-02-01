@@ -16,8 +16,10 @@
             </p>
         </div>
         <div class="col-md-5">
-            <h6>FIND YOUR API TOKEN</h6>
+            <h6>Find your API Token</h6>
             <p class="">You will need to first login to your Acelle account to find the API TOKEN which is available in the <code class="inline-code"> My Profile > API & Authentication</code> dashboard</p>
+            <h6  class="mt-4">API endpoint</h6>
+            <p>Acelle is a self-hosted web platform and every instance of Acelle has its own API endpoint. Remember to replace <code>acelle.com</code> with your own installation's hostname when executing an API call.</p>
         </div>
     </div>
 </div>
