@@ -2,7 +2,7 @@
     <h4 class="mb-4">{{ $resource['title'] }}</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>{{ $resource['desc'] }}</p>
+            <p>Pause a running campaign. You can later on run the campaign again to have it resume from where it left off.</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>

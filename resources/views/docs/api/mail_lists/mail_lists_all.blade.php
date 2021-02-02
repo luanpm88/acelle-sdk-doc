@@ -42,13 +42,13 @@
     {
         "id": 1,
         "uid": "5fade5c93e42a",
-        "name": "Luan Pham",
-        "default_subject": "luanpm88@gmail.com",
-        "from_email": "luanpm@live.com",
-        "from_name": "Luan Pham",
+        "name": "My Awesome Campaign",
+        "default_subject": "An Awesome Subject",
+        "from_email": "support@acelle.com",
+        "from_name": "Customer Support",
         "status": null,
-        "created_at": "2020-11-13 01:47:53",
-        "updated_at": "2020-12-04 07:29:24"
+        "created_at": "2021-11-13 01:47:53",
+        "updated_at": "2021-12-04 07:29:24"
     },
     {
         "id": 2,

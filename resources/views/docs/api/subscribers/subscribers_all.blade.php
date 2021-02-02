@@ -1,8 +1,8 @@
 <div id="{{ $resource['name'] }}" class="subsection">
-    <h4 class="mb-4">All Subscribers</h4>
+    <h4 class="mb-4">List Subscribers</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>See the all subscribers of a given list identified by a <code>UID</code></p>
+            <p>List all subscribers of a given list identified by a <code>UID</code></p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>
