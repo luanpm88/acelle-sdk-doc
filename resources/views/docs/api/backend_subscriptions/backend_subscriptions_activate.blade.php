@@ -2,7 +2,7 @@
     <h2 class="mb-4">Activate Subscription</h2>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Admin activate pending subscription</p>
+            <p>Approve and activate a subscription which is in pending status. Normally, it is used for offline payment when the administrator receives an offline payment and proceeds with activating a pending subscription.</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>

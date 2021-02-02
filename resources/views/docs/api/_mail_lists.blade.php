@@ -1,7 +1,7 @@
 <div id="{{ $resource['name'] }}" class="subsection">
-    <h2 class="mb-4">Mail Lists</h2>
+    <h2 class="mb-4">Lists</h2>
     <p class="mb-5">
-        Your Acelle Mail List (also referred to as Audience) is the center of email marketing management system. It is designed to help you collect and manage subscribed, non-subscribed, and unsubscribed contacts. Acelle Mail's LIST API allows you to create, edit your mail lists as well as manage your lists' contacts.
+        Mail Lists, also referred to as Audience, are at the center of email marketing management systems.<br>It is designed to help you collect and manage subscribed, non-subscribed, and unsubscribed contacts.<br>Acelle's List API allows you to create, edit your mail lists as well as manage your lists' contacts.
     </p>
     
     @if (isset($resource['children']))
