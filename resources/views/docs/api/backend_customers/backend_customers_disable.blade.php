@@ -2,7 +2,7 @@
     <h2 class="mb-4">Disable Customer</h2>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Disable Customer</p>
+            <p>Disable a Customer, preventing the Customer from logging to the application.</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>

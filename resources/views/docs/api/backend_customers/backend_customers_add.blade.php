@@ -1,8 +1,8 @@
 <div id="{{ $resource['name'] }}" class="subsection">
-    <h2 class="mb-4">Add new Customer</h2>
+    <h2 class="mb-4">Create Customer</h2>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Add new Customer</p>
+            <p>Create a new customer account. You can later on subscribe the newly created customer to a plan using <code>PLAN</code> api.</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>

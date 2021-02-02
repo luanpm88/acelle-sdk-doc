@@ -1,8 +1,8 @@
 <div id="{{ $resource['name'] }}" class="subsection">
-    <h2 class="mb-4">Find Customer</h2>
+    <h2 class="mb-4">Get Customer's Details</h2>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Find Customer</p>
+            <p>Get detailed information of a customer identified by a <code>UID</code> code</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>

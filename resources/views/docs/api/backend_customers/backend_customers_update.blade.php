@@ -2,7 +2,7 @@
     <h2 class="mb-4">Update Customer</h2>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Update Customer</p>
+            <p>Update a customer's attributes, identified by a <code>UID</code> code</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>
