@@ -1048,3 +1048,9 @@ svg {
 .dark-theme .alert-warning code {
     color: #ffa2cd;
 }
+.menu-scroll {
+    overflow-y: hidden;
+}
+.menu-scroll:hover {
+    overflow-y: auto;
+}
