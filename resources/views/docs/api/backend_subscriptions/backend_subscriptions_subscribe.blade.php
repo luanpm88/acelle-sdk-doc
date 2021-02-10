@@ -1,8 +1,8 @@
 <div id="{{ $resource['name'] }}" class="subsection">
-    <h2 class="mb-4">Subscribe customer to a plan</h2>
+    <h2 class="mb-4">Create a subscription</h2>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Subscribe customer to a plan</p>
+            <p>Create new subscription for a user. In other words, subscribe a user to a plan. Then the user will be able to login to the application and proceed with payment for the plan. If the plan is free, then the user is subscribed and can immediately use the features.</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>

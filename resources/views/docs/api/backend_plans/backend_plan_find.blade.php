@@ -1,8 +1,8 @@
 <div id="{{ $resource['name'] }}" class="subsection">
-    <h2 class="mb-4">Find a Plan</h2>
+    <h2 class="mb-4">List Plans</h2>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>List of all plans in json</p>
+            <p>List all plans available</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>

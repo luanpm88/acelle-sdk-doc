@@ -1,8 +1,8 @@
 <div id="{{ $resource['name'] }}" class="subsection">
-    <h4 class="mb-4">Sending Servers</h4>
+    <h4 class="mb-4">List Sending Servers</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Get information about all sending servers</p>
+            <p>A sending server in Acelle is actually a connection to a sending server or service. Normally, it is an SMTP server which actually delivers marketing emails. You can configure Acelle to sends email through a remote SMTP server or a local mailer program installed in the hosting server itself. Acelle currently does not support creating a sending server via API, you may want to login to the web UI to do it. However, you can list all available sending servers in the system using API.</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>
@@ -13,7 +13,7 @@
                             [
                                 'name' => 'api_token',
                                 'type' => 'string',
-                                'desc' => 'Your API token. You can find it in your API main page when logged in.',
+                                'desc' => 'User\'s API token. You can find it in your profile settings page',
                             ],
                         ],
                     ])

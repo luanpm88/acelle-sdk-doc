@@ -2,7 +2,7 @@
     <h2 class="mb-4">Enable Customer</h2>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Enable Customer</p>
+            <p>Enable a customer if the customer was previously disabled.</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>

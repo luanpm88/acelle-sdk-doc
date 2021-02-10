@@ -167,7 +167,7 @@ class ApiController extends Controller
                     ],
                     [
                         "name" => "subscribers_subscribe",
-                        "title" => "Create Subscription",
+                        "title" => "Subscribe",
                         "desc" => "Subscribe a contact to a given list",
                     ],
                     [

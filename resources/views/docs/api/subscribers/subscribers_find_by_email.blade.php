@@ -1,8 +1,8 @@
 <div id="{{ $resource['name'] }}" class="subsection">
-    <h4 class="mb-4">Find Subscriber by Email</h4>
+    <h4 class="mb-4">Find Subscribers by Email</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Find a contact details by email. In Acelle platform, a contact is identified by his/her unique email address and he or she may belong to more than one list with different list's specific values. For example, a contact may have different ADDRESS values in different lists</p>
+            <p>In Acelle platform, a contact is identified by his/her unique email address and he or she may belong to more than one list with different list's specific values. For example, a contact may have different ADDRESS values in different lists</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>

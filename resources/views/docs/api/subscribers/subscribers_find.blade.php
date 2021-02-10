@@ -1,8 +1,8 @@
 <div id="{{ $resource['name'] }}" class="subsection">
-    <h4 class="mb-4">Find a Subscriber</h4>
+    <h4 class="mb-4">Get Subscriber's Details</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Get a subscriber details, identified by subscriber <code>UID</code>. Notice that a subscriber's UID is globally unique. A contact identified by his/her email address may have more than one UID if he or she is added to more than one list.</p>
+            <p>Get detailed information of a subscriber identified by an <code>UID</code> code. Notice that a subscriber's UID is globally unique. A contact identified by his/her email address may have more than one UID if he or she is added to more than one list.</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>

@@ -2,7 +2,7 @@
     <h2 class="mb-4">Assign Plan</h2>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Assign Plan</p>
+            <p>Assign a plan to a customer. In other words, subscribe a user to a plan. Then the customer will then be able to login to the application and proceed with paying for the plan. If the plan is free, then the user is subscribed and can immediately use the features.</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>

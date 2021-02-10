@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-7 pr-5">
             <p>
-            Acelle Mail API employs simple Token Authentication which is also referred Bearer Authentication.
+            Acelle Mail API employs simple Token Authentication which is also referred to as Bearer Authentication.
             That is, every Acelle user account has an authentication token. The token must be sent in either the <code>Authorization</code> HTTP header or in the query string URL when making requests to protected resources:</p>
 
             <p><code class="inline-code">Authorization: Bearer &lt;token&gt;</code></p>
