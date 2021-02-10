@@ -2,7 +2,7 @@
     <h4 class="mb-4">Subscribe</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Add a subscriber to a list identified by a <code>UID</code>. Once added, the subscriber's status would be either <code>pending</code>. This also triggers a confirmation email sending to the subsriber's email address for verification.</p>
+            <p>Add a subscriber to a list identified by a <code>UID</code>. Once added, the subscriber's status would be either <code>pending</code>. This also triggers a confirmation email sending to the subscriber's email address for verification.</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>

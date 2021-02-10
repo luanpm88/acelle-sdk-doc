@@ -1,8 +1,8 @@
 <div id="{{ $resource['name'] }}" class="subsection">
-    <h4 class="mb-4">Add Subsctiber Tag</h4>
+    <h4 class="mb-4">Add Tag</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Add tag to subscriber</p>
+            <p>Add one or more tags to a given subscriber. Tagging allows you to add custom labels to your subscribers, giving you the ability to reach people based on specific traits.</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>

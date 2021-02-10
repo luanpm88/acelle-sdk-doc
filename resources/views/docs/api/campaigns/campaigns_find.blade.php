@@ -1,8 +1,8 @@
 <div id="{{ $resource['name'] }}" class="subsection">
-    <h4 class="mb-4">Find a Campaign</h4>
+    <h4 class="mb-4">Get Campaign's Details</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Find a Campaign</p>
+            <p>Get detailed information and statistics of a campaign identified by a <code>UID</code> code.</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>
@@ -49,8 +49,8 @@
         "list":"",
         "segment":"",
         "default_subject":null,
-        "from_email":"luanpm@live.com",
-        "from_name":"Luan Pham",
+        "from_email":"marketing@acelle.com",
+        "from_name":"Marketing Department",
         "remind_message":null,
         "status":"new",
         "created_at":[],

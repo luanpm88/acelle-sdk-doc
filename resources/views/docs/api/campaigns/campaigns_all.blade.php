@@ -1,8 +1,8 @@
 <div id="{{ $resource['name'] }}" class="subsection">
-    <h4 class="mb-4">View Campaigns</h4>
+    <h4 class="mb-4">List Campaigns</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Get the list of all your campaigns</p>
+            <p>List all campaigns including new, running or closed ones.</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>
@@ -41,18 +41,18 @@
                     'json' => '[
     {
         "uid":"5fb48ff221b27",
-        "name":"Untitled",
+        "name":"My Awesome Campaign",
         "type":"regular",
-        "subject":"luanpm88@gmail.com",
+        "subject":"An Awesome Subject",
         "html":"<!DOCTYPE html>\n<html lang=\"en\">\n...",
             "plain": "One column layout...",
-            "from_email": "luanpm@live.com",
-            "from_name":"Luan Pham",
-            "reply_to":"luanpm@live.com",
+            "from_email": "marketing@acelle.com",
+            "from_name":"No Reply",
+            "reply_to":"support@acelle.com",
             "status":"new",
             "delivery_at":null,
-            "created_at":"2020-11-18 03:07:30",
-            "updated_at":"2020-11-18 03:07:41"
+            "created_at":"2021-11-18 03:07:30",
+            "updated_at":"2021-11-18 03:07:41"
     },
     ...
 ]',
