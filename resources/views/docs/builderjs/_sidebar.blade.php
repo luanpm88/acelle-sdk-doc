@@ -124,6 +124,14 @@
         onScroll();
 
         $('.main-content').on("scroll", onScroll);
+        
+        $('.main-content').on("scroll", function() {
+            var current = $('.main-menu a.menu-item.current').attr('href');
+            var menu = $(current);
+            menu.attr('id', 'tmp');
+            document.location.hash = current;
+            menu.attr('id', current.replace('#',''));
+        });
 
         //smoothscroll
         $('.main-menu a.menu-item[href^="#"]').on('click', function (e) {
