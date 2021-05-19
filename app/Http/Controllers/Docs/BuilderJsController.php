@@ -181,7 +181,7 @@ class BuilderJsController extends Controller
                         "title" => "Request parameters",
                         "desc" => "List of parameters passed to the server along with the request",
                     ],
-                ],                
+                ],
             ],
             [
                 "name" => "intergration",
@@ -193,7 +193,14 @@ class BuilderJsController extends Controller
                 "name" => "customization",
                 "type" => "all",
                 "title" => "Customization",
-                "desc" => "BuilderJS is written in a well designed structure, allowing easy and straightforward customization.",        
+                "desc" => "BuilderJS is written in a well designed structure, allowing easy and straightforward customization.",
+                "children" => [
+                    [
+                        "name" => "add_customer_widget",
+                        "title" => "Add custom widget",
+                        "desc" => "CustomButtonWidget example",
+                    ],
+                ],         
             ],
             [
                 "name" => "saas_support",
