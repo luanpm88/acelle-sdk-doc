@@ -119,77 +119,64 @@
 </div>
 
 <script>
-    var allowScroll = true;
     $(document).ready(function () {
         onScroll();
 
         $('.main-content').on("scroll", onScroll);
-        
         $('.main-content').on("scroll", function() {
-            var current = $('.main-menu a.menu-item.current').attr('href');
-            var menu = $(current);
-            menu.attr('id', 'tmp');
-            document.location.hash = current;
-            menu.attr('id', current.replace('#',''));
+            tagHash();
         });
 
         //smoothscroll
         $('.main-menu a.menu-item[href^="#"]').on('click', function (e) {
             e.preventDefault();
 
-            if (!$(this).hasClass('current')) {
-                $(document).off("scroll");
-                
-                $('a').each(function () {
-                    $(this).removeClass('current');
-                })
-                $(this).addClass('current');
+            var target = this.hash,
+                menu = target;
+            $target = $(target);
 
-                $('li.parent').removeClass('open');
-                $('li.parent a.current').closest('li.parent').addClass('open');
-            
-                var target = this.hash,
-                    menu = target;
-                $target = $(target);
+            window.location.hash = target;
 
-                allowScroll = false;
-                $('.main-content').stop().animate({
-                    'scrollTop': $target.offset().top
-                }, 100, 'swing', function () {
-                    window.location.hash = target;
-                    setTimeout(function() {
-                        allowScroll = true;
-                    }, 100);
-                });
-            }
+            setCurrent($(this));
+            tagHash();
+            // onScroll();
         });
 
-        if(window.location.hash && $('.main-content').scrollTop() == 0) {
-            // Fragment exists
-            $('.main-menu a.menu-item[href="'+window.location.hash+'"]').click();
+        // find current item
+        var currLink = $('.main-menu a.menu-item.current');
+        if (!currLink.length) {
+            currLink = $('.main-menu a.menu-item').first();
         }
+        setCurrent(currLink);
     });
 
-    function onScroll(event){
-        if (!allowScroll) {
-            return;
-        }
+    function setCurrent(menu) {
+        $('a').each(function () {
+            $(this).removeClass('current');
+        })
+        menu.addClass('current');
 
+        $('li.parent').removeClass('open');
+        $('li.parent a.current').closest('li.parent').addClass('open');
+    }
+
+    function tagHash() {
+        var current = $('.main-menu a.menu-item.current').attr('href');
+        var menu = $(current);
+        menu.attr('id', 'tmp');
+        document.location.hash = current;
+        menu.attr('id', current.replace('#',''));
+    }
+
+    function onScroll(event) {
         var scrollPos = $('.main-content').scrollTop();
         $('.main-menu a.menu-item').each(function () {
             var currLink = $(this);
             var refElement = $(currLink.attr("href"));
-            if (refElement.position().top <= 0 && refElement.position().top + refElement.outerHeight() > 0) {
-                $('.main-menu a.menu-item').removeClass("current");
-                currLink.addClass("current");
-            }
-            else{
-                currLink.removeClass("current");
+            if (refElement.position().top < 10 && refElement.position().top + refElement.outerHeight() > 0) {
+                setCurrent(currLink);
             }
         });
-
-        $('li.parent').removeClass('open');
-        $('li.parent a.current').closest('li.parent').addClass('open');
     }
 
     class Search {
