@@ -290,11 +290,6 @@ class ApiController extends Controller
                         "title" => "Create Subscription",
                         "desc" => "Subscribe customer to a plan",
                     ],
-                    [
-                        "name" => "backend_subscriptions_activate",
-                        "title" => "Activate Subscription",
-                        "desc" => "Activate a pending subscription",
-                    ],
                 ],
             ],
         ];
