@@ -286,6 +286,11 @@ class ApiController extends Controller
                 "desc" => "Manage subscriptions",
                 "children" => [
                     [
+                        "name" => "backend_subscriptions_list",
+                        "title" => "Subscription List",
+                        "desc" => "List all subscriptions",
+                    ],
+                    [
                         "name" => "backend_subscriptions_subscribe",
                         "title" => "Create Subscription",
                         "desc" => "Subscribe customer to a plan",
