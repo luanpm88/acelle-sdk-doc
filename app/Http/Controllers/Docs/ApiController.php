@@ -127,6 +127,11 @@ class ApiController extends Controller
                         "title" => "Add Custom Field",
                         "desc" => "Add custom fields to list",
                     ],
+                    [
+                        "name" => "mail_lists_delete",
+                        "title" => "Delete",
+                        "desc" => "Completely delete list",
+                    ],
                 ],                
             ],
             [
