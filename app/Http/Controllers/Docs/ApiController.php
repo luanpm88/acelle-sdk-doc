@@ -127,6 +127,11 @@ class ApiController extends Controller
                         "title" => "Add Custom Field",
                         "desc" => "Add custom fields to list",
                     ],
+                    [
+                        "name" => "mail_lists_delete",
+                        "title" => "Delete",
+                        "desc" => "Completely delete list",
+                    ],
                 ],                
             ],
             [
@@ -286,14 +291,14 @@ class ApiController extends Controller
                 "desc" => "Manage subscriptions",
                 "children" => [
                     [
+                        "name" => "backend_subscriptions_list",
+                        "title" => "Subscription List",
+                        "desc" => "List all subscriptions",
+                    ],
+                    [
                         "name" => "backend_subscriptions_subscribe",
                         "title" => "Create Subscription",
                         "desc" => "Subscribe customer to a plan",
-                    ],
-                    [
-                        "name" => "backend_subscriptions_activate",
-                        "title" => "Activate Subscription",
-                        "desc" => "Activate a pending subscription",
                     ],
                 ],
             ],
