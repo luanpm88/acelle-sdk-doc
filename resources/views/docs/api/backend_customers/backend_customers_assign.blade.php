@@ -25,6 +25,11 @@
                                 'type' => 'string',
                                 'desc' => 'Plan\'s uid',
                             ],
+                            [
+                                'name' => 'disable_billing',
+                                'type' => 'boolean',
+                                'desc' => 'Activate the subscription without checking out. Default: false',
+                            ],
                         ],
                     ])
                 </div>
