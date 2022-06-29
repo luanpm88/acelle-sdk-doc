@@ -35,14 +35,14 @@
                 @include('docs.api._curl', [
                     'title' => 'UNSUBSCRIBE',
                     'curl' => [
-                        'uri' => 'subscribers/<span class="hljs-keyword">{uid}</span>/unsubscribe',
+                        'uri' => 'lists/<span class="hljs-keyword">{list_uid}</span>/subscribers/<span class="hljs-keyword">{uid}</span>/unsubscribe',
                         'method' => 'PATCH',
                         'params' => [
                             ['name' => 'api_token', 'value' => '*|token_string|*'],
                         ],
                     ],
                     'php' => [
-                        'function' => "subscriber()->unsubscribe('e31046fce3d83')",
+                        'function' => "list()->unsubscribe(\$uid = 'e31046fce3d83', \$subscriber_uid = '6292e06666859')",
                         'lines' => 5,
                     ],
                 ])
