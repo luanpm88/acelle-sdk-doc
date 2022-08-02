@@ -1,8 +1,8 @@
 <div id="{{ $resource['name'] }}" class="subsection">
-    <h2 class="mb-4">Activate Subscription</h2>
+    <h2 class="mb-4">Create a subscription</h2>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Approve and activate a subscription which is in pending status. Normally, it is used for offline payment when the administrator receives an offline payment and proceeds with activating a pending subscription.</p>
+            <p>List all subscriptions from application.</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>
@@ -16,9 +16,14 @@
                                 'desc' => 'Your API token. You can find it in your API main page when logged in.',
                             ],
                             [
-                                'name' => 'uid',
+                                'name' => 'per_page',
                                 'type' => 'string',
-                                'desc' => 'Subscription\'s uid',
+                                'desc' => 'Number of subscriptions each page. Default is 25',
+                            ],
+                            [
+                                'name' => 'page',
+                                'type' => 'string',
+                                'desc' => 'Page number. Default is 1',
                             ],
                         ],
                     ])
@@ -28,25 +33,43 @@
         <div class="col-md-6">              
             <div class="sticky two-blocks">
                 @include('docs.api._curl', [
-                    'title' => 'ACTIVATE SUBSCRIPTION',
+                    'title' => 'SUBSCRIPTIONS',
                     'curl' => [
-                        'uri' => 'subscriptions/<span class="hljs-keyword">{uid}</span>/activate',
-                        'method' => 'POST',
+                        'uri' => 'subscriptions',
+                        'method' => 'GET',
                         'params' => [
                             ['name' => 'api_token', 'value' => '*|token_string|*'],
+                            ['name' => 'per_page', 'value' => '20'],
+                            ['name' => 'plan_uid', 'value' => '1'],
                         ],
                     ],
                     'php' => [
-                        'function' => "subscription()->activate('5faba7496eef4')",
-                        'lines' => 5,
-                    ],
+                        'function' => "subscription()->all([
+    'per_page' => '25',
+    'page' => '1',
+])",
+                        'lines' => 8,
+                    ],                    
                 ])
 
 @include('docs.api._response', [
-    'json' => '{
-    "status": 1,
-    "message": "The subscription was activated successfully.",
-}',
+    'json' => '[
+    {
+        "id": 1,
+        "uid": "5fade5c93e42a",
+        "customer_id": "23",
+        "plan_id": "8",
+        "status": "ended",
+        "current_period_ends_at": null,
+        "ends_at": "2021-11-13 01:47:53"
+    },
+    {
+        "id": 2,
+        "uid": "5fc9e55410e10",
+        ...
+    },
+    ...
+]',
     ])
             </div>   
         </div>

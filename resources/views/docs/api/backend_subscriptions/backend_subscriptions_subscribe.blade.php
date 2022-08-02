@@ -2,7 +2,7 @@
     <h2 class="mb-4">Create a subscription</h2>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Create new subscription for a user. In other words, subscribe a user to a plan. Then the user will be able to login to the application and proceed with payment for the plan. If the plan is free, then the user is subscribed and can immediately use the features.</p>
+            <p>Assign a plan to a customer. In other words, subscribe a user to a plan. Then the customer will then be able to login to the application and proceed with paying for the plan. If the plan is free, then the user is subscribed and can immediately use the features.</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>
@@ -16,7 +16,7 @@
                                 'desc' => 'Your API token. You can find it in your API main page when logged in.',
                             ],
                             [
-                                'name' => 'customer_uid',
+                                'name' => 'uid',
                                 'type' => 'string',
                                 'desc' => 'Customer\'s uid',
                             ],
@@ -24,6 +24,11 @@
                                 'name' => 'plan_uid',
                                 'type' => 'string',
                                 'desc' => 'Plan\'s uid',
+                            ],
+                            [
+                                'name' => 'disable_billing',
+                                'type' => 'boolean',
+                                'desc' => 'Activate the subscription without checking out. Default: false',
                             ],
                         ],
                     ])
@@ -33,31 +38,25 @@
         <div class="col-md-6">              
             <div class="sticky two-blocks">
                 @include('docs.api._curl', [
-                    'title' => 'SUBSCRIBE',
+                    'title' => 'ASSIGN PLAN',
                     'curl' => [
-                        'uri' => 'subscriptions',
+                        'uri' => 'customers/<span class="hljs-keyword">{uid}</span>/assign-plan/<span class="hljs-keyword">{plan_uid}</span>',
                         'method' => 'POST',
                         'params' => [
                             ['name' => 'api_token', 'value' => '*|token_string|*'],
-                            ['name' => 'customer_uid', 'value' => '*|customer_uid|*'],
-                            ['name' => 'plan_uid', 'value' => '*|plan_uid|*'],
                         ],
                     ],
                     'php' => [
-                        'function' => "subscription()->create([
-    'customer_uid' => '5fd1a0097ce01',
-    'plan_uid' => '5fd1a16fb8f27',
-])",
-                        'lines' => 8,
+                        'function' => "customer()->assignPlan('5fd1a0097ce01', '5fd1a16fb8f27')",
+                        'lines' => 5,
                     ],                    
                 ])
 
 @include('docs.api._response', [
     'json' => '{
     "status": 1,
-    "message": "Assigned Anna plan to Free plan successfully.",
-    "customer_uid": "5fd093b62ea11",
-    "plan_uid": "acv093b62erfg"
+    "message": "Customer was assigned to plan",
+    "customer_uid": "5fd093b62ea11"
 }',
     ])
             </div>   
