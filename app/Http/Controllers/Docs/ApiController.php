@@ -204,9 +204,19 @@ class ApiController extends Controller
                         "desc" => "Get detailed information of a campaign",
                     ],
                     [
+                        "name" => "campaigns_run",
+                        "title" => "Run a Campaign",
+                        "desc" => "Run a campaign",
+                    ],
+                    [
                         "name" => "campaigns_pause",
                         "title" => "Pause a Campaign",
                         "desc" => "Pause a running campaign",
+                    ],
+                    [
+                        "name" => "campaigns_resume",
+                        "title" => "Resume a Campaign",
+                        "desc" => "Resume a paused campaign",
                     ],
                 ]        
             ],
