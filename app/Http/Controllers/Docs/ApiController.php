@@ -199,6 +199,16 @@ class ApiController extends Controller
                         "desc" => "List all campaigns available",
                     ],
                     [
+                        "name" => "campaigns_add",
+                        "title" => "Add new campaign",
+                        "desc" => "Add new campaign",
+                    ],
+                    [
+                        "name" => "campaigns_update",
+                        "title" => "Update Campaign",
+                        "desc" => "Update a specific campaign by uid",
+                    ],
+                    [
                         "name" => "campaigns_find",
                         "title" => "Get Campaign Details",
                         "desc" => "Get detailed information of a campaign",
