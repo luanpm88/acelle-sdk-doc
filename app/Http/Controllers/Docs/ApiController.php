@@ -307,6 +307,11 @@ class ApiController extends Controller
                         "title" => "Delete Customer",
                         "desc" => "Delete a customer",
                     ],
+                    [
+                        "name" => "backend_customers_change_plan",
+                        "title" => "Change Plan",
+                        "desc" => "Change current customer's subscription plan",
+                    ],
                 ],
             ],
             [
