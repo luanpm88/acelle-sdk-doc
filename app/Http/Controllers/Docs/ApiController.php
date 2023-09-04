@@ -181,6 +181,11 @@ class ApiController extends Controller
                         "desc" => "Unsubscribe a contact from list",
                     ],
                     [
+                        "name" => "subscribers_unsubscribe_email",
+                        "title" => "Unsubscribe Email",
+                        "desc" => "Unsubscribe a contact from list by email",
+                    ],
+                    [
                         "name" => "subscribers_remove",
                         "title" => "Delete",
                         "desc" => "Completely remove a subscriber from list",
