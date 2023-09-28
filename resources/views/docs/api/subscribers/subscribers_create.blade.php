@@ -31,6 +31,11 @@
                                 'desc' => 'Subscriber\'s tags, seperated by a comma (,).',
                             ],
                             [
+                                'name' => 'status',
+                                'type' => 'string',
+                                'desc' => 'Subscriber\'s status: subscribed | unsubscribed | unconfirmed',
+                            ],
+                            [
                                 'name' => '[OTHER_FIELDS...]',
                                 'type' => 'string',
                                 'desc' => 'All subscriber\'s other fields: FIRST_NAME (?), LAST_NAME (?),... (depending on the list fields configuration)',
@@ -53,6 +58,7 @@
                             ['name' => 'tag', 'value' => 'foo,bar,tag+with+space,'],
                             ['name' => 'FIRST_NAME', 'value' => 'Marine'],
                             ['name' => 'LAST_NAME', 'value' => 'Joze'],
+                            ['name' => 'status', 'value' => 'subscribed'],
                         ],
                     ],
                     'php' => [
@@ -62,6 +68,7 @@
     'tag' => 'foo,bar,tag+with+space,',
     'FIRST_NAME' => 'Marine',
     'LAST_NAME' => 'Joze',
+    'status' => 'subscribed',
 ])",
                         'lines' => 11,
                     ],
