@@ -60,6 +60,12 @@
                                 'type' => 'string',
                                 'desc' => 'Skip failed messages (true|false) - (optional) - default: false',
                             ],
+
+                            [
+                                'name' => 'html',
+                                'type' => 'string',
+                                'desc' => 'Campaign HTML content (html) - (optional) - default: null',
+                            ],
                         ],
                     ])
                 </div>
@@ -84,6 +90,7 @@
                             ['name' => 'track_click', 'value' => 'true'],
                             ['name' => 'sign_dkim', 'value' => 'false'],
                             ['name' => 'skip_failed_messages', 'value' => 'false'],
+                            ['name' => 'html', 'value' => '\'<p>Hello!</p>\''],
                         ],
                     ],
                     'php' => [
@@ -98,6 +105,7 @@
     'track_click' => 'true',
     'sign_dkim' => 'false',
     'skip_failed_messages' => 'false',
+    'html' => '<p>Hello!</p>',
 ])",
                         'lines' => 14,
                     ],
