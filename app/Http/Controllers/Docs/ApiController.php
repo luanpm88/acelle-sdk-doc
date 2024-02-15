@@ -171,6 +171,11 @@ class ApiController extends Controller
                         "desc" => "Add tags to a subscriber",
                     ],
                     [
+                        "name" => "subscribers_remove_tag",
+                        "title" => "Remove Tag",
+                        "desc" => "Remove tags from a subscriber",
+                    ],
+                    [
                         "name" => "subscribers_subscribe",
                         "title" => "Subscribe",
                         "desc" => "Subscribe a contact to a given list",
