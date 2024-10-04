@@ -293,6 +293,11 @@ class ApiController extends Controller
                         "desc" => "Get detailed information of a customer",
                     ],
                     [
+                        "name" => "backend_customers_find_by_email",
+                        "title" => "Get Customer By Email",
+                        "desc" => "Get detailed information of a customer by email",
+                    ],
+                    [
                         "name" => "backend_customers_update",
                         "title" => "Update Customer",
                         "desc" => "Update customer's information",
