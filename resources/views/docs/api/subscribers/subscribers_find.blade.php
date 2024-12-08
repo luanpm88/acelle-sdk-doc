@@ -2,7 +2,7 @@
     <h4 class="mb-4">Get Subscriber's Details</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Get detailed information of a subscriber identified by an <code>UID</code> code. Notice that a subscriber's UID is globally unique. A contact identified by his/her email address may have more than one UID if he or she is added to more than one list.</p>
+            <p>Get detailed information of a subscriber identified by an <code>ID</code> code. Notice that a subscriber's ID is globally unique. A contact identified by his/her email address may have more than one ID if he or she is added to more than one list.</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>
@@ -21,9 +21,9 @@
                                 'desc' => 'Mail list\'s uid',
                             ],
                             [
-                                'name' => 'uid',
+                                'name' => 'id',
                                 'type' => 'string',
-                                'desc' => 'Subsciber\'s uid',
+                                'desc' => 'Subsciber\'s id',
                             ],
                         ],
                     ])
@@ -35,7 +35,7 @@
                 @include('docs.api._curl', [
                     'title' => 'FIND SUBSCRIBER',
                     'curl' => [
-                        'uri' => 'subscribers/<span class="hljs-keyword">{uid}</span>',
+                        'uri' => 'subscribers/<span class="hljs-keyword">{id}</span>',
                         'method' => 'GET',
                         'params' => [
                             ['name' => 'api_token', 'value' => '*|token_string|*'],
@@ -49,7 +49,7 @@
 
                 @include('docs.api._response', ['json' => '{
     "subscriber": {
-        "uid":"5fd07b8b65284",
+        "id":"5fd07b8b65284",
         "email":"anna122@gmail.com",
         "status":"subscribed",
         "source":null,

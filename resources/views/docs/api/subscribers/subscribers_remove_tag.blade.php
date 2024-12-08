@@ -16,9 +16,9 @@
                                 'desc' => 'Your API token. You can find it in your API main page when logged in.',
                             ],
                             [
-                                'name' => 'uid',
+                                'name' => 'id',
                                 'type' => 'string',
-                                'desc' => 'Subscriber\'s uid',
+                                'desc' => 'Subscriber\'s id',
                             ],
                             [
                                 'name' => 'tag',
@@ -43,7 +43,7 @@
                         ],
                     ],
                     'php' => [
-                        'function' => "subscriber()->removeTag('5fade5c93e42a', [
+                        'function' => "subscriber()->removeTag('44056', [
     'tag' => 'foo,bar,tag+with+space,',
 ])",
                         'lines' => 7,
@@ -54,7 +54,7 @@
                     'json' => '{
     "status": 1,
     "message": "Tag was removed successfully",
-    "subscriber_uid": "5fd07ca421da0",
+    "subscriber_id": "44056",
     "tags": ["foo","bar","tag with space"]
 }',
                 ])

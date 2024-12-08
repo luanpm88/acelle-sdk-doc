@@ -78,7 +78,7 @@
                     'json' => '{
     "status": 1,
     "message": "Confirmation email sent to the subscriber",
-    "subscriber_uid": "5fd07ca421da0"
+    "subscriber_id": "44068"
 }',
                 ])
             </div>

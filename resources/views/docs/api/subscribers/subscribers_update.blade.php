@@ -2,7 +2,7 @@
     <h4 class="mb-4">Update Subscriber Information</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Update a subscriber's details, identified by subscriber <code>UID</code>. Notice that a subscriber's UID is globally unique. A contact identified by his/her email address may have more than one UID if he or she is added to more than one list.</p>
+            <p>Update a subscriber's details, identified by subscriber <code>ID</code>. Notice that a subscriber's ID is globally unique. A contact identified by his/her email address may have more than one ID if he or she is added to more than one list.</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>
@@ -16,9 +16,9 @@
                                 'desc' => 'Your API token. You can find it in your API main page when logged in.',
                             ],
                             [
-                                'name' => 'uid',
+                                'name' => 'id',
                                 'type' => 'string',
-                                'desc' => 'Subsciber\'s uid',
+                                'desc' => 'Subsciber\'s id',
                             ],
                             [
                                 'name' => 'EMAIL',
@@ -78,7 +78,7 @@
                     'json' => '{
     "status": 1,
     "message": "Subscriber was successfully updated",
-    "subscriber_uid": "5fd07b8b65284"
+    "subscriber_id": "44068"
 }',
                 ])
             </div>

@@ -81,7 +81,7 @@ no - not clicked any campaign',
                 @include('docs.api._response', [
                     'json' => '[
     {
-        "uid": "5fd07b8b65284",
+        "id": "44068",
         "email": "nickyu88@gmail.com",
         "status": "subscribed",
         "FIRST_NAME": "Nick",

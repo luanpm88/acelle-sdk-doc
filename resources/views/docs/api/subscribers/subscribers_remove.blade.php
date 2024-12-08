@@ -21,9 +21,9 @@
                                 'desc' => 'Mail list\'s uid',
                             ],
                             [
-                                'name' => 'uid',
+                                'name' => 'id',
                                 'type' => 'string',
-                                'desc' => 'Subsciber\'s uid',
+                                'desc' => 'Subsciber\'s id',
                             ],
                         ],
                     ])

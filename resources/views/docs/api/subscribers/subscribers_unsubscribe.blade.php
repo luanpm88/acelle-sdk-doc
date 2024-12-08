@@ -21,9 +21,9 @@
                                 'desc' => 'Mail list\'s uid',
                             ],
                             [
-                                'name' => 'uid',
+                                'name' => 'id',
                                 'type' => 'string',
-                                'desc' => 'Subsciber\'s uid',
+                                'desc' => 'Subsciber\'s id',
                             ],
                         ],
                     ])
@@ -42,7 +42,7 @@
                         ],
                     ],
                     'php' => [
-                        'function' => "list()->unsubscribe(\$uid = 'e31046fce3d83', \$subscriber_uid = '6292e06666859')",
+                        'function' => "list()->unsubscribe(\$uid = 'e31046fce3d83', \$subscriber_id = '44068')",
                         'lines' => 5,
                     ],
                 ])
