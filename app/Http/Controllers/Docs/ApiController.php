@@ -171,6 +171,11 @@ class ApiController extends Controller
                         "desc" => "Add tags to a subscriber",
                     ],
                     [
+                        "name" => "subscribers_remove_tag",
+                        "title" => "Remove Tag",
+                        "desc" => "Remove tags from a subscriber",
+                    ],
+                    [
                         "name" => "subscribers_subscribe",
                         "title" => "Subscribe",
                         "desc" => "Subscribe a contact to a given list",
@@ -179,6 +184,11 @@ class ApiController extends Controller
                         "name" => "subscribers_unsubscribe",
                         "title" => "Unsubscribe",
                         "desc" => "Unsubscribe a contact from list",
+                    ],
+                    [
+                        "name" => "subscribers_unsubscribe_email",
+                        "title" => "Unsubscribe Email",
+                        "desc" => "Unsubscribe a contact from list by email",
                     ],
                     [
                         "name" => "subscribers_remove",
@@ -199,14 +209,34 @@ class ApiController extends Controller
                         "desc" => "List all campaigns available",
                     ],
                     [
+                        "name" => "campaigns_add",
+                        "title" => "Add new campaign",
+                        "desc" => "Add new campaign",
+                    ],
+                    [
+                        "name" => "campaigns_update",
+                        "title" => "Update Campaign",
+                        "desc" => "Update a specific campaign by uid",
+                    ],
+                    [
                         "name" => "campaigns_find",
                         "title" => "Get Campaign Details",
                         "desc" => "Get detailed information of a campaign",
                     ],
                     [
+                        "name" => "campaigns_run",
+                        "title" => "Run a Campaign",
+                        "desc" => "Run a campaign",
+                    ],
+                    [
                         "name" => "campaigns_pause",
                         "title" => "Pause a Campaign",
                         "desc" => "Pause a running campaign",
+                    ],
+                    [
+                        "name" => "campaigns_resume",
+                        "title" => "Resume a Campaign",
+                        "desc" => "Resume a paused campaign",
                     ],
                 ]        
             ],
@@ -263,6 +293,11 @@ class ApiController extends Controller
                         "desc" => "Get detailed information of a customer",
                     ],
                     [
+                        "name" => "backend_customers_find_by_email",
+                        "title" => "Get Customer By Email",
+                        "desc" => "Get detailed information of a customer by email",
+                    ],
+                    [
                         "name" => "backend_customers_update",
                         "title" => "Update Customer",
                         "desc" => "Update customer's information",
@@ -281,6 +316,16 @@ class ApiController extends Controller
                         "name" => "backend_customers_assign",
                         "title" => "Assign Plan",
                         "desc" => "Assign a plan to a customer",
+                    ],
+                    [
+                        "name" => "backend_customers_delete",
+                        "title" => "Delete Customer",
+                        "desc" => "Delete a customer",
+                    ],
+                    [
+                        "name" => "backend_customers_change_plan",
+                        "title" => "Change Plan",
+                        "desc" => "Change current customer's subscription plan",
                     ],
                 ],
             ],

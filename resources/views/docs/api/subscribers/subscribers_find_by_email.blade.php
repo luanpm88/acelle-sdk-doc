@@ -47,7 +47,7 @@
                     'json' => '{
     "subscribers": [
         {
-            "uid":"5fd07b8b65284",
+            "id":"44068",
             "list_uid":"5fc9e55410e10",
             "email":"test22@gmail.com",
             "status":"subscribed",

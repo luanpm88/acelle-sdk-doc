@@ -2,7 +2,7 @@
     <h4 class="mb-4">Update Subscriber Information</h4>
     <div class="row">
         <div class="col-md-6 pr-5">                        
-            <p>Update a subscriber's details, identified by subscriber <code>UID</code>. Notice that a subscriber's UID is globally unique. A contact identified by his/her email address may have more than one UID if he or she is added to more than one list.</p>
+            <p>Update a subscriber's details, identified by subscriber <code>ID</code>. Notice that a subscriber's ID is globally unique. A contact identified by his/her email address may have more than one ID if he or she is added to more than one list.</p>
 
             <div class="mt-4">
                 <h5>Parameters</h5>
@@ -16,9 +16,9 @@
                                 'desc' => 'Your API token. You can find it in your API main page when logged in.',
                             ],
                             [
-                                'name' => 'uid',
+                                'name' => 'id',
                                 'type' => 'string',
-                                'desc' => 'Subsciber\'s uid',
+                                'desc' => 'Subsciber\'s id',
                             ],
                             [
                                 'name' => 'EMAIL',
@@ -29,6 +29,11 @@
                                 'name' => 'tag',
                                 'type' => 'string',
                                 'desc' => 'Subscriber\'s tags, seperated by a comma (,).',
+                            ],
+                            [
+                                'name' => 'status',
+                                'type' => 'string',
+                                'desc' => 'Subscriber\'s status: subscribed | unsubscribed | unconfirmed',
                             ],
                             [
                                 'name' => '[OTHER_FIELDS...]',
@@ -53,6 +58,7 @@
                             ['name' => 'tag', 'value' => 'foo,bar,tag+with+space'],
                             ['name' => 'FIRST_NAME', 'value' => 'Marine'],
                             ['name' => 'LAST_NAME', 'value' => 'Joze'],
+                            ['name' => 'status', 'value' => 'unconfirmed'],
                         ],
                     ],
                     'php' => [
@@ -61,6 +67,7 @@
     'tag' => 'foo,bar,tag+with+space,',
     'FIRST_NAME' => 'Marine',
     'LAST_NAME' => 'Joze',
+    'status' => 'unconfirmed',
 ])",
                         'lines' => 10,
                     ],
@@ -71,7 +78,7 @@
                     'json' => '{
     "status": 1,
     "message": "Subscriber was successfully updated",
-    "subscriber_uid": "5fd07b8b65284"
+    "subscriber_id": "44068"
 }',
                 ])
             </div>
