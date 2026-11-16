@@ -8,6 +8,8 @@ namespace App\ApiReference;
  * scripts/sync-api-reference.sh. The application's store (resources/api/) is the
  * only place the reference is written; nothing here is edited by hand.
  *
+ * Each text comes as HTML (the pages) and as Markdown (llms-full.txt).
+ *
  * The file is checked whole when it is read. A key this site reads that is missing,
  * or of another type, stops the request with the place it was expected, never a page
  * with a blank where the value belongs. Keys this site does not read are left alone.
@@ -130,6 +132,7 @@ final class Reference
             $slug = self::expect($guide, 'slug', 'slug', $at);
             self::expect($guide, 'title', 'string', $at);
             self::expect($guide, 'html', 'string', $at);
+            self::expect($guide, 'markdown', 'string', $at);
             self::unique($guideSlugs, $slug, "{$at}/slug");
         }
 
@@ -164,6 +167,7 @@ final class Reference
             self::expect($operation, $key, 'string', $at);
         }
         self::expect($operation, 'description', '?string', $at);
+        self::expect($operation, 'descriptionMarkdown', '?string', $at);
         self::expect($operation, 'public', 'bool', $at);
 
         foreach (self::expect($operation, 'parameters', 'list', $at) as $i => $field) {
@@ -174,6 +178,7 @@ final class Reference
             self::expectObject($body, $bodyAt);
             self::expect($body, 'type', 'string', $bodyAt);
             self::expect($body, 'more', '?string', $bodyAt);
+            self::expect($body, 'moreMarkdown', '?string', $bodyAt);
             foreach (self::expect($body, 'fields', 'list', $bodyAt) as $j => $field) {
                 self::checkField($field, "{$bodyAt}/fields/{$j}");
             }
@@ -183,6 +188,7 @@ final class Reference
             self::expectObject($response, $responseAt);
             self::expect($response, 'status', 'string', $responseAt);
             self::expect($response, 'description', 'string', $responseAt);
+            self::expect($response, 'descriptionMarkdown', 'string', $responseAt);
             self::expect($response, 'example', '?string', $responseAt);
         }
         if (self::expect($operation, 'samples', 'list', $at) === []) {
@@ -218,6 +224,7 @@ final class Reference
         }
         self::expect($field, 'required', 'bool', $at);
         self::expect($field, 'description', '?string', $at);
+        self::expect($field, 'descriptionMarkdown', '?string', $at);
         self::expect($field, 'default', '?string', $at);
     }
 

@@ -47,7 +47,10 @@ What search engines and AI assistants read is built from the reference file too:
   live answers and model training (nothing here is secret; models that learned the API
   write working integrations);
 - `/llms.txt` (`App\Seo\LlmsTxt`, https://llmstxt.org): every guide and endpoint with
-  one line each, for AI assistants.
+  one line each, for AI assistants;
+- `/llms-full.txt` (`App\Seo\LlmsFullTxt`): the whole reference in one Markdown document
+  — guides, then every endpoint with its fields, curl request, PHP SDK call and example
+  answers — built from the store's own Markdown, which the export carries next to the HTML.
 
 ## Deploying
 

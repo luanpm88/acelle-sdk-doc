@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Docs;
 
 use App\ApiReference\Reference;
 use App\Http\Controllers\Controller;
+use App\Seo\LlmsFullTxt;
 use App\Seo\LlmsTxt;
 use App\Seo\SiteUrl;
 use App\Seo\StructuredData;
@@ -146,6 +147,11 @@ class ApiController extends Controller
     public function llms(Reference $reference)
     {
         return response(LlmsTxt::build($reference))->header('Content-Type', 'text/plain; charset=UTF-8');
+    }
+
+    public function llmsFull(Reference $reference)
+    {
+        return response(LlmsFullTxt::build($reference))->header('Content-Type', 'text/plain; charset=UTF-8');
     }
 
     /** The "Find anything" box: guides, sections and endpoints matching the keyword. */

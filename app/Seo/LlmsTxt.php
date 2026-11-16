@@ -17,14 +17,9 @@ final class LlmsTxt
         $lines = [
             '# '.config('brand.site_name'),
             '',
-            '> Reference of the REST API of '.$brand.', the self-hosted email marketing application from '.config('brand.url').'. '
-                .'Every '.$brand.' installation serves the API on its own domain at https://your-domain/api/v1; '
-                .'calls carry a user\'s API token in `Authorization: Bearer YOUR_API_TOKEN` and send `Accept: application/json`.',
+            self::summary($reference),
             '',
-            'Each endpoint page gives the method and path, its parameters and request body, a curl request, '
-                .'the PHP SDK call (`acelle/sdk-php`) where the SDK has one, and example answers. '
-                .'Customer API endpoints work with a customer\'s token; Admin API endpoints need an admin\'s token. '
-                .'This reference was generated from '.$brand.' '.$reference->appVersion().'.',
+            'The whole reference in one file, every guide and endpoint in full: '.SiteUrl::route('llms-full'),
             '',
             '## Guides',
             '',
@@ -65,6 +60,21 @@ final class LlmsTxt
         );
 
         return implode("\n", $lines)."\n";
+    }
+
+    /** What the site is: the opening of llms.txt and llms-full.txt. */
+    public static function summary(Reference $reference): string
+    {
+        $brand = config('brand.name');
+
+        return '> Reference of the REST API of '.$brand.', the self-hosted email marketing application from '.config('brand.url').'. '
+            .'Every '.$brand.' installation serves the API on its own domain at https://your-domain/api/v1; '
+            .'calls carry a user\'s API token in `Authorization: Bearer YOUR_API_TOKEN` and send `Accept: application/json`.'
+            ."\n\n"
+            .'Each endpoint page gives the method and path, its parameters and request body, a curl request, '
+            .'the PHP SDK call (`acelle/sdk-php`) where the SDK has one, and example answers. '
+            .'Customer API endpoints work with a customer\'s token; Admin API endpoints need an admin\'s token. '
+            .'This reference was generated from '.$brand.' '.$reference->appVersion().'.';
     }
 
     private static function firstSentence(string $html): string

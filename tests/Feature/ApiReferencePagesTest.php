@@ -154,6 +154,32 @@ class ApiReferencePagesTest extends TestCase
         $this->assertStringNotContainsString('..', str_replace('...', '', $text));
     }
 
+    public function testLlmsFullTxtHoldsTheWholeReference()
+    {
+        $text = $this->get('/llms-full.txt')->assertOk()->assertHeader('Content-Type', 'text/plain; charset=UTF-8')->getContent();
+
+        $this->assertStringStartsWith("# AcelleMail API — full reference\n\n> ", $text);
+        $reference = Reference::load();
+        foreach ($reference->guides() as $guide) {
+            $this->assertStringContainsString("## Guide: {$guide['title']}\n\nPage: ".SiteUrl::route('guide', $guide['slug'])."\n\n".rtrim($guide['markdown']), $text);
+        }
+        foreach ($reference->sections() as $section) {
+            foreach ($section['operations'] as $operation) {
+                $this->assertStringContainsString(
+                    "### {$operation['summary']}\n\n`{$operation['method']} {$operation['path']}`",
+                    $text
+                );
+                $this->assertStringContainsString('Page: '.SiteUrl::route('operation', [$section['slug'], $operation['slug']]), $text);
+                $this->assertStringContainsString(rtrim($operation['samples'][0]['code']), $text);
+            }
+        }
+        // Markdown, not HTML: no entity, every fence closed, no run of blank lines.
+        $this->assertStringNotContainsString('&quot;', $text);
+        $this->assertSame(0, preg_match_all('/^```\w+$/m', $text) - preg_match_all('/^```$/m', $text));
+        $this->assertStringNotContainsString("\n\n\n", $text);
+        $this->assertStringContainsString(SiteUrl::route('llms-full'), $this->get('/llms.txt')->getContent());
+    }
+
     public function testRobotsLetsTheAiCrawlersSearchAnswerAndTrain()
     {
         $text = $this->get('/robots.txt')->assertOk()->getContent();
@@ -206,6 +232,9 @@ class ApiReferencePagesTest extends TestCase
             'a section named like a page of the site' => [function (array &$d) {
                 $d['sections'][0]['slug'] = 'guides';
             }, "/sections/0/slug: 'guides' is a page of this site"],
+            'a description without its Markdown' => [function (array &$d) {
+                unset($d['sections'][0]['operations'][0]['descriptionMarkdown']);
+            }, '/sections/0/operations/0/descriptionMarkdown: is missing'],
             'two endpoints at one address' => [function (array &$d) {
                 $d['sections'][0]['operations'][1]['slug'] = $d['sections'][0]['operations'][0]['slug'];
             }, '/sections/0/operations/1/slug'],
