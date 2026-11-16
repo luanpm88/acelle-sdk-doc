@@ -43,8 +43,9 @@ What search engines and AI assistants read is built from the reference file too:
   (`App\Seo\StructuredData`: WebSite + the AcelleMail Organization on every page;
   WebPage, TechArticle, CollectionPage or APIReference; a breadcrumb below the overview);
 - `/sitemap.xml`: every page;
-- `/robots.txt`: the AI crawlers named one by one, with acellesend.com's Content-Signal
-  policy (search and live answers yes, model training no);
+- `/robots.txt`: the AI crawlers named one by one, with Content-Signal yes to search,
+  live answers and model training (nothing here is secret; models that learned the API
+  write working integrations);
 - `/llms.txt` (`App\Seo\LlmsTxt`, https://llmstxt.org): every guide and endpoint with
   one line each, for AI assistants.
 

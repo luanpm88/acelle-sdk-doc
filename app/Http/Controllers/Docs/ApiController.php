@@ -117,9 +117,10 @@ class ApiController extends Controller
     }
 
     /**
-     * The AI crawlers are named one by one in the same group as `*` (RFC 9309 §2.1),
-     * with the Content-Signal policy acellesend.com uses: search and live answers yes,
-     * model training no.
+     * The AI crawlers are named one by one in the same group as `*` (RFC 9309 §2.1).
+     * Content-Signal says yes to all three uses — search, live answers and model
+     * training (product owner, 2026-11-16): nothing here is secret, and models that
+     * learned the API write working integrations. acellesend.com itself says ai-train=no.
      */
     public function robots()
     {
@@ -132,7 +133,7 @@ class ApiController extends Controller
         }, $bots);
         array_push(
             $lines,
-            'Content-Signal: search=yes, ai-input=yes, ai-train=no',
+            'Content-Signal: search=yes, ai-input=yes, ai-train=yes',
             'Allow: /',
             'Disallow: /docs/api/',
             '',

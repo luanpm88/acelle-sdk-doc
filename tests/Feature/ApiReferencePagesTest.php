@@ -154,14 +154,14 @@ class ApiReferencePagesTest extends TestCase
         $this->assertStringNotContainsString('..', str_replace('...', '', $text));
     }
 
-    public function testRobotsNamesTheAiCrawlersWithTheBrandsPolicy()
+    public function testRobotsLetsTheAiCrawlersSearchAnswerAndTrain()
     {
         $text = $this->get('/robots.txt')->assertOk()->getContent();
 
         foreach (['GPTBot', 'ClaudeBot', 'PerplexityBot', 'Google-Extended', '*'] as $bot) {
             $this->assertStringContainsString("User-agent: {$bot}\n", $text);
         }
-        $this->assertStringContainsString('Content-Signal: search=yes, ai-input=yes, ai-train=no', $text);
+        $this->assertStringContainsString('Content-Signal: search=yes, ai-input=yes, ai-train=yes', $text);
         $this->assertStringContainsString('Sitemap: '.SiteUrl::route('sitemap'), $text);
     }
 
