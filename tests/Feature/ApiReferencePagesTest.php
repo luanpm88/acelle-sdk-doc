@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\ApiReference\InvalidReference;
 use App\ApiReference\Reference;
+use App\Seo\SiteUrl;
 use Tests\TestCase;
 
 /**
@@ -49,7 +50,7 @@ class ApiReferencePagesTest extends TestCase
         $canonical = rtrim(config('app.url'), '/').'/lists/create-list';
 
         $this->assertStringContainsString('<link rel="canonical" href="'.$canonical.'">', $html);
-        $this->assertStringContainsString('<title>Create a list | Acelle Mail API</title>', $html);
+        $this->assertStringContainsString('<title>Create a list | AcelleMail API</title>', $html);
         $this->assertStringContainsString('<meta name="description" content="POST /api/v1/lists — Create a list.', $html);
         // The generated curl, and the SDK call with the language switch.
         $this->assertStringContainsString(e("curl -X POST 'https://your-domain/api/v1/lists'"), $html);
@@ -95,6 +96,81 @@ class ApiReferencePagesTest extends TestCase
         $this->getJson('/docs/api/lookup?keyword=IMPORT')
             ->assertOk()
             ->assertJsonFragment(['title' => 'Import contacts, in the background', 'link' => route('operation', ['subscribers', 'start-subscriber-import'])]);
+    }
+
+    /** The brand is AcelleMail of acellesend.com: no page links the former marketplace or domain. */
+    public function testNoPageLinksTheFormerMarketplaceOrDomain()
+    {
+        foreach (['/', '/guides/authentication', '/lists', '/lists/create-list', '/llms.txt', '/robots.txt', '/sitemap.xml'] as $page) {
+            $content = $this->get($page)->assertOk()->getContent();
+            $this->assertDoesNotMatchRegularExpression('/codecanyon|envato|acellemail\.com/i', $content, $page);
+        }
+        $html = $this->get('/')->assertOk()->getContent();
+        $this->assertStringContainsString('href="'.config('brand.links.pricing').'"', $html);
+        $this->assertStringContainsString('src="'.asset('images/logo_dark.svg').'"', $html);
+    }
+
+    /** @dataProvider structuredDataPages */
+    public function testEveryPageCarriesItsStructuredData(string $page, string $type, bool $breadcrumb)
+    {
+        $html = $this->get($page)->assertOk()->getContent();
+        $this->assertSame(1, preg_match('#<script type="application/ld\+json">(.*?)</script>#s', $html, $m));
+        $graph = collect(json_decode($m[1], true, 512, JSON_THROW_ON_ERROR)['@graph'])->keyBy('@type');
+
+        $this->assertSame(SiteUrl::route('home'), $graph['WebSite']['url']);
+        $this->assertSame('AcelleMail', $graph['Organization']['name']);
+        $this->assertSame('https://acellesend.com', $graph['Organization']['url']);
+        $this->assertSame(SiteUrl::to($page), $graph[$type]['url']);
+        $this->assertSame($breadcrumb, $graph->has('BreadcrumbList'));
+    }
+
+    public function structuredDataPages(): array
+    {
+        return [
+            'overview' => ['/', 'WebPage', false],
+            'guide' => ['/guides/authentication', 'TechArticle', true],
+            'section' => ['/lists', 'CollectionPage', true],
+            'endpoint' => ['/lists/create-list', 'APIReference', true],
+        ];
+    }
+
+    public function testLlmsTxtListsEveryPageForAiAssistants()
+    {
+        $text = $this->get('/llms.txt')->assertOk()->assertHeader('Content-Type', 'text/plain; charset=UTF-8')->getContent();
+
+        $this->assertStringStartsWith("# AcelleMail API\n\n> ", $text);
+        $reference = Reference::load();
+        foreach ($reference->guides() as $guide) {
+            $this->assertStringContainsString('['.$guide['title'].']('.SiteUrl::route('guide', $guide['slug']).')', $text);
+        }
+        foreach ($reference->sections() as $section) {
+            foreach ($section['operations'] as $operation) {
+                $this->assertStringContainsString(
+                    '['.$operation['summary'].']('.SiteUrl::route('operation', [$section['slug'], $operation['slug']]).'): `'.$operation['method'].' '.$operation['path'].'`',
+                    $text
+                );
+            }
+        }
+        $this->assertStringNotContainsString('..', str_replace('...', '', $text));
+    }
+
+    public function testRobotsNamesTheAiCrawlersWithTheBrandsPolicy()
+    {
+        $text = $this->get('/robots.txt')->assertOk()->getContent();
+
+        foreach (['GPTBot', 'ClaudeBot', 'PerplexityBot', 'Google-Extended', '*'] as $bot) {
+            $this->assertStringContainsString("User-agent: {$bot}\n", $text);
+        }
+        $this->assertStringContainsString('Content-Signal: search=yes, ai-input=yes, ai-train=no', $text);
+        $this->assertStringContainsString('Sitemap: '.SiteUrl::route('sitemap'), $text);
+    }
+
+    public function testAnAddressWithoutSchemeIsRefused()
+    {
+        config(['app.url' => 'api.acellesend.com']);
+
+        $this->expectException(\LogicException::class);
+        SiteUrl::to('/');
     }
 
     /** @dataProvider brokenFiles */

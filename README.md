@@ -31,6 +31,23 @@ place.
 | `/{section}/{operation}` | One endpoint, e.g. `/lists/create-list` |
 | `/sitemap.xml`, `/robots.txt` | For search engines |
 
+## Brand and search
+
+The site belongs to AcelleMail, whose home is acellesend.com. Every brand name and every
+link to acellesend.com (pricing, demo, knowledge base, contact) comes from
+`config/brand.php`; the logos and icons in `public/` are copies of acellesend.com's.
+
+What search engines and AI assistants read is built from the reference file too:
+
+- per page: title, description, canonical, Open Graph / Twitter tags, JSON-LD
+  (`App\Seo\StructuredData`: WebSite + the AcelleMail Organization on every page;
+  WebPage, TechArticle, CollectionPage or APIReference; a breadcrumb below the overview);
+- `/sitemap.xml`: every page;
+- `/robots.txt`: the AI crawlers named one by one, with acellesend.com's Content-Signal
+  policy (search and live answers yes, model training no);
+- `/llms.txt` (`App\Seo\LlmsTxt`, https://llmstxt.org): every guide and endpoint with
+  one line each, for AI assistants.
+
 ## Deploying
 
 `APP_URL` must be the site's public address (`https://api.acellesend.com`): the canonical

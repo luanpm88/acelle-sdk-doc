@@ -1294,3 +1294,23 @@ svg {
         overflow: auto;
     }
 }
+
+/* Logo of acellesend.com (an <a> holding one image per theme) and the footer links (2026-11-16). */
+a.logo {
+    display: block;
+    position: relative;
+    width: 109px;
+    height: 28px;
+}
+.logo img {
+    display: block;
+    width: 109px;
+    height: 24px;
+}
+.site-footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}

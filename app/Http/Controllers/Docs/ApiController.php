@@ -4,27 +4,33 @@ namespace App\Http\Controllers\Docs;
 
 use App\ApiReference\Reference;
 use App\Http\Controllers\Controller;
+use App\Seo\LlmsTxt;
+use App\Seo\SiteUrl;
+use App\Seo\StructuredData;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 /**
  * Every page of the site, read from the reference file (App\ApiReference\Reference).
- * One page per endpoint, so each can be found and linked on its own.
+ * One page per endpoint, so each can be found and linked on its own. What search
+ * engines and AI assistants read — titles, descriptions, canonical links, JSON-LD,
+ * sitemap, robots.txt, llms.txt — is built here and in App\Seo from the same file.
  */
 class ApiController extends Controller
 {
     /** Overview: introduction, guides, every endpoint by section. */
     public function index(Request $request, Reference $reference)
     {
-        $this->rememberTheme($request);
+        $title = config('brand.name').' REST API reference';
+        $description = 'Reference of the '.config('brand.name').' REST API: lists, subscribers, campaigns, automations, customers and plans, with a curl and PHP sample for every endpoint.';
 
-        return view('docs.api.index', [
-            'reference' => $reference,
+        return $this->page($request, 'docs.api.index', $reference, [
             'current' => 'home',
             'currentSection' => null,
-            'pageTitle' => 'Acelle Mail API reference',
-            'pageDescription' => 'Reference of the Acelle Mail REST API: lists, subscribers, campaigns, automations, customers and plans, with a curl and PHP sample for every endpoint.',
-            'canonical' => $this->canonical(route('home', [], false)),
+            'pageTitle' => $title,
+            'pageDescription' => $description,
+            'canonical' => SiteUrl::route('home'),
+            'jsonLd' => StructuredData::overview($title, $description),
         ]);
     }
 
@@ -34,16 +40,16 @@ class ApiController extends Controller
         if ($page === null) {
             abort(404);
         }
-        $this->rememberTheme($request);
+        $description = $this->excerpt($page['html']);
 
-        return view('docs.api.guide', [
-            'reference' => $reference,
+        return $this->page($request, 'docs.api.guide', $reference, [
             'guide' => $page,
             'current' => 'guide/'.$page['slug'],
             'currentSection' => null,
-            'pageTitle' => $page['title'].' | Acelle Mail API',
-            'pageDescription' => $this->excerpt($page['html']),
-            'canonical' => $this->canonical(route('guide', $page['slug'], false)),
+            'pageTitle' => $page['title'].' | '.config('brand.site_name'),
+            'pageDescription' => $description,
+            'canonical' => SiteUrl::route('guide', $page['slug']),
+            'jsonLd' => StructuredData::guide($page, $description),
         ]);
     }
 
@@ -53,16 +59,16 @@ class ApiController extends Controller
         if ($page === null) {
             abort(404);
         }
-        $this->rememberTheme($request);
+        $description = $page['description'] ?? $page['name'].' endpoints of the '.config('brand.name').' REST API.';
 
-        return view('docs.api.section', [
-            'reference' => $reference,
+        return $this->page($request, 'docs.api.section', $reference, [
             'section' => $page,
             'current' => $page['slug'],
             'currentSection' => $page['slug'],
-            'pageTitle' => $page['name'].' | Acelle Mail API',
-            'pageDescription' => $page['description'] ?? $page['name'].' endpoints of the Acelle Mail REST API.',
-            'canonical' => $this->canonical(route('section', $page['slug'], false)),
+            'pageTitle' => $page['name'].' | '.config('brand.site_name'),
+            'pageDescription' => $description,
+            'canonical' => SiteUrl::route('section', $page['slug']),
+            'jsonLd' => StructuredData::section($page, $description),
         ]);
     }
 
@@ -73,52 +79,72 @@ class ApiController extends Controller
         if ($page === null) {
             abort(404);
         }
-        $this->rememberTheme($request);
 
         $description = $page['method'].' '.$page['path'].' — '.$page['summary'].'.';
         if ($page['description'] !== null) {
             $description .= ' '.$this->excerpt($page['description']);
         }
+        $description = Str::limit($description, 160);
 
-        return view('docs.api.operation', [
-            'reference' => $reference,
+        return $this->page($request, 'docs.api.operation', $reference, [
             'section' => $sectionPage,
             'operation' => $page,
             'current' => $sectionPage['slug'].'/'.$page['slug'],
             'currentSection' => $sectionPage['slug'],
-            'pageTitle' => $page['summary'].' | Acelle Mail API',
-            'pageDescription' => Str::limit($description, 160),
-            'canonical' => $this->canonical(route('operation', [$sectionPage['slug'], $page['slug']], false)),
+            'pageTitle' => $page['summary'].' | '.config('brand.site_name'),
+            'pageDescription' => $description,
+            'canonical' => SiteUrl::route('operation', [$sectionPage['slug'], $page['slug']]),
+            'jsonLd' => StructuredData::operation($sectionPage, $page, $description),
         ]);
     }
 
     public function sitemap(Reference $reference)
     {
-        $paths = [route('home', [], false)];
+        $urls = [SiteUrl::route('home')];
         foreach ($reference->guides() as $guide) {
-            $paths[] = route('guide', $guide['slug'], false);
+            $urls[] = SiteUrl::route('guide', $guide['slug']);
         }
         foreach ($reference->sections() as $section) {
-            $paths[] = route('section', $section['slug'], false);
+            $urls[] = SiteUrl::route('section', $section['slug']);
             foreach ($section['operations'] as $operation) {
-                $paths[] = route('operation', [$section['slug'], $operation['slug']], false);
+                $urls[] = SiteUrl::route('operation', [$section['slug'], $operation['slug']]);
             }
         }
 
         return response()
-            ->view('docs.api.sitemap', ['urls' => array_map([$this, 'canonical'], $paths)])
+            ->view('docs.api.sitemap', ['urls' => $urls])
             ->header('Content-Type', 'application/xml; charset=UTF-8');
     }
 
+    /**
+     * The AI crawlers are named one by one in the same group as `*` (RFC 9309 §2.1),
+     * with the Content-Signal policy acellesend.com uses: search and live answers yes,
+     * model training no.
+     */
     public function robots()
     {
-        $lines = [
-            'User-agent: *',
+        $bots = ['GPTBot', 'ChatGPT-User', 'OAI-SearchBot', 'ClaudeBot', 'Claude-User', 'Claude-SearchBot', 'anthropic-ai',
+            'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'GoogleOther', 'Applebot-Extended', 'Amazonbot',
+            'Meta-ExternalAgent', 'Bytespider', 'CCBot', 'cohere-ai', 'DuckAssistBot', 'MistralAI-User', 'omgili', '*'];
+
+        $lines = array_map(function ($bot) {
+            return 'User-agent: '.$bot;
+        }, $bots);
+        array_push(
+            $lines,
+            'Content-Signal: search=yes, ai-input=yes, ai-train=no',
+            'Allow: /',
             'Disallow: /docs/api/',
-            'Sitemap: '.$this->canonical(route('sitemap', [], false)),
-        ];
+            '',
+            'Sitemap: '.SiteUrl::route('sitemap')
+        );
 
         return response(implode("\n", $lines)."\n")->header('Content-Type', 'text/plain; charset=UTF-8');
+    }
+
+    public function llms(Reference $reference)
+    {
+        return response(LlmsTxt::build($reference))->header('Content-Type', 'text/plain; charset=UTF-8');
     }
 
     /** The "Find anything" box: guides, sections and endpoints matching the keyword. */
@@ -177,20 +203,13 @@ class ApiController extends Controller
         $request->session()->put('lang', $request->lang);
     }
 
-    private function rememberTheme(Request $request): void
+    private function page(Request $request, string $view, Reference $reference, array $data)
     {
         if (!$request->session()->exists('theme')) {
             $request->session()->put('theme', 'dark-theme');
         }
-    }
 
-    /**
-     * The address search engines are told to keep: APP_URL, not the host the request
-     * came in on (www, http, a proxy's name).
-     */
-    public function canonical(string $path): string
-    {
-        return rtrim(config('app.url'), '/').$path;
+        return view($view, ['reference' => $reference] + $data);
     }
 
     private function excerpt(string $html): string

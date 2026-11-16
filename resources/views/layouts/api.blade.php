@@ -6,24 +6,26 @@
         <title>{{ $pageTitle }}</title>
         <meta name="description" content="{{ $pageDescription }}">
         <link rel="canonical" href="{{ $canonical }}">
-        <meta property="og:type" content="website">
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+        <meta property="og:type" content="{{ $current === 'home' ? 'website' : 'article' }}">
+        <meta property="og:site_name" content="{{ config('brand.site_name') }}">
         <meta property="og:title" content="{{ $pageTitle }}">
         <meta property="og:description" content="{{ $pageDescription }}">
         <meta property="og:url" content="{{ $canonical }}">
+        <meta property="og:image" content="{{ \App\Seo\SiteUrl::to('images/og-default.png') }}">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:locale" content="en_US">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ $pageTitle }}">
+        <meta name="twitter:description" content="{{ $pageDescription }}">
+        <meta name="twitter:image" content="{{ \App\Seo\SiteUrl::to('images/og-default.png') }}">
+        <link rel="alternate" type="text/plain" title="llms.txt" href="{{ \App\Seo\SiteUrl::route('llms') }}">
+        <script type="application/ld+json">{!! json_encode($jsonLd, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_THROW_ON_ERROR) !!}</script>
 
-        <link rel="apple-touch-icon" sizes="57x57" href="{{ URL::asset('favicon/apple-icon-57x57.png') }}">
-        <link rel="apple-touch-icon" sizes="60x60" href="{{ URL::asset('favicon/apple-icon-60x60.png') }}">
-        <link rel="apple-touch-icon" sizes="72x72" href="{{ URL::asset('favicon/apple-icon-72x72.png') }}">
-        <link rel="apple-touch-icon" sizes="76x76" href="{{ URL::asset('favicon/apple-icon-76x76.png') }}">
-        <link rel="apple-touch-icon" sizes="114x114" href="{{ URL::asset('favicon/apple-icon-114x114.png') }}">
-        <link rel="apple-touch-icon" sizes="120x120" href="{{ URL::asset('favicon/apple-icon-120x120.png') }}">
-        <link rel="apple-touch-icon" sizes="144x144" href="{{ URL::asset('favicon/apple-icon-144x144.png') }}">
-        <link rel="apple-touch-icon" sizes="152x152" href="{{ URL::asset('favicon/apple-icon-152x152.png') }}">
-        <link rel="apple-touch-icon" sizes="180x180" href="{{ URL::asset('favicon/apple-icon-180x180.png') }}">
-        <link rel="icon" type="image/png" sizes="192x192"  href="{{ URL::asset('favicon/android-icon-192x192.png') }}">
-        <link rel="icon" type="image/png" sizes="32x32" href="{{ URL::asset('favicon/favicon-32x32.png') }}">
-        <link rel="icon" type="image/png" sizes="96x96" href="{{ URL::asset('favicon/favicon-96x96.png') }}">
-        <link rel="icon" type="image/png" sizes="16x16" href="{{ URL::asset('favicon/favicon-16x16.png') }}">
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+        <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
 
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -58,7 +60,7 @@
         
         <link rel="stylesheet" href="{{ url('css/dracula.css') }}">
 
-        <link rel="stylesheet" href="{{ url('css/app.css') }}?v=20261116">
+        <link rel="stylesheet" href="{{ url('css/app.css') }}?v=20261116b">
 
         <script>
             function copyToClipboard(text) {
@@ -105,7 +107,18 @@
                         @yield('content')
 
                         <footer class="site-footer">
-                            Reference of version {{ $reference->appVersion() }}.
+                            <nav class="site-footer-links">
+                                <a href="{{ config('brand.url') }}">{{ config('brand.name') }}</a>
+                                <a href="{{ config('brand.links.pricing') }}">Pricing</a>
+                                <a href="{{ config('brand.links.demo') }}">Live demo</a>
+                                <a href="{{ config('brand.links.kb') }}">Knowledge base</a>
+                                <a href="{{ config('brand.links.sdk') }}">PHP SDK</a>
+                                <a href="{{ config('brand.links.contact') }}">Contact</a>
+                            </nav>
+                            <p class="mb-0">
+                                Reference generated from {{ config('brand.name') }} {{ $reference->appVersion() }}.
+                                &copy; {{ date('Y') }} {{ config('brand.name') }}, <a href="{{ config('brand.url') }}">acellesend.com</a>
+                            </p>
                         </footer>
                     </div>
                 </div>

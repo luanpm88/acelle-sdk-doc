@@ -1,12 +1,12 @@
 <div id="introduction" class="subsection">
-    <h1 class="h2 mb-4">Acelle Mail API</h1>
+    <h1 class="h2 mb-4">{{ config('brand.name') }} REST API</h1>
     <div class="row">
         <div class="col-md-7 pr-5">                        
-            <p>The Acelle Mail API (version 1.0) is organized around <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer" target="_blank" rel="noopener noreferrer">REST</a>. Our API has predictable resource-oriented URLs, accepts <a href="https://en.wikipedia.org/wiki/POST_(HTTP)#Use_for_submitting_web_forms" target="_blank" rel="noopener noreferrer">form-encoded</a> request bodies, returns <a href="http://www.json.org/" target="_blank" rel="noopener noreferrer">JSON-encoded</a> responses, and uses standard HTTP response codes, authentication, and verbs. </p>
+            <p>The {{ config('brand.name') }} API (version 1) is organized around <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank" rel="noopener noreferrer">REST</a>. It has predictable resource-oriented URLs, accepts <a href="https://en.wikipedia.org/wiki/POST_(HTTP)#Use_for_submitting_web_forms" target="_blank" rel="noopener noreferrer">form-encoded</a> or JSON request bodies, returns <a href="https://www.json.org/" target="_blank" rel="noopener noreferrer">JSON-encoded</a> responses, and uses standard HTTP response codes, authentication, and verbs.</p>
             
-            <p>The first step is to install your Acelle web application. We have Installation & Getting started guidelines (for cPanel or unmanaged server/VPS) included in the <code>guideline/</code> folder of the software package you download from CodeCanyon. It is in HTML format, you can just go to the guideline/ folder, double click on the index.html file to open it on your browser.</p>
-            <p>The Acelle Mail API may differ as we release new versions over time. Log in to your installation of Acelle to see the particular version, API base URI and authentication key.</p>
-            <p>Visit our <a href="https://codecanyon.net/item/acelle-email-marketing-web-application/17796082">product page</a> for latest updates.</p>
+            <p>The API is part of every {{ config('brand.name') }} installation: it answers on your own server, at <code class="inline-code">https://your-domain/api/v1</code>. To install {{ config('brand.name') }}, follow the <a href="{{ config('brand.links.installation') }}">installation guides</a> for a VPS or a control-panel host such as cPanel or Plesk.</p>
+            <p>The API can differ between versions. This reference is generated from {{ config('brand.name') }} {{ $reference->appVersion() }}; the API page of your installation shows its base URL and your API token.</p>
+            <p>Visit <a href="{{ config('brand.url') }}">acellesend.com</a> for the latest releases, and the <a href="{{ config('brand.links.kb') }}">knowledge base</a> for guides.</p>
             <div class="SelectClientLibrary mt-5 feedback-box">
                 <div class="SelectClientLibrary-langs">
                     <p class="mt-3"><span class="csat-widget-text">Was this section helpful?</span>
@@ -24,7 +24,7 @@
                     setTimeout(function() {
                         $('.feedback-box').removeClass('loading');
                         $('.feedback-box .SelectClientLibrary-langs').html(`
-                            <p class="csat-widget pt-3 px-4 pb-1"><span class="csat-reply-main">Thank you for helping improve Acelle Mail's documentation. </span><span class="csat-reply-extended">If you need help or have any questions, please consider <a target="_blank" rel="noopener noreferrer" href="https://codecanyon.net/item/acelle-email-marketing-web-application/17796082">contacting support</a>.</span></p>
+                            <p class="csat-widget pt-3 px-4 pb-1"><span class="csat-reply-main">Thank you for helping improve the {{ config('brand.name') }} documentation. </span><span class="csat-reply-extended">If you need help or have any questions, please <a target="_blank" rel="noopener" href="{{ config('brand.links.contact') }}">contact support</a>.</span></p>
                         `);
                     }, 1000);
                 });
@@ -32,10 +32,10 @@
         </div>
         <div class="col-md-5">
             <h6>Not a developer?</h6>
-            <p class="">Acelle Mail is made for users without software programming experience. Just follow the installation & getting started guideline included in our software package to install the web application to your hosting server which can be either a VPS (Virtual Private Server) or a managed server's environment with a control panel like cPanel or Plesk.</p>
+            <p class="">{{ config('brand.name') }} is made for users without programming experience. Follow the <a href="{{ config('brand.links.installation') }}">installation guides</a> to set it up on a VPS (Virtual Private Server) or on a managed server with a control panel such as cPanel or Plesk, or <a href="{{ config('brand.links.demo') }}">try the live demo</a> first.</p>
 
             <h6 class="mt-4">Custom development & integration</h6>
-            <p class="">Acelle is pre-designed for rebranding, customization and integration. Our <a href="https://packagist.org/packages/acelle/sdk-php" target="_blank" rel="noopener noreferrer" class="" target="_blank">Acelle SDK</a> is written in PHP, however, you can use any programming language to interact with Acelle's RESTful API.</p>
+            <p class="">{{ config('brand.name') }} is built for rebranding, customization and integration. The <a href="{{ config('brand.links.sdk') }}" target="_blank" rel="noopener noreferrer">{{ config('brand.name') }} PHP SDK</a> wraps the most common calls, and any programming language that speaks HTTP can use the REST API. The <a href="{{ config('brand.links.developer_guide') }}">developer guide</a> covers plugins and webhooks.</p>
 
             <div class="SelectClientLibrary">
                 <div class="SelectClientLibrary-topbar">

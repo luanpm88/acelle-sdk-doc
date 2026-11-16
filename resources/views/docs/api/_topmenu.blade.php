@@ -10,12 +10,12 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" target="_blank" href="https://demo.acellemail.com/demo">
+            <a class="nav-link" target="_blank" rel="noopener" href="{{ config('brand.links.demo') }}">
                 Live Demo
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" target="_blank" href="https://codecanyon.net/item/acelle-email-marketing-web-application/17796082">
+            <a class="nav-link" target="_blank" rel="noopener" href="{{ config('brand.links.pricing') }}">
                 Buy & Download →
             </a>
         </li>

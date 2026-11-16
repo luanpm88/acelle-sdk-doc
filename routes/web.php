@@ -12,6 +12,7 @@ use App\Http\Controllers\Docs\ApiController;
 Route::get('/', [ApiController::class, 'index'])->name('home');
 Route::get('sitemap.xml', [ApiController::class, 'sitemap'])->name('sitemap');
 Route::get('robots.txt', [ApiController::class, 'robots'])->name('robots');
+Route::get('llms.txt', [ApiController::class, 'llms'])->name('llms');
 Route::get('docs/api/lookup', [ApiController::class, 'lookup']);
 Route::post('docs/api/save-theme', [ApiController::class, 'saveTheme']);
 Route::post('docs/api/save-lang', [ApiController::class, 'saveLang']);
