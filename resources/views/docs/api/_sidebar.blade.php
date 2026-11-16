@@ -31,100 +31,47 @@
             <span class="ml-auto">/</span>
         </button>
     </div>
+    <div class="pr-3 mt-2">
+        <button type="button" class="btn btn-secondary sidebar-menu-toggle">Menu</button>
+    </div>
     <div class="menu-scroll">
         <ul class="main-menu">
-            @foreach ($resources as $resource)
-                @if ($resource['type'] == 'all')
-                    <li class="@if (isset($resource['children'])) parent @endif">
-                        <a href="#{{ $resource['name'] }}" class="menu-item">
-                            {{ $resource['title'] }}
-                        </a>
+            <li>
+                <a href="{{ route('home') }}" class="menu-item {{ $current === 'home' ? 'current' : '' }}">Introduction</a>
+            </li>
+            @foreach ($reference->guides() as $guide)
+                <li>
+                    <a href="{{ route('guide', $guide['slug']) }}" class="menu-item {{ $current === 'guide/'.$guide['slug'] ? 'current' : '' }}">{{ $guide['title'] }}</a>
+                </li>
+            @endforeach
+        </ul>
 
-                        @if (isset($resource['children']))
-                            <div class="">
-                                <ul class="">
-                                    @foreach ($resource['children'] as $resource2)
-                                        <li class="">
-                                            <a href="#{{ $resource2['name'] }}" class="menu-item">
-                                                {{ $resource2['title'] }}
-                                            </a>
+        @foreach (['customer' => 'Customer API', 'admin' => 'Admin API'] as $audience => $groupName)
+            <div class="sidebar-group">
+                <h4 class="group-head d-flex align-items-center">
+                    <span>{{ $groupName }}</span>
+                    <span class="ml-auto mr-2 anchor">
+                        <svg class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--chevronDown-svg Chevron-svg Chevron-up-svg SVG--color-svg SVG--color--gray200-svg" style="width: 12px;height: 12px;" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M13.591 5.293a1 1 0 0 1 1.416 1.416l-6.3 6.3a1 1 0 0 1-1.414 0l-6.3-6.3A1 1 0 0 1 2.41 5.293L8 10.884z" fill-rule="evenodd"></path></svg>
+                    </span>
+                </h4>
+                <ul class="main-menu mt-0">
+                    @foreach ($reference->sections($audience) as $menuSection)
+                        <li class="parent {{ $currentSection === $menuSection['slug'] ? 'open' : '' }}">
+                            <a href="{{ route('section', $menuSection['slug']) }}" class="menu-item {{ $current === $menuSection['slug'] ? 'current' : '' }}">{{ $menuSection['name'] }}</a>
+                            <div>
+                                <ul>
+                                    @foreach ($menuSection['operations'] as $menuOperation)
+                                        <li>
+                                            <a href="{{ route('operation', [$menuSection['slug'], $menuOperation['slug']]) }}" class="menu-item {{ $current === $menuSection['slug'].'/'.$menuOperation['slug'] ? 'current' : '' }}">{{ $menuOperation['summary'] }}</a>
                                         </li>
                                     @endforeach
                                 </ul>
                             </div>
-                        @endif
-                    </li>
-                @endif
-            @endforeach
-        </ul>
-
-        <div class="sidebar-group">
-            <h4 class="group-head d-flex align-items-center">
-                <span>Frontend</span>
-                <span class="ml-auto mr-2 anchor">
-                    <svg class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--chevronDown-svg Chevron-svg Chevron-up-svg SVG--color-svg SVG--color--gray200-svg" style="width: 12px;height: 12px;" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M13.591 5.293a1 1 0 0 1 1.416 1.416l-6.3 6.3a1 1 0 0 1-1.414 0l-6.3-6.3A1 1 0 0 1 2.41 5.293L8 10.884z" fill-rule="evenodd"></path></svg>
-                </span>
-            </h4>
-            <ul class="main-menu mt-0">
-                @foreach ($resources as $resource)
-                    @if ($resource['type'] == 'frontend')
-                        <li class="@if (isset($resource['children'])) parent @endif">
-                            <a href="#{{ $resource['name'] }}" class="menu-item">
-                                {{ $resource['title'] }}
-                            </a>
-
-                            @if (isset($resource['children']))
-                                <div class="">
-                                    <ul class="">
-                                        @foreach ($resource['children'] as $resource2)
-                                            <li class="">
-                                                <a href="#{{ $resource2['name'] }}" class="menu-item">
-                                                    {{ $resource2['title'] }}
-                                                </a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
                         </li>
-                    @endif
-                @endforeach
-            </ul>
-        </div>
-
-        <div class="sidebar-group">
-            <h4 class="group-head d-flex align-items-center">
-                <span>Backend</span>
-                <span class="ml-auto mr-2 anchor">
-                    <svg class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--chevronDown-svg Chevron-svg Chevron-up-svg SVG--color-svg SVG--color--gray200-svg" style="width: 12px;height: 12px;" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M13.591 5.293a1 1 0 0 1 1.416 1.416l-6.3 6.3a1 1 0 0 1-1.414 0l-6.3-6.3A1 1 0 0 1 2.41 5.293L8 10.884z" fill-rule="evenodd"></path></svg>
-                </span>
-            </h4>
-            <ul class="main-menu mt-0">
-                @foreach ($resources as $resource)
-                    @if ($resource['type'] == 'backend')
-                        <li class="@if (isset($resource['children'])) parent @endif">
-                            <a href="#{{ $resource['name'] }}" class="menu-item">
-                                {{ $resource['title'] }}
-                            </a>
-
-                            @if (isset($resource['children']))
-                                <div class="">
-                                    <ul class="">
-                                        @foreach ($resource['children'] as $resource2)
-                                            <li class="">
-                                                <a href="#{{ $resource2['name'] }}" class="menu-item">
-                                                    {{ $resource2['title'] }}
-                                                </a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
-                        </li>
-                    @endif
-                @endforeach 
-            </ul>
-        </div>
+                    @endforeach
+                </ul>
+            </div>
+        @endforeach
     </div>
 </div>
 
@@ -187,65 +134,16 @@
 </div>
 
 <script>
-    // console.log(window.location.hash);
+    // Bring the current page's menu item into view.
     $(document).ready(function () {
-        // find current item
-        var currLink = $('.main-menu a.menu-item.current');
-        if (!currLink.length) {
-            currLink = $('.main-menu a.menu-item').first();
+        var current = $('.main-menu a.menu-item.current');
+        if (current.length) {
+            current[0].scrollIntoView({block: 'center'});
         }
-        setCurrent(currLink);
-        
-        onScroll();
-
-        $('.main-content').on("scroll", onScroll);
-        $('.main-content').on("scroll", function() {
-            tagHash();
-        });
-
-        //smoothscroll
-        $('.main-menu a.menu-item[href^="#"]').on('click', function (e) {
-            e.preventDefault();
-
-            var target = this.hash,
-                menu = target;
-            $target = $(target);
-
-            window.location.hash = target;
-
-            setCurrent($(this));
-            tagHash();
-            // onScroll();
-        });
     });
 
-    function setCurrent(menu) {
-        $('a').each(function () {
-            $(this).removeClass('current');
-        })
-        menu.addClass('current');
-
-        $('li.parent').removeClass('open');
-        $('li.parent a.current').closest('li.parent').addClass('open');
-    }
-
-    function tagHash() {
-        var current = $('.main-menu a.menu-item.current').attr('href');
-        var menu = $(current);
-        menu.attr('id', 'tmp');
-        document.location.hash = current;
-        menu.attr('id', current.replace('#',''));
-    }
-
-    function onScroll(event) {
-        var scrollPos = $('.main-content').scrollTop();
-        $('.main-menu a.menu-item').each(function () {
-            var currLink = $(this);
-            var refElement = $(currLink.attr("href"));
-            if (refElement.position().top < 10 && refElement.position().top + refElement.outerHeight() > 0) {
-                setCurrent(currLink);
-            }
-        });
+    function escapeHtml(text) {
+        return $('<div>').text(text).html();
     }
 
     class Search {
@@ -284,10 +182,10 @@
             .done(function( data ) {
                 search.popup.find('.result-rows').html('');
                 data.forEach(function(item) {
-                    search.popup.find('.result-rows').append(`<a href="`+item.link+`" class="result-row">
+                    search.popup.find('.result-rows').append(`<a href="`+escapeHtml(item.link)+`" class="result-row">
                         <div class="result-content">
-                            <label class="">`+item.title+` <span class="text-muted label-title_`+item.cat+`"> —  `+item.cat+`</span></label>
-                            <p class="desc">`+item.desc+`</p>
+                            <label class="">`+escapeHtml(item.title)+` <span class="text-muted"> —  `+escapeHtml(item.cat)+`</span></label>
+                            <p class="desc">`+escapeHtml(item.desc)+`</p>
                         </div>
                         <div class="enter-icon">
                             <svg class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--refund-svg InternalLinkIcon-svg SVG--color-svg SVG--color--gray200-svg" style="width: 12px;height: 12px;" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 5a5 5 0 0 1 0 10 1 1 0 0 1 0-2 3 3 0 0 0 0-6l-6.586-.007L6.45 9.528a1 1 0 0 1-1.414 1.414L.793 6.7a.997.997 0 0 1 0-1.414l4.243-4.243A1 1 0 0 1 6.45 2.457L3.914 4.993z" fill-rule="evenodd"></path></svg>

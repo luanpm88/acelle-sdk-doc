@@ -1,119 +1,40 @@
 @extends('layouts.api')
 
+{{-- Overview: the introduction, the guides, and every endpoint with a link to its page. --}}
 @section('content')
-    <div class="content">
+    @include('docs.api._introduction')
 
-        @include('docs.api._sidebar')
-
-        <div class="main-content">
-            
-            @include('docs.api._topmenu')
-
-            <div class="inner-content">
-                @foreach ($resources as $resource)
-                    {!! $resource['content'] !!}
-                @endforeach
-            </div>
+    <div id="guides" class="subsection subsection-short">
+        <h2 class="mb-4">Guides</h2>
+        <div class="row">
+            @foreach ($reference->guides() as $guide)
+                <div class="col-md-4 mb-3">
+                    <a class="guide-card" href="{{ route('guide', $guide['slug']) }}">{{ $guide['title'] }}</a>
+                </div>
+            @endforeach
         </div>
     </div>
 
-    <script>
-        $('.child-attributes-container .toogle').on('click', function() {
-            var container = $(this).closest('.child-attributes-container');
+    @php
+        $groups = [
+            'customer' => ['Customer API', "Called with a customer's API token: that customer's lists, contacts, campaigns and automations."],
+            'admin' => ['Admin API', "Called with an admin's API token: customers, subscriptions, sending servers and maintenance."],
+        ];
+    @endphp
+    @foreach ($groups as $audience => [$groupName, $groupIntro])
+        <div id="{{ $audience }}-api" class="subsection subsection-short">
+            <h2 class="mb-2">{{ $groupName }}</h2>
+            <p class="mb-4">{{ $groupIntro }}</p>
 
-            if (container.hasClass('open')) {
-                container.removeClass('open')
-            } else {
-                container.addClass('open')
-            }
-        });
-
-        $('.theme-toggle').on('click', function() {
-            body = $(this).closest('body');
-
-            if (body.hasClass('dark-theme')) {
-                body.removeClass('dark-theme');
-            } else {
-                body.addClass('dark-theme');
-            }
-
-            $.ajax({
-                method: "POST",
-                url: "{{ action("App\Http\Controllers\Docs\ApiController@saveTheme") }}",
-                data: {
-                    _token: '{{ csrf_token() }}',
-                    theme: body.hasClass('dark-theme') ? 'dark-theme' : 'default-theme'
-                }
-            })
-            .done(function( msg ) {
-                console.log('theme changed!');
-            });
-        });
-
-        $('.group-head').on('click', function() {
-            box = $(this).closest('.sidebar-group');
-
-            if (box.hasClass('closed')) {
-                box.removeClass('closed');
-            } else {
-                box.addClass('closed');
-            }
-        });
-
-        $('.lang-toggle').on('click', function() {
-            var body = $(this).closest('body');
-            var lang = $(this).attr('data-type');
-
-            $.ajax({
-                method: "POST",
-                url: "{{ action("App\Http\Controllers\Docs\ApiController@saveLang") }}",
-                data: {
-                    _token: '{{ csrf_token() }}',
-                    lang: lang
-                }
-            })
-            .done(function( msg ) {
-                console.log('lang changed!');
-            });
-        });
-        
-        $('.SelectClientLibrary-lang').on('click', function() {
-            var link = $(this);
-            var type = link.attr('data-type');
-
-            $('body').removeClass('php');
-            $('body').removeClass('curl');
-
-            $('body').addClass(type);
-        });
-
-        $('select.lang-switch').on('change', function() {
-            var link = $(this);
-            var type = link.val();
-
-            $('body').removeClass('php');
-            $('body').removeClass('curl');
-
-            $('body').addClass(type);
-
-            $('select.lang-switch').val(type);
-        });
-
-        $('select.lang-switch').on('change', function() {
-            var body = $(this).closest('body');
-            var lang = $(this).val();
-
-            $.ajax({
-                method: "POST",
-                url: "{{ action("App\Http\Controllers\Docs\ApiController@saveLang") }}",
-                data: {
-                    _token: '{{ csrf_token() }}',
-                    lang: lang
-                }
-            })
-            .done(function( msg ) {
-                console.log('lang changed!');
-            });
-        });
-    </script>
+            @foreach ($reference->sections($audience) as $catalogSection)
+                <div class="catalog-section">
+                    <h3 class="h5"><a href="{{ route('section', $catalogSection['slug']) }}">{{ $catalogSection['name'] }}</a></h3>
+                    @if ($catalogSection['description'] !== null)
+                        <p class="attribute-desc">{{ $catalogSection['description'] }}</p>
+                    @endif
+                    @include('docs.api._endpoint_list', ['section' => $catalogSection])
+                </div>
+            @endforeach
+        </div>
+    @endforeach
 @endsection

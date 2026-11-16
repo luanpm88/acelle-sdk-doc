@@ -13,7 +13,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // Read and checked once per request, whatever the number of places that use it.
+        $this->app->singleton(\App\ApiReference\Reference::class, function () {
+            return \App\ApiReference\Reference::load();
+        });
     }
 
     /**

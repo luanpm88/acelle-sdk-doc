@@ -1,5 +1,5 @@
-<div id="{{ $resource['name'] }}" class="subsection">
-    <h2 class="mb-4">Introduction</h2>
+<div id="introduction" class="subsection">
+    <h1 class="h2 mb-4">Acelle Mail API</h1>
     <div class="row">
         <div class="col-md-7 pr-5">                        
             <p>The Acelle Mail API (version 1.0) is organized around <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer" target="_blank" rel="noopener noreferrer">REST</a>. Our API has predictable resource-oriented URLs, accepts <a href="https://en.wikipedia.org/wiki/POST_(HTTP)#Use_for_submitting_web_forms" target="_blank" rel="noopener noreferrer">form-encoded</a> request bodies, returns <a href="http://www.json.org/" target="_blank" rel="noopener noreferrer">JSON-encoded</a> responses, and uses standard HTTP response codes, authentication, and verbs. </p>
@@ -81,6 +81,3 @@
     </div>
 </div>
 
-<script>
-    
-</script>

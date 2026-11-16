@@ -1,6 +1,15 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <title>Acelle API</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ $pageTitle }}</title>
+        <meta name="description" content="{{ $pageDescription }}">
+        <link rel="canonical" href="{{ $canonical }}">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="{{ $pageTitle }}">
+        <meta property="og:description" content="{{ $pageDescription }}">
+        <meta property="og:url" content="{{ $canonical }}">
 
         <link rel="apple-touch-icon" sizes="57x57" href="{{ URL::asset('favicon/apple-icon-57x57.png') }}">
         <link rel="apple-touch-icon" sizes="60x60" href="{{ URL::asset('favicon/apple-icon-60x60.png') }}">
@@ -49,7 +58,7 @@
         
         <link rel="stylesheet" href="{{ url('css/dracula.css') }}">
 
-        <link rel="stylesheet" href="{{ url('css/app.css') }}">
+        <link rel="stylesheet" href="{{ url('css/app.css') }}?v=20261116">
 
         <script>
             function copyToClipboard(text) {
@@ -86,7 +95,21 @@
     </head>
     <body class="{{ session('theme') }} {{ session('lang') ? session('lang') : 'php' }}">
         <div class="container-fluid">
-            @yield('content')
+            <div class="content">
+                @include('docs.api._sidebar')
+
+                <div class="main-content">
+                    @include('docs.api._topmenu')
+
+                    <div class="inner-content">
+                        @yield('content')
+
+                        <footer class="site-footer">
+                            Reference of version {{ $reference->appVersion() }}.
+                        </footer>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <script>
@@ -110,6 +133,60 @@
                 @if (session('theme') != 'dark-theme')
                     theme: 'tooltipster-light'
                 @endif
+            });
+
+            $('.theme-toggle').on('click', function() {
+                var body = $(this).closest('body');
+                body.toggleClass('dark-theme');
+
+                $.ajax({
+                    method: "POST",
+                    url: "{{ action([\App\Http\Controllers\Docs\ApiController::class, 'saveTheme']) }}",
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        theme: body.hasClass('dark-theme') ? 'dark-theme' : 'default-theme'
+                    }
+                });
+            });
+
+            $('.group-head').on('click', function() {
+                $(this).closest('.sidebar-group').toggleClass('closed');
+            });
+
+            $('.sidebar-menu-toggle').on('click', function() {
+                $(this).closest('.sidebar').toggleClass('menu-open');
+            });
+
+            function saveLang(lang) {
+                $.ajax({
+                    method: "POST",
+                    url: "{{ action([\App\Http\Controllers\Docs\ApiController::class, 'saveLang']) }}",
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        lang: lang
+                    }
+                });
+            }
+
+            function showLang(lang) {
+                $('body').removeClass('php').removeClass('curl').addClass(lang);
+                $('select.lang-switch').val(lang);
+            }
+
+            $('.lang-toggle').on('click', function() {
+                showLang($(this).attr('data-type'));
+                saveLang($(this).attr('data-type'));
+            });
+
+            $('select.lang-switch').on('change', function() {
+                showLang($(this).val());
+                saveLang($(this).val());
+            });
+
+            $('select.response-switch').on('change', function() {
+                var box = $(this).closest('.code-box');
+                box.find('.response-example').hide();
+                box.find('.response-example[data-status="' + $(this).val() + '"]').show();
             });
         </script>
     </body>

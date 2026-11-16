@@ -1054,3 +1054,243 @@ svg {
 .menu-scroll:hover {
     overflow-y: auto;
 }
+
+/* ── Pages built from the API reference file (2026-11-16) ───────────────── */
+.subsection-short {
+    min-height: 0;
+}
+.page-kicker {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    color: #8792a2;
+    margin-bottom: 8px;
+}
+.audience-badge {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 0 6px;
+    border-radius: 4px;
+    border: 1px solid #e3e8ee;
+    color: #697386;
+}
+.dark-theme .audience-badge {
+    border-color: #3c4257;
+    color: #a3acb9;
+}
+.http-method {
+    display: inline-block;
+    min-width: 54px;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-family: Menlo,Consolas,monospace;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+    color: #fff;
+    background: #697386;
+}
+.http-method-get { background: #0e8a5f; }
+.http-method-post { background: #556cd6; }
+.http-method-put, .http-method-patch { background: #b5651d; }
+.http-method-delete { background: #cd3d64; }
+.endpoint-line {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.endpoint-list {
+    border-top: solid 1px #e3e8ee;
+    margin-bottom: 8px;
+}
+.dark-theme .endpoint-list {
+    border-top-color: #3c4257;
+}
+.endpoint-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 8px 4px;
+    border-bottom: solid 1px #e3e8ee;
+    color: #3c4257;
+}
+.dark-theme .endpoint-row {
+    border-bottom-color: #3c4257;
+    color: #c1c9d2;
+}
+.endpoint-row:hover {
+    background: #f5fbff;
+    color: #3c4257;
+}
+.dark-theme .endpoint-row:hover {
+    background: #2a2f45;
+    color: #f7fafc;
+}
+.endpoint-path {
+    flex: 0 0 42%;
+    color: inherit;
+    font-size: 12px;
+    word-break: break-all;
+}
+.endpoint-summary {
+    flex: 1;
+}
+.catalog-section {
+    margin-bottom: 36px;
+}
+.catalog-section h3 {
+    margin-bottom: 4px;
+}
+.guide-card {
+    display: block;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.07), 0 1px 3px 0 rgba(59,65,94,.1);
+    font-weight: 600;
+}
+.dark-theme .guide-card {
+    box-shadow: 0 0 0 1px #3c4257;
+}
+.guide-card:hover {
+    background: #f5fbff;
+}
+.dark-theme .guide-card:hover {
+    background: #2a2f45;
+}
+.content-type {
+    font-family: Menlo,Consolas,monospace;
+    font-size: 12px;
+    font-weight: 400;
+    color: #8792a2;
+    margin-left: 6px;
+}
+.attribute-required {
+    font-size: 11px;
+    font-weight: 600;
+    color: #cd3d64;
+    margin-left: 4px;
+}
+.dark-theme .attribute-required {
+    color: #ff7593;
+}
+.attribute-in {
+    font-size: 11px;
+    color: #8792a2;
+    margin-left: 4px;
+}
+.doc-prose pre {
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: #f7fafc;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.07);
+    font-size: 12px;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+.dark-theme .doc-prose pre {
+    background: #2a2f45;
+    color: #c1c9d2;
+}
+.doc-prose :not(pre) > code {
+    color: #2a2f45;
+    background: #f7fafc;
+    padding: 0 3px;
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,.05);
+    font-size: .9em;
+}
+.dark-theme .doc-prose :not(pre) > code {
+    color: #f7fafc;
+    background: #2a2f45;
+    border-color: #ffffff14;
+}
+.doc-prose table {
+    width: 100%;
+    margin-bottom: 16px;
+}
+.doc-prose th, .doc-prose td {
+    padding: 6px 8px;
+    border-bottom: solid 1px #e3e8ee;
+    vertical-align: top;
+}
+.dark-theme .doc-prose th, .dark-theme .doc-prose td {
+    border-bottom-color: #3c4257;
+}
+.code-box.single-lang .lang-switch.curl {
+    display: inherit;
+}
+.code-box.single-lang .box-copy {
+    margin-left: auto;
+}
+.site-footer {
+    padding: 24px 70px;
+    font-size: 12px;
+    color: #8792a2;
+}
+.sidebar-menu-toggle {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .sidebar {
+        float: none;
+        width: auto;
+        height: auto;
+        border-right: 0;
+        padding-left: 16px;
+        padding-bottom: 12px;
+    }
+    .sidebar .menu-scroll {
+        display: none;
+        height: auto;
+        overflow-y: visible;
+    }
+    .sidebar.menu-open .menu-scroll {
+        display: block;
+    }
+    .sidebar-menu-toggle {
+        display: block;
+        width: 100%;
+        height: 29px;
+        font-size: 83%;
+    }
+    .main-content {
+        width: 100%;
+        height: auto;
+        overflow-y: visible;
+    }
+    .top-menu {
+        position: static;
+        padding: 8px 16px;
+        overflow-x: auto;
+    }
+    .subsection {
+        padding: 24px 16px;
+        min-height: 0;
+    }
+    .site-footer {
+        padding: 16px;
+    }
+    .sticky {
+        position: static;
+    }
+    .endpoint-row {
+        flex-wrap: wrap;
+        gap: 4px 8px;
+    }
+    .endpoint-path {
+        flex-basis: calc(100% - 70px);
+    }
+    .endpoint-summary {
+        flex-basis: 100%;
+    }
+    .popup-content {
+        width: auto;
+        margin: 60px 16px 0;
+    }
+    .IntroSection-pre {
+        overflow: auto;
+    }
+}
